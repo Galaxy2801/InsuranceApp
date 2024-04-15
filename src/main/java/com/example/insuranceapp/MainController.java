@@ -24,6 +24,8 @@ public class MainController {
     @FXML
     public AnchorPane registerpane;
 
+    Stage stage = new Stage();
+
     @FXML
     private ResourceBundle resources;
 
@@ -60,6 +62,16 @@ public class MainController {
     {
 
     }
+
+    public void register(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("signup.fxml")));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        Stage currentStage = (Stage) registerpane.getScene().getWindow();
+        currentStage.close();
+    }
+
 
 
 }
