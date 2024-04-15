@@ -56,9 +56,18 @@ public class MainController {
     }
 
     @FXML
+<<<<<<< HEAD
     void initialize() {
 
 
     }
+=======
+    void initialize()
+    {
+
+    }
+
+
+>>>>>>> 365879f (Додано вікно реєстрації)
 }
 
