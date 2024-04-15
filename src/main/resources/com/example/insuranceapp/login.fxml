@@ -30,7 +30,7 @@
                 <Font name="Calibri Light Italic" size="51.0" />
             </font>
         </Label>
-        <Button fx:id="loginSignUpButton" layoutX="439.0" layoutY="23.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="146.0" style="-fx-background-color: #83e7ca;" text="Реєстрація">
+        <Button fx:id="loginSignUpButton" layoutX="439.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="19.0" prefWidth="146.0" style="-fx-background-color: #83e7ca;" text="Реєстрація">
             <font>
                 <Font name="Calibri Light Italic" size="21.0" />
             </font>
