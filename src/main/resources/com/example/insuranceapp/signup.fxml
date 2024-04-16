@@ -30,9 +30,9 @@
                 <Font name="Calibri Light Italic" size="51.0" />
             </font>
         </Label>
-        <Button fx:id="exit" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="32.0" style="-fx-background-color: #24716f;" text="x" textFill="RED">
+        <Button fx:id="back" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #83e7ca;" text="Повернутися">
             <font>
-                <Font name="System Bold Italic" size="22.0" />
+                <Font name="Calibri Light Italic" size="18.0" />
             </font>
         </Button>
     </children>

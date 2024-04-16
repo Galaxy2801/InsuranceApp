@@ -24,7 +24,7 @@ public class SignUpController {
     private Button SignUpButton;
 
     @FXML
-    private Button exit;
+    private Button back;
 
     @FXML
     private TextField signUpFather;
@@ -70,8 +70,8 @@ public class SignUpController {
 
         });
 
-        exit.setOnAction(event -> {
-            Stage stage = (Stage) exit.getScene().getWindow();
+        back.setOnAction(event -> {
+            Stage stage = (Stage) back.getScene().getWindow();
             stage.close();
         });
     }
