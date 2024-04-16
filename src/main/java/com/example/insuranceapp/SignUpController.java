@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.ToggleGroup;
 
 public class SignUpController {
     Stage stage = new Stage();
@@ -58,6 +59,11 @@ public class SignUpController {
 
     @FXML
     void initialize() {
+
+        ToggleGroup radioGroup = new ToggleGroup();
+        signUpRadioButtonAdmin.setToggleGroup(radioGroup);
+        signUpRadioButtonUser.setToggleGroup(radioGroup);
+
         SignUpButton.setOnAction(event -> {
 
             signUpNewUser();
