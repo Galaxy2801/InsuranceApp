@@ -3,6 +3,8 @@ package com.example.insuranceapp;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -72,6 +74,26 @@ public class MainController {
     }
 
     private void loginUser(String loginText, String loginPassword) {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        User user = new User();
+        user.setUserName(loginText);
+        user.setPassword(loginPassword);
+        ResultSet result = dbHandler.getUser(user);
+
+        int counter = 0;
+
+        while(true) {
+            try {
+                if (!result.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            counter ++;
+        }
+
+        if(counter >= 1) {
+            System.out.println("Success!");
+        }
     }
 
     public void register(MouseEvent mouseEvent) throws IOException {

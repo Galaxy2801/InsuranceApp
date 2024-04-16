@@ -17,6 +17,10 @@ public class User {
         this.permission = permission;
     }
 
+    public User() {
+
+    }
+
     public String getFirstName() {
         return firstName;
     }
