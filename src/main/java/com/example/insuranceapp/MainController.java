@@ -60,7 +60,18 @@ public class MainController {
     @FXML
     void initialize()
     {
+        authSigInButton.setOnAction(event -> {
+            String loginText = login_field.getText().trim();
+            String loginPassword = password_field.getText().trim();
 
+            if(!loginText.equals("") && !loginPassword.equals(""))
+                loginUser(loginText, loginPassword);
+            else
+                System.out.println("Login and password are empty");
+        });
+    }
+
+    private void loginUser(String loginText, String loginPassword) {
     }
 
     public void register(MouseEvent mouseEvent) throws IOException {
