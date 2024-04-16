@@ -62,6 +62,11 @@ public class MainController {
     @FXML
     void initialize()
     {
+        exit.setOnAction(event -> {
+            Stage stage = (Stage) exit.getScene().getWindow();
+            stage.close();
+        });
+
         authSigInButton.setOnAction(event -> {
             String loginText = login_field.getText().trim();
             String loginPassword = password_field.getText().trim();

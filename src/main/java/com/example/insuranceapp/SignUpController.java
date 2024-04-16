@@ -8,8 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class SignUpController {
+    Stage stage = new Stage();
 
     @FXML
     private ResourceBundle resources;
@@ -60,6 +62,11 @@ public class SignUpController {
 
             signUpNewUser();
 
+        });
+
+        exit.setOnAction(event -> {
+            Stage stage = (Stage) exit.getScene().getWindow();
+            stage.close();
         });
     }
 
