@@ -25,9 +25,9 @@
             <RadioButton fx:id="signUpRadioButtonUser" layoutX="159.0" layoutY="137.0" mnemonicParsing="false" text="Клієнт" />
         </children>
         </AnchorPane>
-        <Label layoutX="229.0" layoutY="13.0" text="Поліси">
+        <Label layoutX="217.0" layoutY="21.0" text="Реєстрація">
             <font>
-                <Font name="Calibri Light Italic" size="51.0" />
+                <Font name="Calibri Light Italic" size="34.0" />
             </font>
         </Label>
         <Button fx:id="back" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #83e7ca;" text="Повернутися">
