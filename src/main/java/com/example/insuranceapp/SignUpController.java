@@ -113,13 +113,13 @@ public class SignUpController {
         String thirdName = signUpFather.getText();
         String userName = login_field.getText();
         String password = password_field.getText();
-        String gender = "";
+        String permission = "";
         if (signUpRadioButtonAdmin.isSelected())
-            gender = "Адмін";
+            permission = "Адмін";
         else
-            gender = "Клієнт";
+            permission = "Клієнт";
 
-        User user = new User(firstName, secondName, thirdName, userName, password, gender);
+        User user = new User(firstName, secondName, thirdName, userName, password, permission);
 
         dbHandler.signUpUser(user);
     }
