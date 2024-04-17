@@ -68,6 +68,15 @@ public class SignUpController {
 
             signUpNewUser();
 
+            signUpName.clear();
+            signUpPrizv.clear();
+            signUpFather.clear();
+            login_field.clear();
+            password_field.clear();
+
+            signUpRadioButtonAdmin.setSelected(false);
+            signUpRadioButtonUser.setSelected(false);
+
         });
 
         back.setOnAction(event -> {
