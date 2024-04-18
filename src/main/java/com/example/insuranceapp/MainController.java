@@ -87,18 +87,52 @@ public class MainController {
         ResultSet result = dbHandler.getUser(user);
 
         int counter = 0;
+        String userPermission = "";
 
-        while(true) {
-            try {
-                if (!result.next()) break;
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+        try {
+            while (result.next()) {
+                counter++;
+                userPermission = result.getString(Const.USER_PERMISSION);
             }
-            counter ++;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
-        if(counter >= 1) {
-            System.out.println("Success!");
+        if (counter == 1) {
+            System.out.println("Success! User permission: " + userPermission);
+            if (userPermission.equals("Адмін")) {
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Workerpanel.fxml")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Scene scene = new Scene(root);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.setScene(scene);
+                stage.show();
+                Stage currentStage = (Stage) registerpane.getScene().getWindow();
+                currentStage.close();
+            }
+            else if (userPermission.equals("Клієнт")) {
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Userpanel.fxml")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Scene scene = new Scene(root);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.setScene(scene);
+                stage.show();
+                Stage currentStage = (Stage) registerpane.getScene().getWindow();
+                currentStage.close();
+            }
+        } else if (counter > 1) {
+            System.out.println("Duplicate users found!");
+        } else {
+            System.out.println("Incorrect username or password!");
+
         }
     }
 
