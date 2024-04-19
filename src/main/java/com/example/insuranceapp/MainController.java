@@ -1,6 +1,5 @@
 package com.example.insuranceapp;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -13,9 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-
-
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -61,8 +59,7 @@ public class MainController {
     }
 
     @FXML
-    void initialize()
-    {
+    void initialize() {
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -72,10 +69,12 @@ public class MainController {
             String loginText = login_field.getText().trim();
             String loginPassword = password_field.getText().trim();
 
-            if(!loginText.equals("") && !loginPassword.equals(""))
-                loginUser(loginText, loginPassword);
-            else
-                System.out.println("Login and password are empty");
+            if (loginText.isEmpty() || loginPassword.isEmpty()) {
+                showAlert("Будь ласка, заповніть всі поля !");
+                return;
+            }
+
+            loginUser(loginText, loginPassword);
         });
     }
 
@@ -101,52 +100,49 @@ public class MainController {
         if (counter == 1) {
             System.out.println("Success! User permission: " + userPermission);
             if (userPermission.equals("Адмін")) {
-                Parent root = null;
-                try {
-                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Workerpanel.fxml")));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                Scene scene = new Scene(root);
-                stage.initStyle(StageStyle.UNDECORATED);
-                stage.setScene(scene);
-                stage.show();
-                Stage currentStage = (Stage) registerpane.getScene().getWindow();
-                currentStage.close();
-            }
-            else if (userPermission.equals("Клієнт")) {
-                Parent root = null;
-                try {
-                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Userpanel.fxml")));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                Scene scene = new Scene(root);
-                stage.initStyle(StageStyle.UNDECORATED);
-                stage.setScene(scene);
-                stage.show();
-                Stage currentStage = (Stage) registerpane.getScene().getWindow();
-                currentStage.close();
+                openAdminPanel();
+            } else if (userPermission.equals("Клієнт")) {
+                openUserPanel();
             }
         } else if (counter > 1) {
-            System.out.println("Duplicate users found!");
+            showAlert("Знайдено повторення користувачів !");
         } else {
-            System.out.println("Incorrect username or password!");
-
+            showAlert("Введіть правильний логін та пароль !");
         }
     }
 
-    public void register(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("signup.fxml")));
-        stage.initStyle(StageStyle.UNDECORATED);
+    private void openAdminPanel() {
+        openPanel("Workerpanel.fxml");
+    }
+
+    private void openUserPanel() {
+        openPanel("Userpanel.fxml");
+    }
+
+    private void openPanel(String panelFXML) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(panelFXML)));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         Scene scene = new Scene(root);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
         Stage currentStage = (Stage) registerpane.getScene().getWindow();
         currentStage.close();
     }
 
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Попередження");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
-
+    public void register(MouseEvent mouseEvent) throws IOException {
+        openPanel("signup.fxml");
+    }
 }
-
