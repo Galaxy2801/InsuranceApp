@@ -12,7 +12,7 @@
     <children>
         <AnchorPane fx:id="registerpane" layoutY="80.0" prefHeight="320.0" prefWidth="600.0" style="-fx-background-color: #b1edd2;">         <children>
             <TextField fx:id="signUpName" layoutX="20.0" layoutY="30.0" prefHeight="26.0" prefWidth="234.0" promptText="Ім'я" style="-fx-background-color: #fafafa;" />
-            <PasswordField fx:id="password_field" layoutX="352.0" layoutY="132.0" onAction="#password_field" prefHeight="27.0" prefWidth="233.0" promptText="Пароль" style="-fx-background-color: #fafafa; -fx-border-color: #fafafa; -fx-border-radius: 20;" />
+            <PasswordField fx:id="password_field" layoutX="352.0" layoutY="141.0" onAction="#password_field" prefHeight="27.0" prefWidth="233.0" promptText="Пароль" style="-fx-background-color: #fafafa; -fx-border-color: #fafafa; -fx-border-radius: 20;" />
             <Button fx:id="SignUpButton" layoutX="216.0" layoutY="251.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="168.0" style="-fx-background-color: #83e7ca; -fx-background-radius: 30;" text="Зареєструватися">
                 <font>
                     <Font name="Calibri Light Italic" size="18.0" />
@@ -23,6 +23,7 @@
             <TextField fx:id="signUpFather" layoutX="20.0" layoutY="77.0" prefHeight="26.0" prefWidth="234.0" promptText="По батькові" style="-fx-background-color: #fafafa;" />
             <RadioButton fx:id="signUpRadioButtonAdmin" layoutX="20.0" layoutY="137.0" mnemonicParsing="false" text="Адмін" />
             <RadioButton fx:id="signUpRadioButtonUser" layoutX="159.0" layoutY="137.0" mnemonicParsing="false" text="Клієнт" />
+            <PasswordField fx:id="password_field_double" layoutX="352.0" layoutY="177.0" onAction="#password_field_double" prefHeight="27.0" prefWidth="233.0" promptText="Підтвердження пароля" style="-fx-background-color: #fafafa; -fx-border-color: #fafafa; -fx-border-radius: 20;" />
         </children>
         </AnchorPane>
         <Label layoutX="217.0" layoutY="21.0" text="Реєстрація">

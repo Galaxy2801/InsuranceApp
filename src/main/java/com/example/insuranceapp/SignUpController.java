@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -58,12 +59,20 @@ public class SignUpController {
     private PasswordField password_field;
 
     @FXML
+    private PasswordField password_field_double;
+
+    @FXML
     void login_field(ActionEvent event) {
 
     }
 
     @FXML
     void password_field(ActionEvent event) {
+
+    }
+
+    @FXML
+    void password_field_double(){
 
     }
 
@@ -76,17 +85,21 @@ public class SignUpController {
 
         SignUpButton.setOnAction(event -> {
 
-            signUpNewUser();
+            if (password_field.getText().equals(password_field_double.getText())) {
+                signUpNewUser();
+                showAlert(Alert.AlertType.INFORMATION, "Успішна реєстрація", "Успішно зареєстровано нового користувача.");
+                signUpName.clear();
+                signUpPrizv.clear();
+                signUpFather.clear();
+                login_field.clear();
+                password_field.clear();
+                password_field_double.clear();
 
-            signUpName.clear();
-            signUpPrizv.clear();
-            signUpFather.clear();
-            login_field.clear();
-            password_field.clear();
-
-            signUpRadioButtonAdmin.setSelected(false);
-            signUpRadioButtonUser.setSelected(false);
-
+                signUpRadioButtonAdmin.setSelected(false);
+                signUpRadioButtonUser.setSelected(false);
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Помилка", "Паролі не співпадають.");
+            }
         });
 
         back.setOnAction(event -> {
@@ -113,15 +126,18 @@ public class SignUpController {
         String thirdName = signUpFather.getText();
         String userName = login_field.getText();
         String password = password_field.getText();
-        String permission = "";
-        if (signUpRadioButtonAdmin.isSelected())
-            permission = "Адмін";
-        else
-            permission = "Клієнт";
+        String permission = signUpRadioButtonAdmin.isSelected() ? "Адмін" : "Клієнт";
 
         User user = new User(firstName, secondName, thirdName, userName, password, permission);
 
         dbHandler.signUpUser(user);
     }
 
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }
