@@ -85,20 +85,41 @@ public class SignUpController {
 
         SignUpButton.setOnAction(event -> {
 
-            if (password_field.getText().equals(password_field_double.getText())) {
-                signUpNewUser();
-                showAlert(Alert.AlertType.INFORMATION, "Успішна реєстрація", "Успішно зареєстровано нового користувача.");
-                signUpName.clear();
-                signUpPrizv.clear();
-                signUpFather.clear();
-                login_field.clear();
-                password_field.clear();
-                password_field_double.clear();
-
-                signUpRadioButtonAdmin.setSelected(false);
-                signUpRadioButtonUser.setSelected(false);
+            if (radioGroup.getSelectedToggle() == null)
+            {
+                showAlert(Alert.AlertType.ERROR, "Помилка", "Будь ласка, оберіть тип користувача.");
             } else {
-                showAlert(Alert.AlertType.ERROR, "Помилка", "Паролі не співпадають.");
+
+
+                String firstName = signUpName.getText();
+                String secondName = signUpPrizv.getText();
+                String thirdName = signUpFather.getText();
+                String userName = login_field.getText();
+                String password = password_field.getText();
+                String confirmPassword = password_field_double.getText();
+
+
+                if (firstName.isEmpty() || secondName.isEmpty() || thirdName.isEmpty() || userName.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, "Помилка", "Будь ласка, заповніть усі поля.");
+                } else if (password.length() < 8 || confirmPassword.length() < 8) {
+                    showAlert(Alert.AlertType.ERROR, "Помилка", "Ваш пароль має бути більше 8 символів.");
+                } else if (!password.matches(".*\\d.*") || !password.matches(".*[a-zA-Z].*")) {
+                    showAlert(Alert.AlertType.ERROR, "Помилка", "Ваш пароль має містити літери та цифри.");
+                } else if (!password.equals(confirmPassword)) {
+                    showAlert(Alert.AlertType.ERROR, "Помилка", "Паролі не співпадають.");
+                } else {
+                    signUpNewUser();
+                    showAlert(Alert.AlertType.INFORMATION, "Успішна реєстрація", "Успішно зареєстровано нового користувача.");
+                    signUpName.clear();
+                    signUpPrizv.clear();
+                    signUpFather.clear();
+                    login_field.clear();
+                    password_field.clear();
+                    password_field_double.clear();
+
+                    signUpRadioButtonAdmin.setSelected(false);
+                    signUpRadioButtonUser.setSelected(false);
+                }
             }
         });
 
