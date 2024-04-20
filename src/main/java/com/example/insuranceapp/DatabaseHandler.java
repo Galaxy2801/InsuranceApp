@@ -59,4 +59,30 @@ public class DatabaseHandler extends Configs {
 
         return resSet;
     }
+
+    public boolean checkIfUserExists(String userName) {
+        ResultSet resultSet = null;
+
+        String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USER_USERNAME + " = ?";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, userName);
+
+            resultSet = prSt.executeQuery();
+
+            return resultSet.next();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 }

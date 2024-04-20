@@ -109,16 +109,6 @@ public class SignUpController {
                     showAlert(Alert.AlertType.ERROR, "Помилка", "Паролі не співпадають.");
                 } else {
                     signUpNewUser();
-                    showAlert(Alert.AlertType.INFORMATION, "Успішна реєстрація", "Успішно зареєстровано нового користувача.");
-                    signUpName.clear();
-                    signUpPrizv.clear();
-                    signUpFather.clear();
-                    login_field.clear();
-                    password_field.clear();
-                    password_field_double.clear();
-
-                    signUpRadioButtonAdmin.setSelected(false);
-                    signUpRadioButtonUser.setSelected(false);
                 }
             }
         });
@@ -149,9 +139,26 @@ public class SignUpController {
         String password = password_field.getText();
         String permission = signUpRadioButtonAdmin.isSelected() ? "Адмін" : "Клієнт";
 
+        if (dbHandler.checkIfUserExists(userName)) {
+            showAlert(Alert.AlertType.ERROR, "Помилка", "Користувач з таким логіном вже зареєстрований.");
+            return;
+        }
+
         User user = new User(firstName, secondName, thirdName, userName, password, permission);
 
         dbHandler.signUpUser(user);
+
+        showAlert(Alert.AlertType.INFORMATION, "Успішна реєстрація", "Успішно зареєстровано нового користувача.");
+
+        signUpName.clear();
+        signUpPrizv.clear();
+        signUpFather.clear();
+        login_field.clear();
+        password_field.clear();
+        password_field_double.clear();
+
+        signUpRadioButtonAdmin.setSelected(false);
+        signUpRadioButtonUser.setSelected(false);
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
