@@ -9,37 +9,37 @@
 <AnchorPane prefHeight="504.0" prefWidth="806.0" style="-fx-background-color: #24716f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.insuranceapp.UserpanelController">
    <children>
       <AnchorPane layoutX="197.0" prefHeight="504.0" prefWidth="610.0" style="-fx-background-color: #b1edd2;" />
-      <Button layoutX="33.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Транспорт" textFill="WHITE">
+      <Button fx:id="Transport" layoutX="33.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Транспорт" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="33.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Нерухомість" textFill="WHITE">
+      <Button fx:id="Build" layoutX="33.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Нерухомість" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="33.0" layoutY="120.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Особа" textFill="WHITE">
+      <Button fx:id="Human" layoutX="33.0" layoutY="120.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Особа" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="33.0" layoutY="180.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Майно" textFill="WHITE">
+      <Button fx:id="Items" layoutX="33.0" layoutY="180.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Майно" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="33.0" layoutY="231.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Бізнес" textFill="WHITE">
+      <Button fx:id="Business" layoutX="33.0" layoutY="231.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Бізнес" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="33.0" layoutY="426.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Вихід" textFill="WHITE">
+      <Button fx:id="exit" layoutX="33.0" layoutY="426.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Вихід" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="33.0" layoutY="351.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Повернутися" textFill="WHITE">
+      <Button fx:id="back" layoutX="33.0" layoutY="351.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #24716f;" text="Повернутися" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
