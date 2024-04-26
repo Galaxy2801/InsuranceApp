@@ -11,9 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -24,7 +22,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 
 public class WorkerpanelController {
     Stage stage = new Stage();
@@ -66,6 +63,9 @@ public class WorkerpanelController {
     private TextField build_field_reg_user;
 
     @FXML
+    private ChoiceBox<String> build_reg_Choicebox_cost_selector;
+
+    @FXML
     private RadioButton build_reg_area_selector_ga;
 
     @FXML
@@ -73,18 +73,6 @@ public class WorkerpanelController {
 
     @FXML
     private Button build_reg_button;
-
-    @FXML
-    private RadioButton build_reg_cost_selector_bilshemillion;
-
-    @FXML
-    private RadioButton build_reg_cost_selector_domillion;
-
-    @FXML
-    private RadioButton build_reg_cost_selector_dosta;
-
-    @FXML
-    private RadioButton build_reg_cost_selector_dotreesta;
 
     @FXML
     private RadioButton build_reg_type_selector_earth;
@@ -144,10 +132,13 @@ public class WorkerpanelController {
     private AnchorPane transport;
 
     @FXML
-    private TextField transport_field_reg_color;
+    private ChoiceBox<String> transport_choisebox_reg_fuel;
 
     @FXML
-    private TextField transport_field_reg_fuel;
+    private ChoiceBox<String> transport_choisebox_reg_type;
+
+    @FXML
+    private TextField transport_field_reg_color;
 
     @FXML
     private TextField transport_field_reg_mark;
@@ -157,9 +148,6 @@ public class WorkerpanelController {
 
     @FXML
     private TextField transport_field_reg_number;
-
-    @FXML
-    private TextField transport_field_reg_type;
 
     @FXML
     private TextField transport_field_reg_user;
@@ -175,7 +163,6 @@ public class WorkerpanelController {
 
     @FXML
     private AnchorPane workerpane;
-
 
 
     @FXML
@@ -227,8 +214,45 @@ public class WorkerpanelController {
         Human.setVisible(false);
 
     }
+    //transport
+    private String[] fueltype = {"Газ/Бензин","Дизель","Гібрид","Електро"};
+    private String[] transporttype = {"A: Мотоцикли","B: Легкові автомобілі","C: Вантажні автомобілі","D: Пасажирські автобуси"};
+    //transport
+
+    //build
+    private String[] buildcost = {"< 100k $","100k $ > 300k $","300k $ < 1M $","1M $ <"};
+    //build
+
     @FXML
     void initialize() {
+
+        //transport
+        transport_choisebox_reg_fuel.getItems().addAll(fueltype);
+        transport_choisebox_reg_type.getItems().addAll(transporttype);
+        //transport
+
+        //build
+        ToggleGroup radioGroupArea = new ToggleGroup();
+        build_reg_area_selector_ga.setToggleGroup(radioGroupArea);
+        build_reg_area_selector_m.setToggleGroup(radioGroupArea);
+
+        ToggleGroup radioGroupBuildType = new ToggleGroup();
+        build_reg_type_selector_earth.setToggleGroup(radioGroupBuildType);
+        build_reg_type_selector_home.setToggleGroup(radioGroupBuildType);
+        build_reg_type_selector_industrial.setToggleGroup(radioGroupBuildType);
+
+        build_reg_Choicebox_cost_selector.getItems().addAll(buildcost);
+        //build
+
+        //Human
+        ToggleGroup radioGroupHumanGender = new ToggleGroup();
+        human_gender_reg_man.setToggleGroup(radioGroupHumanGender);
+        human_gender_reg_woman.setToggleGroup(radioGroupHumanGender);
+
+        ToggleGroup radioGroupHumanHealth = new ToggleGroup();
+        human_health_reg_zdorov.setToggleGroup(radioGroupHumanHealth);
+        human_health_reg_invalid.setToggleGroup(radioGroupHumanHealth);
+        //Human
 
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
