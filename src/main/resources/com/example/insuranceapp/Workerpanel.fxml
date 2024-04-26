@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -164,29 +166,167 @@
                <children>
                   <AnchorPane fx:id="transport" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
-                        <Text layoutX="257.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="trasport">
+                        <Text layoutX="198.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу транспорту">
                            <font>
-                              <Font size="53.0" />
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="transport_field_reg_user" layoutX="90.0" layoutY="79.0" promptText="Клієнт" />
+                        <TextField fx:id="transport_field_reg_number" layoutX="425.0" layoutY="79.0" promptText="Номерний знак" />
+                        <Button fx:id="transport_reg_button" layoutX="389.0" layoutY="372.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" text="Створити поліс" />
+                        <TextField fx:id="transport_field_reg_mark" layoutX="90.0" layoutY="128.0" promptText="Виробник" />
+                        <TextField fx:id="transport_field_reg_vin" layoutX="425.0" layoutY="128.0" promptText="Vin номер (17 символів)" />
+                        <TextField fx:id="transport_field_reg_model" layoutX="90.0" layoutY="176.0" promptText="Модель" />
+                        <TextField fx:id="transport_field_reg_volume" layoutX="425.0" layoutY="176.0" promptText="Об'єм двигуна в см³" />
+                        <TextField fx:id="transport_field_reg_type" layoutX="90.0" layoutY="232.0" promptText="Тип транспорту (легковий , грузовий і тд.)" />
+                        <TextField fx:id="transport_field_reg_fuel" layoutX="426.0" layoutY="230.0" promptText="Тип пального" />
+                        <Text layoutX="14.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="248.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Реєстраційний номер">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="12.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Марка">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="12.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Модель">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="253.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер шасі (кузова)">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="transport_field_reg_color" layoutX="426.0" layoutY="282.0" promptText="Колір транспорту" />
+                        <Text layoutX="273.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Об'єм двигуна">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="277.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип пального">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="309.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Колір">
+                           <font>
+                              <Font size="17.0" />
                            </font>
                         </Text>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="build" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
-                        <Text layoutX="308.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="build">
+                        <Text layoutX="195.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу нерухомості">
                            <font>
-                              <Font size="96.0" />
+                              <Font size="14.0" />
                            </font>
                         </Text>
+                        <TextField fx:id="build_field_reg_user" layoutX="242.0" layoutY="59.0" promptText="Клієнт" />
+                        <Text layoutX="121.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="117.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адреса">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="118.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Площа">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="80.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип нерухомості">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="83.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Кількість кімнат">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="113.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вартість">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="build_field_reg_address" layoutX="242.0" layoutY="90.0" promptText="Адреса" />
+                        <TextField fx:id="build_field_reg_area" layoutX="242.0" layoutY="122.0" promptText="Площа" />
+                        <TextField fx:id="build_field_reg_roomnum" layoutX="242.0" layoutY="189.0" promptText="К-ть кімнат" />
+                        <RadioButton fx:id="build_reg_type_selector_earth" layoutX="242.0" layoutY="160.0" mnemonicParsing="false" text="Земля" />
+                        <RadioButton fx:id="build_reg_type_selector_home" layoutX="317.0" layoutY="160.0" mnemonicParsing="false" text="Житло" />
+                        <RadioButton fx:id="build_reg_type_selector_industrial" layoutX="392.0" layoutY="160.0" mnemonicParsing="false" text="Нежитлові приміщення" />
+                        <RadioButton fx:id="build_reg_area_selector_m" layoutX="409.0" layoutY="126.0" mnemonicParsing="false" text="м³" />
+                        <RadioButton fx:id="build_reg_area_selector_ga" layoutX="487.0" layoutY="126.0" mnemonicParsing="false" text="Га" />
+                        <RadioButton fx:id="build_reg_cost_selector_dosta" layoutX="183.0" layoutY="230.0" mnemonicParsing="false" text="&lt; 100k $" />
+                        <RadioButton fx:id="build_reg_cost_selector_dotreesta" layoutX="263.0" layoutY="230.0" mnemonicParsing="false" text="100k $ &gt; 300k $" />
+                        <RadioButton fx:id="build_reg_cost_selector_domillion" layoutX="375.0" layoutY="230.0" mnemonicParsing="false" text="300k $ &lt; 1M $ " />
+                        <Button fx:id="build_reg_button" layoutX="336.0" layoutY="316.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="139.0" text="Створити поліс" />
+                        <RadioButton fx:id="build_reg_cost_selector_bilshemillion" layoutX="487.0" layoutY="230.0" mnemonicParsing="false" text=" 1M $ &lt; " />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Human" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
-                        <Text layoutX="141.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Human">
+                        <Text layoutX="215.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу особи">
                            <font>
-                              <Font size="95.0" />
+                              <Font size="14.0" />
                            </font>
                         </Text>
+                        <TextField fx:id="human_field_reg_name" layoutX="219.0" layoutY="47.0" promptText="Ім'я" />
+                        <TextField fx:id="human_field_reg_prizv" layoutX="219.0" layoutY="87.0" promptText="Прізвище" />
+                        <TextField fx:id="human_field_reg_fathername" layoutX="219.0" layoutY="124.0" promptText="По батькові" />
+                        <TextField fx:id="human_field_reg_year" layoutX="219.0" layoutY="165.0" promptText="Вік" />
+                        <Text layoutX="140.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ім'я">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="116.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Прізвище">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="human_reg_button" layoutX="307.0" layoutY="323.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" text="Створити поліс" />
+                        <Text layoutX="108.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="По батькові">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="143.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вік">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="133.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стать">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="92.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стан здоров'я">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="human_gender_reg_man" layoutX="215.0" layoutY="206.0" mnemonicParsing="false" text="Чоловік" />
+                        <RadioButton fx:id="human_gender_reg_woman" layoutX="328.0" layoutY="206.0" mnemonicParsing="false" text="Жінка" />
+                        <RadioButton fx:id="human_health_reg_zdorov" layoutX="215.0" layoutY="254.0" mnemonicParsing="false" text="Здоровий" />
+                        <RadioButton fx:id="human_health_reg_invalid" layoutX="325.0" layoutY="254.0" mnemonicParsing="false" text="Інвалід" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Items" prefHeight="200.0" prefWidth="200.0" visible="false">
