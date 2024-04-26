@@ -220,7 +220,7 @@ public class WorkerpanelController {
     //transport
 
     //build
-    private String[] buildcost = {"< 100k $","100k $ > 300k $","300k $ < 1M $","1M $ <"};
+    private String[] buildcost = {"До 100k $","Від 100k $ до 300k $","Від 300k $ до 1M $","Понад 1M $"};
     //build
 
     @FXML
