@@ -477,8 +477,8 @@
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <RadioButton fx:id="bussiness_reg_radiobutton_vidpovidal_yes" layoutX="237.0" layoutY="321.0" mnemonicParsing="false" text="Так" />
-                        <RadioButton fx:id="bussiness_reg_radiobutton_vidpovidal_no" layoutX="301.0" layoutY="321.0" mnemonicParsing="false" text="Ні" />
+                        <RadioButton fx:id="bussiness_reg_radiobutton_vidpovidal_yes" focusTraversable="false" layoutX="237.0" layoutY="321.0" mnemonicParsing="false" text="Так" />
+                        <RadioButton fx:id="bussiness_reg_radiobutton_vidpovidal_no" focusTraversable="false" layoutX="301.0" layoutY="321.0" mnemonicParsing="false" text="Ні" />
                         <Button fx:id="bussiness_reg_button" layoutX="318.0" layoutY="373.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
                         <ChoiceBox fx:id="bussiness_reg_choisebox_compensation" layoutX="219.0" layoutY="276.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                         <ChoiceBox fx:id="bussiness_reg_choisebox_user" layoutX="217.0" layoutY="45.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
