@@ -85,4 +85,31 @@ public class DatabaseHandler extends Configs {
         }
     }
 
+    public void signUpVehiclePolicy(VehiclePolicy vehiclePolicy) {
+        String insert = "INSERT INTO " + VehiclePolicyConst.POLICY_TABLE + "(" +
+                VehiclePolicyConst.POLICY_CLIENT + ", " + VehiclePolicyConst.POLICY_MAKER + ", " +
+                VehiclePolicyConst.POLICY_MODEL + ", " + VehiclePolicyConst.POLICY_TYPE + ", " +
+                VehiclePolicyConst.POLICY_REG_NUMBER + ", " + VehiclePolicyConst.POLICY_VIN_NUMBER + ", " +
+                VehiclePolicyConst.POLICY_ENGINE_CAPACITY + ", " + VehiclePolicyConst.POLICY_FUEL_TYPE + ", " +
+                VehiclePolicyConst.POLICY_COLOR + ")" + "VALUES (?,?,?,?,?,?,?,?,?)";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setString(1, vehiclePolicy.getClient());
+            prSt.setString(2, vehiclePolicy.getMaker());
+            prSt.setString(3, vehiclePolicy.getModel());
+            prSt.setString(4, vehiclePolicy.getType());
+            prSt.setString(5, vehiclePolicy.getRegNumber());
+            prSt.setString(6, vehiclePolicy.getVinNumber());
+            prSt.setString(7, vehiclePolicy.getEngineCapacity());
+            prSt.setString(8, vehiclePolicy.getFuelType());
+            prSt.setString(9, vehiclePolicy.getColor());
+
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
