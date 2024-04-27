@@ -26,6 +26,7 @@ import javafx.fxml.Initializable;
 public class WorkerpanelController {
     Stage stage = new Stage();
 
+
     @FXML
     private ResourceBundle resources;
 
@@ -37,6 +38,24 @@ public class WorkerpanelController {
 
     @FXML
     private AnchorPane Human;
+
+    @FXML
+    private TextField Item_field_reg_cost;
+
+    @FXML
+    private TextField Item_field_reg_name;
+
+    @FXML
+    private TextField Item_field_reg_stanmaina;
+
+    @FXML
+    private TextField Item_field_reg_user;
+
+    @FXML
+    private Button Item_reg_button;
+
+    @FXML
+    private ChoiceBox<String> Item_reg_choisebox_compensation;
 
     @FXML
     private AnchorPane Items;
@@ -84,6 +103,33 @@ public class WorkerpanelController {
     private RadioButton build_reg_type_selector_industrial;
 
     @FXML
+    private TextField bussiness_field_reg_costbussiness;
+
+    @FXML
+    private TextField bussiness_field_reg_moneyinyear;
+
+    @FXML
+    private TextField bussiness_field_reg_name;
+
+    @FXML
+    private TextField bussiness_field_reg_sphere;
+
+    @FXML
+    private TextField bussiness_field_reg_user;
+
+    @FXML
+    private Button bussiness_reg_button;
+
+    @FXML
+    private ChoiceBox<String> bussiness_reg_choisebox_compensation;
+
+    @FXML
+    private RadioButton bussiness_reg_radiobutton_vidpovidal_no;
+
+    @FXML
+    private RadioButton bussiness_reg_radiobutton_vidpovidal_yes;
+
+    @FXML
     private Button creationBuild;
 
     @FXML
@@ -109,6 +155,9 @@ public class WorkerpanelController {
 
     @FXML
     private TextField human_field_reg_prizv;
+
+    @FXML
+    private TextField human_field_reg_user;
 
     @FXML
     private TextField human_field_reg_year;
@@ -163,7 +212,6 @@ public class WorkerpanelController {
 
     @FXML
     private AnchorPane workerpane;
-
 
     @FXML
     void handleCreationBuild(ActionEvent event) {
@@ -223,6 +271,14 @@ public class WorkerpanelController {
     private String[] buildcost = {"До 100k $","Від 100k $ до 300k $","Від 300k $ до 1M $","Понад 1M $"};
     //build
 
+    //bussiness
+    private String[] bussinescompensation = {"30%","50%","70%","100%"};
+    //bussiness
+
+    //item
+    private String[] itemcompensation = {"30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%", "75%", "80%", "85%", "90%", "95%", "100%"};
+    //item
+
     @FXML
     void initialize() {
 
@@ -253,6 +309,18 @@ public class WorkerpanelController {
         human_health_reg_zdorov.setToggleGroup(radioGroupHumanHealth);
         human_health_reg_invalid.setToggleGroup(radioGroupHumanHealth);
         //Human
+
+        //bussiness
+        ToggleGroup radioGroupBussinessVidpovidal = new ToggleGroup();
+        bussiness_reg_radiobutton_vidpovidal_yes.setToggleGroup(radioGroupBussinessVidpovidal);
+        bussiness_reg_radiobutton_vidpovidal_no.setToggleGroup(radioGroupBussinessVidpovidal);
+
+        bussiness_reg_choisebox_compensation.getItems().addAll(bussinescompensation);
+        //bussiness
+
+        //item
+        Item_reg_choisebox_compensation.getItems().addAll(itemcompensation);
+        //item
 
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();

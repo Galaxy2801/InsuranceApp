@@ -335,78 +335,159 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="human_field_reg_name" layoutX="219.0" layoutY="47.0" promptText="Ім'я" style="-fx-background-color: #fafafa;">
+                        <TextField fx:id="human_field_reg_name" layoutX="219.0" layoutY="71.0" promptText="Ім'я" style="-fx-background-color: #fafafa;">
                            <effect>
                               <Glow />
                            </effect></TextField>
-                        <TextField fx:id="human_field_reg_prizv" layoutX="219.0" layoutY="87.0" promptText="Прізвище" style="-fx-background-color: #fafafa;">
+                        <TextField fx:id="human_field_reg_prizv" layoutX="219.0" layoutY="112.0" promptText="Прізвище" style="-fx-background-color: #fafafa;">
                            <effect>
                               <Glow />
                            </effect></TextField>
-                        <TextField fx:id="human_field_reg_fathername" layoutX="219.0" layoutY="124.0" promptText="По батькові" style="-fx-background-color: #fafafa;">
+                        <TextField fx:id="human_field_reg_fathername" layoutX="219.0" layoutY="157.0" promptText="По батькові" style="-fx-background-color: #fafafa;">
                            <effect>
                               <Glow />
                            </effect></TextField>
-                        <TextField fx:id="human_field_reg_year" layoutX="219.0" layoutY="165.0" promptText="Вік" style="-fx-background-color: #fafafa;">
+                        <TextField fx:id="human_field_reg_year" layoutX="219.0" layoutY="201.0" promptText="Вік" style="-fx-background-color: #fafafa;">
                            <effect>
                               <Glow />
                            </effect></TextField>
-                        <Text layoutX="140.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ім'я">
+                        <Text layoutX="138.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ім'я">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <Text layoutX="116.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Прізвище">
+                        <Text layoutX="115.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Прізвище">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <Button fx:id="human_reg_button" focusTraversable="false" layoutX="307.0" layoutY="323.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #fafafa;" text="Створити поліс">
+                        <Button fx:id="human_reg_button" focusTraversable="false" layoutX="307.0" layoutY="359.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #fafafa;" text="Створити поліс">
                            <effect>
                               <Glow />
                            </effect></Button>
-                        <Text layoutX="108.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="По батькові">
+                        <Text layoutX="108.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="По батькові">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <Text layoutX="143.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вік">
+                        <Text layoutX="143.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вік">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <Text layoutX="133.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стать">
+                        <Text layoutX="132.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стать">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <Text layoutX="92.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стан здоров'я">
+                        <Text layoutX="87.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стан здоров'я">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <RadioButton fx:id="human_gender_reg_man" focusTraversable="false" layoutX="215.0" layoutY="206.0" mnemonicParsing="false" text="Чоловіча" />
-                        <RadioButton fx:id="human_gender_reg_woman" focusTraversable="false" layoutX="328.0" layoutY="206.0" mnemonicParsing="false" text="Жіноча" />
-                        <RadioButton fx:id="human_health_reg_zdorov" focusTraversable="false" layoutX="215.0" layoutY="254.0" mnemonicParsing="false" text="Здоровий" />
-                        <RadioButton fx:id="human_health_reg_invalid" focusTraversable="false" layoutX="325.0" layoutY="254.0" mnemonicParsing="false" text="Інвалід" />
+                        <RadioButton fx:id="human_gender_reg_man" focusTraversable="false" layoutX="215.0" layoutY="243.0" mnemonicParsing="false" text="Чоловіча" />
+                        <RadioButton fx:id="human_gender_reg_woman" focusTraversable="false" layoutX="328.0" layoutY="243.0" mnemonicParsing="false" text="Жіноча" />
+                        <RadioButton fx:id="human_health_reg_zdorov" focusTraversable="false" layoutX="213.0" layoutY="292.0" mnemonicParsing="false" text="Здоровий" />
+                        <RadioButton fx:id="human_health_reg_invalid" focusTraversable="false" layoutX="329.0" layoutY="292.0" mnemonicParsing="false" text="Інвалід" />
+                        <TextField fx:id="human_field_reg_user" layoutX="220.0" layoutY="33.0" promptText="Клієнт" style="-fx-background-color: #fafafa;" />
+                        <Text layoutX="128.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Items" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
-                        <Text layoutX="178.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Items">
+                        <Text layoutX="215.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу майна">
                            <font>
-                              <Font size="96.0" />
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Item_field_reg_user" layoutX="219.0" layoutY="48.0" promptText="Клієнт" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Item_field_reg_name" layoutX="219.0" layoutY="88.0" promptText="Назва" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Item_field_reg_cost" layoutX="219.0" layoutY="129.0" promptText="Вартість" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Item_field_reg_stanmaina" layoutX="219.0" layoutY="170.0" promptText="Стан майна" style="-fx-background-color: #fafafa;" />
+                        <ChoiceBox fx:id="Item_reg_choisebox_compensation" layoutX="219.0" layoutY="214.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                        <Button fx:id="Item_reg_button" layoutX="318.0" layoutY="295.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="148.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <Text layoutX="130.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="130.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Назва">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="122.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вартість">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="109.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стан майна">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="104.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Компенсація">
+                           <font>
+                              <Font size="17.0" />
                            </font>
                         </Text>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Bussiness" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
-                        <Text layoutX="131.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bussiness">
+                        <TextField fx:id="bussiness_field_reg_user" layoutX="219.0" layoutY="46.0" promptText="Клієнт" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="bussiness_field_reg_name" layoutX="219.0" layoutY="92.0" promptText="Назва" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="bussiness_field_reg_sphere" layoutX="218.0" layoutY="140.0" promptText="Сфера послуг" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="bussiness_field_reg_costbussiness" layoutX="219.0" layoutY="184.0" promptText="Вартість бізнесу" style="-fx-background-color: #fafafa;" />
+                        <Text layoutX="211.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу бізнесу">
                            <font>
-                              <Font size="78.0" />
+                              <Font size="14.0" />
                            </font>
                         </Text>
+                        <TextField fx:id="bussiness_field_reg_moneyinyear" layoutX="218.0" layoutY="233.0" promptText="Прибуток в рік" style="-fx-background-color: #fafafa;" />
+                        <Text layoutX="105.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="106.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Назва">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="76.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сфера послуг">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="67.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вартість бізнесу">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="71.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Прибуток в рік">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="40.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Відповідальність перед 3-и особами" textAlignment="CENTER" wrappingWidth="178.125">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="79.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Компенсація">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="bussiness_reg_radiobutton_vidpovidal_yes" layoutX="237.0" layoutY="321.0" mnemonicParsing="false" text="Так" />
+                        <RadioButton fx:id="bussiness_reg_radiobutton_vidpovidal_no" layoutX="301.0" layoutY="321.0" mnemonicParsing="false" text="Ні" />
+                        <Button fx:id="bussiness_reg_button" layoutX="318.0" layoutY="373.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <ChoiceBox fx:id="bussiness_reg_choisebox_compensation" layoutX="219.0" layoutY="276.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                      </children>
                   </AnchorPane>
                </children>
