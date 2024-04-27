@@ -26,7 +26,6 @@ import javafx.fxml.Initializable;
 public class WorkerpanelController {
     Stage stage = new Stage();
 
-
     @FXML
     private ResourceBundle resources;
 
@@ -49,13 +48,13 @@ public class WorkerpanelController {
     private TextField Item_field_reg_stanmaina;
 
     @FXML
-    private TextField Item_field_reg_user;
-
-    @FXML
     private Button Item_reg_button;
 
     @FXML
     private ChoiceBox<String> Item_reg_choisebox_compensation;
+
+    @FXML
+    private ChoiceBox<String> Item_reg_choisebox_user;
 
     @FXML
     private AnchorPane Items;
@@ -79,9 +78,6 @@ public class WorkerpanelController {
     private TextField build_field_reg_roomnum;
 
     @FXML
-    private TextField build_field_reg_user;
-
-    @FXML
     private ChoiceBox<String> build_reg_Choicebox_cost_selector;
 
     @FXML
@@ -92,6 +88,9 @@ public class WorkerpanelController {
 
     @FXML
     private Button build_reg_button;
+
+    @FXML
+    private ChoiceBox<String> build_reg_choisebox_user;
 
     @FXML
     private RadioButton build_reg_type_selector_earth;
@@ -115,13 +114,13 @@ public class WorkerpanelController {
     private TextField bussiness_field_reg_sphere;
 
     @FXML
-    private TextField bussiness_field_reg_user;
-
-    @FXML
     private Button bussiness_reg_button;
 
     @FXML
     private ChoiceBox<String> bussiness_reg_choisebox_compensation;
+
+    @FXML
+    private ChoiceBox<String> bussiness_reg_choisebox_user;
 
     @FXML
     private RadioButton bussiness_reg_radiobutton_vidpovidal_no;
@@ -157,9 +156,6 @@ public class WorkerpanelController {
     private TextField human_field_reg_prizv;
 
     @FXML
-    private TextField human_field_reg_user;
-
-    @FXML
     private TextField human_field_reg_year;
 
     @FXML
@@ -176,6 +172,9 @@ public class WorkerpanelController {
 
     @FXML
     private Button human_reg_button;
+
+    @FXML
+    private ChoiceBox<String> human_reg_choisebox_user;
 
     @FXML
     private AnchorPane transport;
@@ -199,9 +198,6 @@ public class WorkerpanelController {
     private TextField transport_field_reg_number;
 
     @FXML
-    private TextField transport_field_reg_user;
-
-    @FXML
     private TextField transport_field_reg_vin;
 
     @FXML
@@ -211,7 +207,11 @@ public class WorkerpanelController {
     private Button transport_reg_button;
 
     @FXML
+    private ChoiceBox<String> transport_reg_choisebox_user;
+
+    @FXML
     private AnchorPane workerpane;
+
 
     @FXML
     void handleCreationBuild(ActionEvent event) {

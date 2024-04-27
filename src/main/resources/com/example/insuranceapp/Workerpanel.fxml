@@ -173,10 +173,6 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="transport_field_reg_user" focusTraversable="false" layoutX="90.0" layoutY="79.0" promptText="Клієнт" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
                         <TextField fx:id="transport_field_reg_number" focusTraversable="false" layoutX="425.0" layoutY="79.0" promptText="Номерний знак" style="-fx-background-color: #fafafa;">
                            <effect>
                               <Glow />
@@ -258,6 +254,7 @@
                            <effect>
                               <Glow />
                            </effect></ChoiceBox>
+                        <ChoiceBox fx:id="transport_reg_choisebox_user" layoutX="89.0" layoutY="78.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="build" prefHeight="200.0" prefWidth="200.0" visible="false">
@@ -267,10 +264,6 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="build_field_reg_user" layoutX="242.0" layoutY="59.0" promptText="Клієнт" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
                         <Text layoutX="133.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
                            <font>
                               <Font size="17.0" />
@@ -326,6 +319,7 @@
                            <effect>
                               <Glow />
                            </effect></ChoiceBox>
+                        <ChoiceBox fx:id="build_reg_choisebox_user" layoutX="242.0" layoutY="58.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Human" prefHeight="200.0" prefWidth="200.0" visible="false">
@@ -389,12 +383,12 @@
                         <RadioButton fx:id="human_gender_reg_woman" focusTraversable="false" layoutX="328.0" layoutY="243.0" mnemonicParsing="false" text="Жіноча" />
                         <RadioButton fx:id="human_health_reg_zdorov" focusTraversable="false" layoutX="213.0" layoutY="292.0" mnemonicParsing="false" text="Здоровий" />
                         <RadioButton fx:id="human_health_reg_invalid" focusTraversable="false" layoutX="329.0" layoutY="292.0" mnemonicParsing="false" text="Інвалід" />
-                        <TextField fx:id="human_field_reg_user" layoutX="220.0" layoutY="33.0" promptText="Клієнт" style="-fx-background-color: #fafafa;" />
                         <Text layoutX="128.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Text>
+                        <ChoiceBox fx:id="human_reg_choisebox_user" layoutX="219.0" layoutY="32.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Items" prefHeight="200.0" prefWidth="200.0" visible="false">
@@ -404,7 +398,6 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="Item_field_reg_user" layoutX="219.0" layoutY="48.0" promptText="Клієнт" style="-fx-background-color: #fafafa;" />
                         <TextField fx:id="Item_field_reg_name" layoutX="219.0" layoutY="88.0" promptText="Назва" style="-fx-background-color: #fafafa;" />
                         <TextField fx:id="Item_field_reg_cost" layoutX="219.0" layoutY="129.0" promptText="Вартість" style="-fx-background-color: #fafafa;" />
                         <TextField fx:id="Item_field_reg_stanmaina" layoutX="219.0" layoutY="170.0" promptText="Стан майна" style="-fx-background-color: #fafafa;" />
@@ -435,11 +428,11 @@
                               <Font size="17.0" />
                            </font>
                         </Text>
+                        <ChoiceBox fx:id="Item_reg_choisebox_user" layoutX="219.0" layoutY="47.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="Bussiness" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
-                        <TextField fx:id="bussiness_field_reg_user" layoutX="219.0" layoutY="46.0" promptText="Клієнт" style="-fx-background-color: #fafafa;" />
                         <TextField fx:id="bussiness_field_reg_name" layoutX="219.0" layoutY="92.0" promptText="Назва" style="-fx-background-color: #fafafa;" />
                         <TextField fx:id="bussiness_field_reg_sphere" layoutX="218.0" layoutY="140.0" promptText="Сфера послуг" style="-fx-background-color: #fafafa;" />
                         <TextField fx:id="bussiness_field_reg_costbussiness" layoutX="219.0" layoutY="184.0" promptText="Вартість бізнесу" style="-fx-background-color: #fafafa;" />
@@ -488,6 +481,7 @@
                         <RadioButton fx:id="bussiness_reg_radiobutton_vidpovidal_no" layoutX="301.0" layoutY="321.0" mnemonicParsing="false" text="Ні" />
                         <Button fx:id="bussiness_reg_button" layoutX="318.0" layoutY="373.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
                         <ChoiceBox fx:id="bussiness_reg_choisebox_compensation" layoutX="219.0" layoutY="276.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                        <ChoiceBox fx:id="bussiness_reg_choisebox_user" layoutX="217.0" layoutY="45.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                      </children>
                   </AnchorPane>
                </children>
