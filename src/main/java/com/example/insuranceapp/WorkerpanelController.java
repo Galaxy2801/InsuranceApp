@@ -322,6 +322,7 @@ public class WorkerpanelController {
         bussiness_reg_radiobutton_vidpovidal_no.setToggleGroup(radioGroupBussinessVidpovidal);
 
         bussiness_reg_choisebox_compensation.getItems().addAll(bussinescompensation);
+        bussiness_reg_choisebox_user.getItems().addAll(items);
         //bussiness
 
         //item
