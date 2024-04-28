@@ -345,6 +345,10 @@ public class WorkerpanelController {
             signUpNewItemsPolicy();
         });
 
+        bussiness_reg_button.setOnAction(event -> {
+            signUpNewBusinessPolicy();
+        });
+
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -441,5 +445,19 @@ public class WorkerpanelController {
         ItemsPolicy itemPolicy = new ItemsPolicy(client, name, cost, propCondition, compensation);
 
         dbHandler.signUpItemsPolicy(itemPolicy);
+    }
+
+    private void signUpNewBusinessPolicy() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        String client = bussiness_reg_choisebox_user.getValue();
+        String name = bussiness_field_reg_name.getText();
+        String servIndustries = bussiness_field_reg_sphere.getText();
+        String businessCost = bussiness_field_reg_costbussiness.getText();
+        String profitPerYear = bussiness_field_reg_moneyinyear.getText();
+        String compensation = bussiness_reg_choisebox_compensation.getValue();
+        String respons = bussiness_reg_radiobutton_vidpovidal_yes.isSelected() ? "Так" : "Ні";
+
+        BusinessPolicy businessPolicy = new BusinessPolicy(client, name, servIndustries, businessCost, profitPerYear, compensation, respons);
     }
 }
