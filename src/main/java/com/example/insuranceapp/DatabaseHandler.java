@@ -138,4 +138,28 @@ public class DatabaseHandler extends Configs {
         return items;
     }
 
+    public void signUpBuildPolicy(BuildPolicy buildPolicy) {
+        String insert = "INSERT INTO " + BuildPolicyConst.POLICY_TABLE + "(" +
+                BuildPolicyConst.POLICY_CLIENT + ", " + BuildPolicyConst.POLICY_ADDRESS + ", " +
+                BuildPolicyConst.POLICY_AREA + ", " + BuildPolicyConst.POLICY_AREA_UNIT + ", " +
+                BuildPolicyConst.POLICY_BUILD_TYPE + ", " + BuildPolicyConst.POLICY_NUM_OF_ROOMS + ", " +
+                BuildPolicyConst.POLICY_COST + ")" + "VALUES (?,?,?,?,?,?,?)";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setString(1, buildPolicy.getClient());
+            prSt.setString(2, buildPolicy.getAddress());
+            prSt.setString(3, buildPolicy.getArea());
+            prSt.setString(4, buildPolicy.getAreaUnit());
+            prSt.setString(5, buildPolicy.getBuildType());
+            prSt.setString(6, buildPolicy.getNumOfRooms());
+            prSt.setString(7, buildPolicy.getCost().toString());
+
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
