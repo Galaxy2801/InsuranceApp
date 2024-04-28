@@ -302,6 +302,7 @@ public class WorkerpanelController {
         build_reg_type_selector_industrial.setToggleGroup(radioGroupBuildType);
 
         build_reg_Choicebox_cost_selector.getItems().addAll(buildcost);
+        build_reg_choisebox_user.getItems().addAll(items);
         //build
 
         //Human
