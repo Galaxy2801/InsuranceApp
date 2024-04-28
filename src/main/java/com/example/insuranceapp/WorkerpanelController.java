@@ -460,5 +460,7 @@ public class WorkerpanelController {
         String respons = bussiness_reg_radiobutton_vidpovidal_yes.isSelected() ? "Так" : "Ні";
 
         BusinessPolicy businessPolicy = new BusinessPolicy(client, name, servIndustries, businessCost, profitPerYear, compensation, respons);
+
+        dbHandler.signUpBusinessPolicy(businessPolicy);
     }
 }
