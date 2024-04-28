@@ -335,6 +335,10 @@ public class WorkerpanelController {
             signUpNewBuildPolicy();
         });
 
+        human_reg_button.setOnAction(event -> {
+            signUpNewHumanPolicy();
+        });
+
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -401,5 +405,21 @@ public class WorkerpanelController {
         BuildPolicy buildPolicy = new BuildPolicy(client, address, area, areaUnit, buildType, numOfRooms, cost);
 
         dbHandler.signUpBuildPolicy(buildPolicy);
+    }
+
+    private void signUpNewHumanPolicy() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        String client = human_reg_choisebox_user.getValue();
+        String firstName = human_field_reg_name.getText();
+        String secondName = human_field_reg_prizv.getText();
+        String middleName = human_field_reg_fathername.getText();
+        String age = human_field_reg_year.getText();
+        String gender = human_gender_reg_man.isSelected() ? "Чоловіча" : "Жіноча";
+        String health = human_health_reg_zdorov.isSelected() ? "Здоровий" : "Інвалід";
+
+        HumanPolicy humanPolicy = new HumanPolicy(client, firstName, secondName, middleName, age, gender, health);
+
+        dbHandler.signUpHumanPolicy(humanPolicy);
     }
 }
