@@ -330,6 +330,10 @@ public class WorkerpanelController {
             signUpNewVehiclePolicy();
         });
 
+        build_reg_button.setOnAction(event -> {
+            signUpNewBuildPolicy();
+        });
+
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -371,5 +375,30 @@ public class WorkerpanelController {
         VehiclePolicy vehiclePolicy = new VehiclePolicy(client, maker, model, type, regNumber, vinNumber, engineCapacity, fuelType, color);
 
         dbHandler.signUpVehiclePolicy(vehiclePolicy);
+    }
+
+    private void signUpNewBuildPolicy() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        String client = build_reg_choisebox_user.getValue();
+        String address = build_field_reg_address.getText();
+        String area = build_field_reg_area.getText();
+        String areaUnit = build_reg_area_selector_m.isSelected() ? "м³" : "Га";
+        String buildType;
+        if(build_reg_type_selector_earth.isSelected()) {
+            buildType = "Земля";
+        }
+        else if(build_reg_type_selector_home.isSelected()) {
+            buildType = "Житло";
+        }
+        else {
+            buildType = "Нежитлові приміщення";
+        }
+        String numOfRooms = build_field_reg_roomnum.getText();
+        String cost = build_reg_Choicebox_cost_selector.getValue();
+
+        BuildPolicy buildPolicy = new BuildPolicy(client, address, area, areaUnit, buildType, numOfRooms, cost);
+
+        dbHandler.signUpBuildPolicy(buildPolicy);
     }
 }
