@@ -313,6 +313,7 @@ public class WorkerpanelController {
         ToggleGroup radioGroupHumanHealth = new ToggleGroup();
         human_health_reg_zdorov.setToggleGroup(radioGroupHumanHealth);
         human_health_reg_invalid.setToggleGroup(radioGroupHumanHealth);
+        human_reg_choisebox_user.getItems().addAll(items);
         //Human
 
         //bussiness
