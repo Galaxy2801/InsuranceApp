@@ -2,6 +2,7 @@ package com.example.insuranceapp;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -263,7 +264,7 @@ public class WorkerpanelController {
 
     }
     //transport
-    private String[] fueltype = {"Газ/Бензин","Дизель","Гібрид","Електро"};
+    private String[] fueltype = {"Бензин","Газ/Бензин","Дизель","Гібрид","Електро"};
     private String[] transporttype = {"A: Мотоцикли","B: Легкові автомобілі","C: Вантажні автомобілі","D: Пасажирські автобуси"};
     //transport
 
@@ -285,6 +286,9 @@ public class WorkerpanelController {
         //transport
         transport_choisebox_reg_fuel.getItems().addAll(fueltype);
         transport_choisebox_reg_type.getItems().addAll(transporttype);
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        List<String> items = dbHandler.getItemsFromDatabase();
+        transport_reg_choisebox_user.getItems().addAll(items);
         //transport
 
         //build

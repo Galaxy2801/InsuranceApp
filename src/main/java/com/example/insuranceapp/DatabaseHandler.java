@@ -1,6 +1,8 @@
 package com.example.insuranceapp;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
@@ -112,4 +114,28 @@ public class DatabaseHandler extends Configs {
             throw new RuntimeException(e);
         }
     }
+
+    public List<String> getItemsFromDatabase() {
+        List<String> items = new ArrayList<>();
+
+        String selectQuery = "SELECT username FROM users WHERE permission = 'Клієнт'";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(selectQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String item = resultSet.getString("username");
+                items.add(item);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return items;
+    }
+
 }
