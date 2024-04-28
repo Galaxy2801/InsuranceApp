@@ -209,4 +209,29 @@ public class DatabaseHandler extends Configs {
             throw new RuntimeException(e);
         }
     }
+
+    public void signUpBusinessPolicy(BusinessPolicy businessPolicy) {
+        String insert = "INSERT INTO " + BusinessPolicyConst.POLICY_TABLE + "(" +
+                BusinessPolicyConst.POLICY_CLIENT + ", " + BusinessPolicyConst.POLICY_NAME + ", " +
+                BusinessPolicyConst.POLICY_SERV_INDUSTRIES + ", " + BusinessPolicyConst.POLICY_BUSINESS_COST + ", " +
+                BusinessPolicyConst.POLICY_PROFIT_PER_YEAR + ", " + BusinessPolicyConst.POLICY_COMPENSATION + ", " +
+                BusinessPolicyConst.POLICY_RESPONS + ")" + "VALUES (?,?,?,?,?,?,?)";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setString(1, businessPolicy.getClient());
+            prSt.setString(2, businessPolicy.getName());
+            prSt.setString(3, businessPolicy.getServIndustries());
+            prSt.setString(4, businessPolicy.getBusinessCost());
+            prSt.setString(5, businessPolicy.getProfitPerYear());
+            prSt.setString(6, businessPolicy.getCompensation());
+            prSt.setString(7, businessPolicy.getRespons());
+
+            prSt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
