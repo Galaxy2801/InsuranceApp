@@ -326,6 +326,7 @@ public class WorkerpanelController {
 
         //item
         Item_reg_choisebox_compensation.getItems().addAll(itemcompensation);
+        Item_reg_choisebox_user.getItems().addAll(items);
         //item
 
         transport_reg_button.setOnAction(event -> {
