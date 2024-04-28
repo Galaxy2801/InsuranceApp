@@ -340,6 +340,10 @@ public class WorkerpanelController {
             signUpNewHumanPolicy();
         });
 
+        Item_reg_button.setOnAction(event -> {
+            signUpNewItemsPolicy();
+        });
+
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -422,5 +426,19 @@ public class WorkerpanelController {
         HumanPolicy humanPolicy = new HumanPolicy(client, firstName, secondName, middleName, age, gender, health);
 
         dbHandler.signUpHumanPolicy(humanPolicy);
+    }
+
+    private void signUpNewItemsPolicy() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        String client = Item_reg_choisebox_user.getValue();
+        String name = Item_field_reg_name.getText();
+        String cost = Item_field_reg_cost.getText();
+        String propCondition = Item_field_reg_stanmaina.getText();
+        String compensation = Item_reg_choisebox_compensation.getValue();
+
+        ItemsPolicy itemPolicy = new ItemsPolicy(client, name, cost, propCondition, compensation);
+
+        dbHandler.signUpItemsPolicy(itemPolicy);
     }
 }
