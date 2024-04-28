@@ -322,6 +322,10 @@ public class WorkerpanelController {
         Item_reg_choisebox_compensation.getItems().addAll(itemcompensation);
         //item
 
+        transport_reg_button.setOnAction(event -> {
+            signUpNewVehiclePolicy();
+        });
+
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -347,5 +351,21 @@ public class WorkerpanelController {
 
     }
 
+    private void signUpNewVehiclePolicy() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
 
+        String client = transport_reg_choisebox_user.getValue();
+        String maker = transport_field_reg_mark.getText();
+        String model = transport_field_reg_model.getText();
+        String type = transport_choisebox_reg_type.getValue();
+        String regNumber = transport_field_reg_number.getText();
+        String vinNumber = transport_field_reg_vin.getText();
+        String engineCapacity = transport_field_reg_volume.getText();
+        String fuelType = transport_choisebox_reg_fuel.getValue();
+        String color = transport_field_reg_color.getText();
+
+        VehiclePolicy vehiclePolicy = new VehiclePolicy(client, maker, model, type, regNumber, vinNumber, engineCapacity, fuelType, color);
+
+        dbHandler.signUpVehiclePolicy(vehiclePolicy);
+    }
 }
