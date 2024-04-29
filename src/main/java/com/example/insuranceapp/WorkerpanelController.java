@@ -281,6 +281,13 @@ public class WorkerpanelController {
     private String[] itemcompensation = {"30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%", "75%", "80%", "85%", "90%", "95%", "100%"};
     //item
 
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     @FXML
     void initialize() {
 
@@ -340,7 +347,36 @@ public class WorkerpanelController {
         });
 
         build_reg_button.setOnAction(event -> {
+            if (build_reg_choisebox_user.getValue() == null ||
+                    build_field_reg_address.getText().isEmpty() ||
+                    build_field_reg_area.getText().isEmpty() ||
+                    build_field_reg_roomnum.getText().isEmpty() ||
+                    build_reg_Choicebox_cost_selector.getValue() == null) {
+                showAlert("Помилка", "Будь ласка, заповніть всі поля!", Alert.AlertType.ERROR);
+                return;
+            }
+
+            if (radioGroupArea.getSelectedToggle() == null) {
+                showAlert("Помилка", "Будь ласка, оберіть тип площі!", Alert.AlertType.ERROR);
+                return;
+            }
+
+            if (radioGroupBuildType.getSelectedToggle() == null) {
+                showAlert("Помилка", "Будь ласка, оберіть тип нерухомості!", Alert.AlertType.ERROR);
+                return;
+            }
+
             signUpNewBuildPolicy();
+
+            showAlert("Інформація", "Поліс нерухомості успішно додано!", Alert.AlertType.INFORMATION);
+
+            build_reg_choisebox_user.setValue(null);
+            build_field_reg_address.clear();
+            build_field_reg_area.clear();
+            build_field_reg_roomnum.clear();
+            build_reg_Choicebox_cost_selector.setValue(null);
+            radioGroupArea.getSelectedToggle().setSelected(false);
+            radioGroupBuildType.getSelectedToggle().setSelected(false);
         });
 
         human_reg_button.setOnAction(event -> {
