@@ -380,7 +380,9 @@ public class WorkerpanelController {
         });
 
         human_reg_button.setOnAction(event -> {
-            signUpNewHumanPolicy();
+            if (validateHumanFields()) {
+                signUpNewHumanPolicy();
+            }
         });
 
         Item_reg_button.setOnAction(event -> {
@@ -516,6 +518,29 @@ public class WorkerpanelController {
         dbHandler.signUpBuildPolicy(buildPolicy);
     }
 
+    private boolean validateHumanFields() {
+        if (human_reg_choisebox_user.getValue() == null ||
+                human_field_reg_name.getText().isEmpty() ||
+                human_field_reg_prizv.getText().isEmpty() ||
+                human_field_reg_fathername.getText().isEmpty() ||
+                human_field_reg_year.getText().isEmpty()) {
+            showAlert("Помилка", "Будь ласка, заповніть всі поля!");
+            return false;
+        }
+
+        if (!human_gender_reg_man.isSelected() && !human_gender_reg_woman.isSelected()) {
+            showAlert("Помилка", "Будь ласка, оберіть стать!");
+            return false;
+        }
+
+        if (!human_health_reg_zdorov.isSelected() && !human_health_reg_invalid.isSelected()) {
+            showAlert("Помилка", "Будь ласка, оберіть стан здоров'я!");
+            return false;
+        }
+
+        return true;
+    }
+
     private void signUpNewHumanPolicy() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
@@ -530,6 +555,22 @@ public class WorkerpanelController {
         HumanPolicy humanPolicy = new HumanPolicy(client, firstName, secondName, middleName, age, gender, health);
 
         dbHandler.signUpHumanPolicy(humanPolicy);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Інформація");
+        alert.setHeaderText(null);
+        alert.setContentText("Поліс особи успішно додано!");
+        alert.showAndWait();
+
+        human_reg_choisebox_user.setValue(null);
+        human_field_reg_name.clear();
+        human_field_reg_prizv.clear();
+        human_field_reg_fathername.clear();
+        human_field_reg_year.clear();
+        human_gender_reg_man.setSelected(false);
+        human_gender_reg_woman.setSelected(false);
+        human_health_reg_zdorov.setSelected(false);
+        human_health_reg_invalid.setSelected(false);
     }
 
     private void signUpNewItemsPolicy() {
