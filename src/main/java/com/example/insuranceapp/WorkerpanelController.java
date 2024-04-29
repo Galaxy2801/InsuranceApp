@@ -18,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Alert;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -331,7 +332,11 @@ public class WorkerpanelController {
         //item
 
         transport_reg_button.setOnAction(event -> {
-            signUpNewVehiclePolicy();
+            if (validateTransportFields()) {
+                signUpNewVehiclePolicy();
+            }
+            else {
+            }
         });
 
         build_reg_button.setOnAction(event -> {
@@ -375,6 +380,41 @@ public class WorkerpanelController {
 
     }
 
+    //
+    //Transport
+    //
+    private boolean validateTransportFields() {
+        if (transport_reg_choisebox_user.getValue() == null ||
+                transport_field_reg_number.getText().isEmpty() ||
+                transport_field_reg_mark.getText().isEmpty() ||
+                transport_field_reg_vin.getText().isEmpty() ||
+                transport_field_reg_model.getText().isEmpty() ||
+                transport_field_reg_volume.getText().isEmpty() ||
+                transport_choisebox_reg_type.getValue() == null ||
+                transport_choisebox_reg_fuel.getValue() == null ||
+                transport_field_reg_color.getText().isEmpty()) {
+            showAlert("Помилка", "Будь ласка заповніть всі поля!");
+            return false;
+        }
+
+        if (transport_field_reg_vin.getText().length() != 17) {
+            showAlert("Помилка", "Номер шасі має складатися з 17 символів!");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+
+
     private void signUpNewVehiclePolicy() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
@@ -391,7 +431,29 @@ public class WorkerpanelController {
         VehiclePolicy vehiclePolicy = new VehiclePolicy(client, maker, model, type, regNumber, vinNumber, engineCapacity, fuelType, color);
 
         dbHandler.signUpVehiclePolicy(vehiclePolicy);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Інформація");
+        alert.setHeaderText(null);
+        alert.setContentText("Поліс транспорту успішно додано!");
+        alert.showAndWait();
+
+        transport_reg_choisebox_user.setValue(null);
+        transport_field_reg_number.clear();
+        transport_field_reg_mark.clear();
+        transport_field_reg_vin.clear();
+        transport_field_reg_model.clear();
+        transport_field_reg_volume.clear();
+        transport_choisebox_reg_type.setValue(null);
+        transport_choisebox_reg_fuel.setValue(null);
+        transport_field_reg_color.clear();
     }
+
+
+    //
+    //Transport
+    //
+
 
     private void signUpNewBuildPolicy() {
         DatabaseHandler dbHandler = new DatabaseHandler();
