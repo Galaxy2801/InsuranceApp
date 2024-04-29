@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -173,30 +172,12 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="transport_field_reg_number" focusTraversable="false" layoutX="425.0" layoutY="79.0" promptText="Номерний знак" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <Button fx:id="transport_reg_button" focusTraversable="false" layoutX="389.0" layoutY="372.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #fafafa;" text="Створити поліс">
-                           <effect>
-                              <Glow />
-                           </effect></Button>
-                        <TextField fx:id="transport_field_reg_mark" focusTraversable="false" layoutX="90.0" layoutY="128.0" promptText="Виробник" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <TextField fx:id="transport_field_reg_vin" focusTraversable="false" layoutX="425.0" layoutY="128.0" promptText="Vin номер (17 символів)" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <TextField fx:id="transport_field_reg_model" focusTraversable="false" layoutX="90.0" layoutY="176.0" promptText="Модель" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <TextField fx:id="transport_field_reg_volume" focusTraversable="false" layoutX="425.0" layoutY="176.0" promptText="Об'єм двигуна в см³" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
+                        <TextField fx:id="transport_field_reg_number" focusTraversable="false" layoutX="425.0" layoutY="79.0" promptText="Номерний знак" style="-fx-background-color: #fafafa;" />
+                        <Button fx:id="transport_reg_button" focusTraversable="false" layoutX="389.0" layoutY="372.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <TextField fx:id="transport_field_reg_mark" focusTraversable="false" layoutX="90.0" layoutY="128.0" promptText="Виробник" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="transport_field_reg_vin" focusTraversable="false" layoutX="425.0" layoutY="128.0" promptText="Vin номер (17 символів)" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="transport_field_reg_model" focusTraversable="false" layoutX="90.0" layoutY="176.0" promptText="Модель" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="transport_field_reg_volume" focusTraversable="false" layoutX="425.0" layoutY="176.0" promptText="Об'єм двигуна в см³" style="-fx-background-color: #fafafa;" />
                         <Text layoutX="14.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
                            <font>
                               <Font size="17.0" />
@@ -227,10 +208,7 @@
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="transport_field_reg_color" focusTraversable="false" layoutX="426.0" layoutY="282.0" promptText="Колір транспорту" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
+                        <TextField fx:id="transport_field_reg_color" focusTraversable="false" layoutX="426.0" layoutY="282.0" promptText="Колір транспорту" style="-fx-background-color: #fafafa;" />
                         <Text layoutX="273.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Об'єм двигуна">
                            <font>
                               <Font size="17.0" />
@@ -246,14 +224,8 @@
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <ChoiceBox fx:id="transport_choisebox_reg_type" focusTraversable="false" layoutX="89.0" layoutY="231.0" prefWidth="150.0" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></ChoiceBox>
-                        <ChoiceBox fx:id="transport_choisebox_reg_fuel" focusTraversable="false" layoutX="424.0" layoutY="231.0" prefWidth="150.0" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></ChoiceBox>
+                        <ChoiceBox fx:id="transport_choisebox_reg_type" focusTraversable="false" layoutX="89.0" layoutY="231.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                        <ChoiceBox fx:id="transport_choisebox_reg_fuel" focusTraversable="false" layoutX="424.0" layoutY="231.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                         <ChoiceBox fx:id="transport_reg_choisebox_user" layoutX="89.0" layoutY="78.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                      </children>
                   </AnchorPane>
@@ -294,31 +266,16 @@
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="build_field_reg_address" layoutX="242.0" layoutY="90.0" promptText="Адреса" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <TextField fx:id="build_field_reg_area" layoutX="242.0" layoutY="122.0" promptText="Площа" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <TextField fx:id="build_field_reg_roomnum" layoutX="242.0" layoutY="189.0" promptText="К-ть кімнат" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
+                        <TextField fx:id="build_field_reg_address" layoutX="242.0" layoutY="90.0" promptText="Адреса" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="build_field_reg_area" layoutX="242.0" layoutY="122.0" promptText="Площа" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="build_field_reg_roomnum" layoutX="242.0" layoutY="189.0" promptText="К-ть кімнат" style="-fx-background-color: #fafafa;" />
                         <RadioButton fx:id="build_reg_type_selector_earth" focusTraversable="false" layoutX="242.0" layoutY="160.0" mnemonicParsing="false" text="Земля" />
                         <RadioButton fx:id="build_reg_type_selector_home" focusTraversable="false" layoutX="317.0" layoutY="160.0" mnemonicParsing="false" text="Житло" />
                         <RadioButton fx:id="build_reg_type_selector_industrial" focusTraversable="false" layoutX="392.0" layoutY="160.0" mnemonicParsing="false" text="Нежитлові приміщення" />
                         <RadioButton fx:id="build_reg_area_selector_m" focusTraversable="false" layoutX="409.0" layoutY="126.0" mnemonicParsing="false" text="м³" />
                         <RadioButton fx:id="build_reg_area_selector_ga" focusTraversable="false" layoutX="487.0" layoutY="126.0" mnemonicParsing="false" text="Га" />
-                        <Button fx:id="build_reg_button" focusTraversable="false" layoutX="336.0" layoutY="316.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #fafafa;" text="Створити поліс">
-                           <effect>
-                              <Glow />
-                           </effect></Button>
-                        <ChoiceBox fx:id="build_reg_Choicebox_cost_selector" layoutX="241.0" layoutY="226.0" prefWidth="150.0" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></ChoiceBox>
+                        <Button fx:id="build_reg_button" focusTraversable="false" layoutX="336.0" layoutY="316.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <ChoiceBox fx:id="build_reg_Choicebox_cost_selector" layoutX="241.0" layoutY="226.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                         <ChoiceBox fx:id="build_reg_choisebox_user" layoutX="242.0" layoutY="58.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
                      </children>
                   </AnchorPane>
@@ -329,22 +286,10 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="human_field_reg_name" layoutX="219.0" layoutY="71.0" promptText="Ім'я" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <TextField fx:id="human_field_reg_prizv" layoutX="219.0" layoutY="112.0" promptText="Прізвище" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <TextField fx:id="human_field_reg_fathername" layoutX="219.0" layoutY="157.0" promptText="По батькові" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
-                        <TextField fx:id="human_field_reg_year" layoutX="219.0" layoutY="201.0" promptText="Вік" style="-fx-background-color: #fafafa;">
-                           <effect>
-                              <Glow />
-                           </effect></TextField>
+                        <TextField fx:id="human_field_reg_name" layoutX="219.0" layoutY="71.0" promptText="Ім'я" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="human_field_reg_prizv" layoutX="219.0" layoutY="112.0" promptText="Прізвище" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="human_field_reg_fathername" layoutX="219.0" layoutY="157.0" promptText="По батькові" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="human_field_reg_year" layoutX="219.0" layoutY="201.0" promptText="Вік" style="-fx-background-color: #fafafa;" />
                         <Text layoutX="138.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ім'я">
                            <font>
                               <Font size="17.0" />
@@ -355,10 +300,7 @@
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <Button fx:id="human_reg_button" focusTraversable="false" layoutX="307.0" layoutY="359.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #fafafa;" text="Створити поліс">
-                           <effect>
-                              <Glow />
-                           </effect></Button>
+                        <Button fx:id="human_reg_button" focusTraversable="false" layoutX="307.0" layoutY="359.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
                         <Text layoutX="108.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="По батькові">
                            <font>
                               <Font size="17.0" />
