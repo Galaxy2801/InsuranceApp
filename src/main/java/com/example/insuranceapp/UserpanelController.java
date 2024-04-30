@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +13,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.layout.AnchorPane;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 public class UserpanelController {
@@ -26,16 +35,31 @@ public class UserpanelController {
     private Button Build;
 
     @FXML
+    private AnchorPane Buildview;
+
+    @FXML
     private Button Business;
+
+    @FXML
+    private AnchorPane Businessview;
 
     @FXML
     private Button Human;
 
     @FXML
+    private AnchorPane Humanview;
+
+    @FXML
     private Button Items;
 
     @FXML
+    private AnchorPane Itemview;
+
+    @FXML
     private Button Transport;
+
+    @FXML
+    private AnchorPane Transportview;
 
     @FXML
     private Button back;
@@ -45,6 +69,51 @@ public class UserpanelController {
 
     @FXML
     private AnchorPane userpane;
+
+    @FXML
+    void handleViewBuild(ActionEvent event) {
+        Transportview.setVisible(false);
+        Buildview.setVisible(true);
+        Humanview.setVisible(false);
+        Itemview.setVisible(false);
+        Businessview.setVisible(false);
+    }
+
+    @FXML
+    void handleViewBusiness(ActionEvent event) {
+        Transportview.setVisible(false);
+        Buildview.setVisible(false);
+        Humanview.setVisible(false);
+        Itemview.setVisible(false);
+        Businessview.setVisible(true);
+    }
+
+    @FXML
+    void handleViewHuman(ActionEvent event) {
+        Transportview.setVisible(false);
+        Buildview.setVisible(false);
+        Humanview.setVisible(true);
+        Itemview.setVisible(false);
+        Businessview.setVisible(false);
+    }
+
+    @FXML
+    void handleViewItems(ActionEvent event) {
+        Transportview.setVisible(false);
+        Buildview.setVisible(false);
+        Humanview.setVisible(false);
+        Itemview.setVisible(true);
+        Businessview.setVisible(false);
+    }
+
+    @FXML
+    void handleViewTransport(ActionEvent event) {
+        Transportview.setVisible(true);
+        Buildview.setVisible(false);
+        Humanview.setVisible(false);
+        Itemview.setVisible(false);
+        Businessview.setVisible(false);
+    }
 
     @FXML
     void initialize() {
