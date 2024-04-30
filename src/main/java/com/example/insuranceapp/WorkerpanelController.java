@@ -414,7 +414,32 @@ public class WorkerpanelController {
 
 
         bussiness_reg_button.setOnAction(event -> {
+            if (bussiness_reg_choisebox_user.getValue() == null ||
+                    bussiness_field_reg_name.getText().isEmpty() ||
+                    bussiness_field_reg_sphere.getText().isEmpty() ||
+                    bussiness_field_reg_costbussiness.getText().isEmpty() ||
+                    bussiness_field_reg_moneyinyear.getText().isEmpty() ||
+                    bussiness_reg_choisebox_compensation.getValue() == null) {
+                showAlert("Помилка", "Будь ласка, заповніть всі поля!", Alert.AlertType.ERROR);
+                return;
+            }
+
+            if (radioGroupBussinessVidpovidal.getSelectedToggle() == null) {
+                showAlert("Помилка", "Будь ласка, оберіть тип відповідальності!", Alert.AlertType.ERROR);
+                return;
+            }
+
             signUpNewBusinessPolicy();
+
+            showAlert("Успіх!", "Поліс бізнесу успішно додано!", Alert.AlertType.INFORMATION);
+
+            bussiness_reg_choisebox_user.setValue(null);
+            bussiness_field_reg_name.clear();
+            bussiness_field_reg_sphere.clear();
+            bussiness_field_reg_costbussiness.clear();
+            bussiness_field_reg_moneyinyear.clear();
+            bussiness_reg_choisebox_compensation.setValue(null);
+            radioGroupBussinessVidpovidal.getSelectedToggle().setSelected(false);
         });
 
         exit.setOnAction(event -> {
