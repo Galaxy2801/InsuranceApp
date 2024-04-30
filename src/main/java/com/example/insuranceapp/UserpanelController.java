@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 public class UserpanelController {
     Stage stage = new Stage();
 
+
     @FXML
     private ResourceBundle resources;
 
@@ -35,19 +38,85 @@ public class UserpanelController {
     private Button Build;
 
     @FXML
+    private TableColumn<String, String> BuildadressView;
+
+    @FXML
+    private TableColumn<String, String> BuildareaView;
+
+    @FXML
+    private TableColumn<String, String> BuildcostView;
+
+    @FXML
+    private TableColumn<String, String> BuildroomnumberView;
+
+    @FXML
+    private TableColumn<String, String> BuildtypeView;
+
+    @FXML
     private AnchorPane Buildview;
 
     @FXML
     private Button Business;
 
     @FXML
+    private TableColumn<String, String> BusinesscompensationView;
+
+    @FXML
+    private TableColumn<String, String> BusinesscostView;
+
+    @FXML
+    private TableColumn<String, String> BusinessnameView;
+
+    @FXML
+    private TableColumn<String, String> BusinessprofitinyearView;
+
+    @FXML
+    private TableColumn<String, String> BusinessresponsView;
+
+    @FXML
+    private TableColumn<String, String> BusinesssphereView;
+
+    @FXML
     private AnchorPane Businessview;
+
+    @FXML
+    private TableView<String> BusinessviewTable;
 
     @FXML
     private Button Human;
 
     @FXML
+    private TableColumn<String, String> HumanfirstnameView;
+
+    @FXML
+    private TableColumn<String, String> HumangenderView;
+
+    @FXML
+    private TableColumn<String, String> HumanhealthView;
+
+    @FXML
+    private TableColumn<String, String> HumanmiddlenameView;
+
+    @FXML
+    private TableColumn<String, String> HumansecondnameView;
+
+    @FXML
     private AnchorPane Humanview;
+
+    @FXML
+    private TableColumn<String, String> HumanyearView;
+
+    @FXML
+    private TableColumn<String, String> ItemcompensationView;
+
+    @FXML
+    private TableColumn<String, String> ItemconditionView;
+
+    @FXML
+    private TableColumn<String, String> ItemcostView;
+
+    @FXML
+    private TableColumn<String, String> ItemnameView;
 
     @FXML
     private Button Items;
@@ -56,7 +125,34 @@ public class UserpanelController {
     private AnchorPane Itemview;
 
     @FXML
+    private TableView<String> ItemviewTable;
+
+    @FXML
     private Button Transport;
+
+    @FXML
+    private TableColumn<String, String> TransportCapacityView;
+
+    @FXML
+    private TableColumn<String, String> TransportColorView;
+
+    @FXML
+    private TableColumn<String, String> TransportFueltypeView;
+
+    @FXML
+    private TableColumn<String, String> TransportMarkView;
+
+    @FXML
+    private TableColumn<String, String> TransportModelView;
+
+    @FXML
+    private TableColumn<String, String> TransportNumberView;
+
+    @FXML
+    private TableColumn<String, String> TransportTypeViwe;
+
+    @FXML
+    private TableColumn<String, String> TransportVinnumberView;
 
     @FXML
     private AnchorPane Transportview;
@@ -65,10 +161,20 @@ public class UserpanelController {
     private Button back;
 
     @FXML
+    private TableView<String> buildviewTable;
+
+    @FXML
     private Button exit;
 
     @FXML
+    private TableView<String> humanviewTable;
+
+    @FXML
+    private TableView<String> transportviewTable;
+
+    @FXML
     private AnchorPane userpane;
+
 
     @FXML
     void handleViewBuild(ActionEvent event) {
