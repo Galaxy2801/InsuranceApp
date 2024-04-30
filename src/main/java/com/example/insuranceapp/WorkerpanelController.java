@@ -386,8 +386,32 @@ public class WorkerpanelController {
         });
 
         Item_reg_button.setOnAction(event -> {
-            signUpNewItemsPolicy();
+            if (Item_reg_choisebox_user.getValue() == null ||
+                    Item_field_reg_name.getText().isEmpty() ||
+                    Item_field_reg_cost.getText().isEmpty() ||
+                    Item_field_reg_stanmaina.getText().isEmpty() ||
+                    Item_reg_choisebox_compensation.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Помилка");
+                alert.setHeaderText(null);
+                alert.setContentText("Будь ласка, заповніть всі поля!");
+                alert.showAndWait();
+            } else {
+                signUpNewItemsPolicy();
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Успіх!");
+                successAlert.setHeaderText(null);
+                successAlert.setContentText("Поліс Майна успішно додано!");
+                successAlert.showAndWait();
+
+                Item_reg_choisebox_user.getSelectionModel().clearSelection();
+                Item_field_reg_name.clear();
+                Item_field_reg_cost.clear();
+                Item_field_reg_stanmaina.clear();
+                Item_reg_choisebox_compensation.getSelectionModel().clearSelection();
+            }
         });
+
 
         bussiness_reg_button.setOnAction(event -> {
             signUpNewBusinessPolicy();
