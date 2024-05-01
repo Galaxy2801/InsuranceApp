@@ -79,7 +79,7 @@ public class UserpanelController {
     private AnchorPane Businessview;
 
     @FXML
-    private TableView<String> BusinessviewTable;
+    private TableView<BusinessPolicy> BusinessviewTable;
 
     @FXML
     private Button Human;
@@ -225,6 +225,7 @@ public class UserpanelController {
         addBuildPoliciesToTable();
         addHumanPoliciesToTable();
         addItemsPoliciesToTable();
+        addBusinessPoliciesToTable();
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -341,5 +342,28 @@ public class UserpanelController {
         ItemcompensationView.setCellValueFactory(new PropertyValueFactory<>("compensation"));
 
         ItemviewTable.setItems(filteredItemsPolicies);
+    }
+
+    private void addBusinessPoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<BusinessPolicy> businessPolicies = FXCollections.observableArrayList(databaseHandler.getBusinessPolicy());
+
+        ObservableList<BusinessPolicy> filteredBusinessPolicies = FXCollections.observableArrayList();
+
+        for(BusinessPolicy businessPolicy : businessPolicies) {
+            if(businessPolicy.getClient().equals(NAME)) {
+                filteredBusinessPolicies.add(businessPolicy);
+            }
+        }
+
+        BusinessnameView.setCellValueFactory(new PropertyValueFactory<>("name"));
+        BusinesssphereView.setCellValueFactory(new PropertyValueFactory<>("servIndustries"));
+        BusinesscostView.setCellValueFactory(new PropertyValueFactory<>("businessCost"));
+        BusinessprofitinyearView.setCellValueFactory(new PropertyValueFactory<>("profitPerYear"));
+        BusinessresponsView.setCellValueFactory(new PropertyValueFactory<>("respons"));
+        BusinesscompensationView.setCellValueFactory(new PropertyValueFactory<>("compensation"));
+
+        BusinessviewTable.setItems(filteredBusinessPolicies);
     }
 }

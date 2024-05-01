@@ -239,6 +239,37 @@ public class DatabaseHandler extends Configs {
         return policies;
     }
 
+    public List<BusinessPolicy> getBusinessPolicy() {
+        List<BusinessPolicy> policies = new ArrayList<>();
+
+        String selectQuery = "SELECT * FROM " + BusinessPolicyConst.POLICY_TABLE;
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(selectQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                BusinessPolicy policy = new BusinessPolicy(
+                        resultSet.getString(BusinessPolicyConst.POLICY_CLIENT),
+                        resultSet.getString(BusinessPolicyConst.POLICY_NAME),
+                        resultSet.getString(BusinessPolicyConst.POLICY_SERV_INDUSTRIES),
+                        resultSet.getString(BusinessPolicyConst.POLICY_BUSINESS_COST),
+                        resultSet.getString(BusinessPolicyConst.POLICY_PROFIT_PER_YEAR),
+                        resultSet.getString(BusinessPolicyConst.POLICY_COMPENSATION),
+                        resultSet.getString(BusinessPolicyConst.POLICY_RESPONS)
+                );
+                policies.add(policy);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return policies;
+    }
+
     public List<String> getItemsFromDatabase() {
         List<String> items = new ArrayList<>();
 
