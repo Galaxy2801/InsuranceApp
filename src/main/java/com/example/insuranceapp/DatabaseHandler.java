@@ -115,6 +115,39 @@ public class DatabaseHandler extends Configs {
         }
     }
 
+    public List<VehiclePolicy> getVehiclePolicy() {
+        List<VehiclePolicy> policies = new ArrayList<>();
+
+        String selectQuery = "SELECT * FROM " + VehiclePolicyConst.POLICY_TABLE;
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(selectQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                VehiclePolicy policy = new VehiclePolicy(
+                        resultSet.getString(VehiclePolicyConst.POLICY_CLIENT),
+                        resultSet.getString(VehiclePolicyConst.POLICY_MAKER),
+                        resultSet.getString(VehiclePolicyConst.POLICY_MODEL),
+                        resultSet.getString(VehiclePolicyConst.POLICY_TYPE),
+                        resultSet.getString(VehiclePolicyConst.POLICY_REG_NUMBER),
+                        resultSet.getString(VehiclePolicyConst.POLICY_VIN_NUMBER),
+                        resultSet.getString(VehiclePolicyConst.POLICY_ENGINE_CAPACITY),
+                        resultSet.getString(VehiclePolicyConst.POLICY_FUEL_TYPE),
+                        resultSet.getString(VehiclePolicyConst.POLICY_COLOR)
+                );
+                policies.add(policy);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return policies;
+    }
+
     public List<String> getItemsFromDatabase() {
         List<String> items = new ArrayList<>();
 

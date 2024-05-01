@@ -48,6 +48,8 @@ public class MainController {
     @FXML
     private PasswordField password_field;
 
+    public static String NAME;
+
     @FXML
     void login_field(ActionEvent event) {
 
@@ -73,6 +75,8 @@ public class MainController {
                 showAlert("Будь ласка, заповніть всі поля !");
                 return;
             }
+
+            NAME = loginText;
 
             loginUser(loginText, loginPassword);
         });

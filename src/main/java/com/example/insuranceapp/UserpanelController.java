@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,20 +15,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.layout.AnchorPane;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import static com.example.insuranceapp.MainController.NAME;
 
 public class UserpanelController {
     Stage stage = new Stage();
-
 
     @FXML
     private ResourceBundle resources;
@@ -170,11 +168,10 @@ public class UserpanelController {
     private TableView<String> humanviewTable;
 
     @FXML
-    private TableView<String> transportviewTable;
+    private TableView<VehiclePolicy> transportviewTable;
 
     @FXML
     private AnchorPane userpane;
-
 
     @FXML
     void handleViewBuild(ActionEvent event) {
@@ -223,6 +220,7 @@ public class UserpanelController {
 
     @FXML
     void initialize() {
+        addVehiclePoliciesToTable();
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -244,4 +242,28 @@ public class UserpanelController {
         });
     }
 
+    private void addVehiclePoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<VehiclePolicy> vehiclePolicies = FXCollections.observableArrayList(databaseHandler.getVehiclePolicy());
+
+        ObservableList<VehiclePolicy> filteredVehiclePolicies = FXCollections.observableArrayList();
+
+        for(VehiclePolicy vehiclePolicy : vehiclePolicies) {
+            if(vehiclePolicy.getClient().equals(NAME)) {
+                filteredVehiclePolicies.add(vehiclePolicy);
+            }
+        }
+
+        TransportMarkView.setCellValueFactory(new PropertyValueFactory<>("maker"));
+        TransportModelView.setCellValueFactory(new PropertyValueFactory<>("model"));
+        TransportTypeViwe.setCellValueFactory(new PropertyValueFactory<>("type"));
+        TransportNumberView.setCellValueFactory(new PropertyValueFactory<>("regNumber"));
+        TransportVinnumberView.setCellValueFactory(new PropertyValueFactory<>("vinNumber"));
+        TransportCapacityView.setCellValueFactory(new PropertyValueFactory<>("engineCapacity"));
+        TransportFueltypeView.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
+        TransportColorView.setCellValueFactory(new PropertyValueFactory<>("color"));
+
+        transportviewTable.setItems(filteredVehiclePolicies);
+    }
 }
