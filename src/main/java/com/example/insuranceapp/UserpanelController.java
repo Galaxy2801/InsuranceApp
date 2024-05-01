@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,7 +40,7 @@ public class UserpanelController {
     private TableColumn<String, String> BuildadressView;
 
     @FXML
-    private TableColumn<String, String> BuildareaView;
+    private TableColumn<BuildPolicy, String> BuildareaView;
 
     @FXML
     private TableColumn<String, String> BuildcostView;
@@ -159,7 +160,7 @@ public class UserpanelController {
     private Button back;
 
     @FXML
-    private TableView<String> buildviewTable;
+    private TableView<BuildPolicy> buildviewTable;
 
     @FXML
     private Button exit;
@@ -221,6 +222,7 @@ public class UserpanelController {
     @FXML
     void initialize() {
         addVehiclePoliciesToTable();
+        addBuildPoliciesToTable();
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -265,5 +267,33 @@ public class UserpanelController {
         TransportColorView.setCellValueFactory(new PropertyValueFactory<>("color"));
 
         transportviewTable.setItems(filteredVehiclePolicies);
+    }
+
+    private void addBuildPoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<BuildPolicy> buildPolicies = FXCollections.observableArrayList(databaseHandler.getBuildPolicy());
+
+        ObservableList<BuildPolicy> filteredBuildPolicies = FXCollections.observableArrayList();
+
+        for(BuildPolicy buildPolicy : buildPolicies) {
+            if(buildPolicy.getClient().equals(NAME)) {
+                filteredBuildPolicies.add(buildPolicy);
+            }
+        }
+
+        BuildadressView.setCellValueFactory(new PropertyValueFactory<>("address"));
+        BuildareaView.setCellValueFactory(cellData -> {
+            BuildPolicy buildPolicy = cellData.getValue();
+            String area = buildPolicy.getArea();
+            String areaUnit = buildPolicy.getAreaUnit();
+            String combinedInfo = area + " " + areaUnit;
+            return new SimpleStringProperty(combinedInfo);
+        });
+        BuildtypeView.setCellValueFactory(new PropertyValueFactory<>("buildType"));
+        BuildroomnumberView.setCellValueFactory(new PropertyValueFactory<>("numOfRooms"));
+        BuildcostView.setCellValueFactory(new PropertyValueFactory<>("cost"));
+
+        buildviewTable.setItems(filteredBuildPolicies);
     }
 }
