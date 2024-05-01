@@ -166,7 +166,7 @@ public class UserpanelController {
     private Button exit;
 
     @FXML
-    private TableView<String> humanviewTable;
+    private TableView<HumanPolicy> humanviewTable;
 
     @FXML
     private TableView<VehiclePolicy> transportviewTable;
@@ -223,6 +223,7 @@ public class UserpanelController {
     void initialize() {
         addVehiclePoliciesToTable();
         addBuildPoliciesToTable();
+        addHumanPoliciesToTable();
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -295,5 +296,28 @@ public class UserpanelController {
         BuildcostView.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
         buildviewTable.setItems(filteredBuildPolicies);
+    }
+
+    private void addHumanPoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<HumanPolicy> humanPolicies = FXCollections.observableArrayList(databaseHandler.getHumanPolicy());
+
+        ObservableList<HumanPolicy> filteredHumanPolicies = FXCollections.observableArrayList();
+
+        for(HumanPolicy humanPolicy : humanPolicies) {
+            if(humanPolicy.getClient().equals(NAME)) {
+                filteredHumanPolicies.add(humanPolicy);
+            }
+        }
+
+        HumanfirstnameView.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        HumansecondnameView.setCellValueFactory(new PropertyValueFactory<>("secondName"));
+        HumanmiddlenameView.setCellValueFactory(new PropertyValueFactory<>("middleName"));
+        HumanyearView.setCellValueFactory(new PropertyValueFactory<>("age"));
+        HumangenderView.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        HumanhealthView.setCellValueFactory(new PropertyValueFactory<>("health"));
+
+        humanviewTable.setItems(filteredHumanPolicies);
     }
 }
