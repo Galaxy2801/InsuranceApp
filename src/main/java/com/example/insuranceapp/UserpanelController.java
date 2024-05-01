@@ -124,7 +124,7 @@ public class UserpanelController {
     private AnchorPane Itemview;
 
     @FXML
-    private TableView<String> ItemviewTable;
+    private TableView<ItemsPolicy> ItemviewTable;
 
     @FXML
     private Button Transport;
@@ -224,6 +224,7 @@ public class UserpanelController {
         addVehiclePoliciesToTable();
         addBuildPoliciesToTable();
         addHumanPoliciesToTable();
+        addItemsPoliciesToTable();
         exit.setOnAction(event -> {
             Stage stage = (Stage) exit.getScene().getWindow();
             stage.close();
@@ -319,5 +320,26 @@ public class UserpanelController {
         HumanhealthView.setCellValueFactory(new PropertyValueFactory<>("health"));
 
         humanviewTable.setItems(filteredHumanPolicies);
+    }
+
+    private void addItemsPoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<ItemsPolicy> itemsPolicies = FXCollections.observableArrayList(databaseHandler.getItemsPolicy());
+
+        ObservableList<ItemsPolicy> filteredItemsPolicies = FXCollections.observableArrayList();
+
+        for(ItemsPolicy itemsPolicy : itemsPolicies) {
+            if(itemsPolicy.getClient().equals(NAME)) {
+                filteredItemsPolicies.add(itemsPolicy);
+            }
+        }
+
+        ItemnameView.setCellValueFactory(new PropertyValueFactory<>("name"));
+        ItemcostView.setCellValueFactory(new PropertyValueFactory<>("cost"));
+        ItemconditionView.setCellValueFactory(new PropertyValueFactory<>("propCondition"));
+        ItemcompensationView.setCellValueFactory(new PropertyValueFactory<>("compensation"));
+
+        ItemviewTable.setItems(filteredItemsPolicies);
     }
 }
