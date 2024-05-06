@@ -37,14 +37,14 @@
                         </Text>
                         <TableView fx:id="transportviewTable" focusTraversable="false" layoutX="14.0" layoutY="45.0" prefHeight="449.0" prefWidth="676.0" style="-fx-background-color: #fafafa; -fx-border-color: #e9eaea;">
                           <columns>
-                            <TableColumn fx:id="TransportMarkView" prefWidth="79.99999809265137" style="-fx-background-color: #fafafa;" text="Марка" />
-                            <TableColumn fx:id="TransportModelView" prefWidth="79.20001983642578" style="-fx-background-color: #fafafa;" text="Модель" />
-                              <TableColumn fx:id="TransportTypeViwe" prefWidth="100.800048828125" style="-fx-background-color: #fafafa;" text="Тип" />
-                              <TableColumn fx:id="TransportNumberView" prefWidth="83.99996948242188" style="-fx-background-color: #fafafa;" text="Реєстраційний номер" />
-                              <TableColumn fx:id="TransportVinnumberView" prefWidth="100.79998779296875" style="-fx-background-color: #fafafa;" text="Vin Номер" />
-                              <TableColumn fx:id="TransportCapacityView" prefWidth="68.79989624023438" style="-fx-background-color: #fafafa;" text="Об'єм двигуна" />
-                              <TableColumn fx:id="TransportFueltypeView" minWidth="0.0" prefWidth="56.0" style="-fx-background-color: #fafafa;" text="Тип пального" />
-                              <TableColumn fx:id="TransportColorView" prefWidth="102.39990234375" style="-fx-background-color: #fafafa;" text="Колір" />
+                            <TableColumn fx:id="TransportMarkView" prefWidth="79.99999809265137" sortable="false" style="-fx-background-color: #fafafa;" text="Марка" />
+                            <TableColumn fx:id="TransportModelView" prefWidth="79.20001983642578" sortable="false" style="-fx-background-color: #fafafa;" text="Модель" />
+                              <TableColumn fx:id="TransportTypeViwe" prefWidth="100.800048828125" sortable="false" style="-fx-background-color: #fafafa;" text="Тип" />
+                              <TableColumn fx:id="TransportNumberView" prefWidth="83.99996948242188" sortable="false" style="-fx-background-color: #fafafa;" text="Реєстраційний номер" />
+                              <TableColumn fx:id="TransportVinnumberView" prefWidth="100.79998779296875" sortable="false" style="-fx-background-color: #fafafa;" text="Vin Номер" />
+                              <TableColumn fx:id="TransportCapacityView" prefWidth="68.79989624023438" sortable="false" style="-fx-background-color: #fafafa;" text="Об'єм двигуна" />
+                              <TableColumn fx:id="TransportFueltypeView" minWidth="0.0" prefWidth="56.0" sortable="false" style="-fx-background-color: #fafafa;" text="Тип пального" />
+                              <TableColumn fx:id="TransportColorView" prefWidth="102.39990234375" sortable="false" style="-fx-background-color: #fafafa;" text="Колір" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -58,7 +58,7 @@
                               <Font size="22.0" />
                            </font>
                         </Text>
-                        <TableView fx:id="buildviewTable" layoutX="15.0" layoutY="45.0" prefHeight="447.0" prefWidth="676.0" style="-fx-background-color: #fafafa; -fx-border-color: #e9eaea;">
+                        <TableView fx:id="buildviewTable" focusTraversable="false" layoutX="15.0" layoutY="45.0" prefHeight="447.0" prefWidth="676.0" style="-fx-background-color: #fafafa; -fx-border-color: #e9eaea;">
                           <columns>
                             <TableColumn fx:id="BuildadressView" prefWidth="75.0" style="-fx-background-color: #fafafa;" text="Адреса" />
                             <TableColumn fx:id="BuildareaView" prefWidth="75.0" style="-fx-background-color: #fafafa;" text="Площа" />
@@ -78,7 +78,7 @@
                               <Font size="22.0" />
                            </font>
                         </Text>
-                        <TableView fx:id="humanviewTable" layoutX="15.0" layoutY="46.0" prefHeight="447.0" prefWidth="674.0" style="-fx-background-color: #fafafa; -fx-border-color: #e9eaea;">
+                        <TableView fx:id="humanviewTable" focusTraversable="false" layoutX="15.0" layoutY="46.0" prefHeight="447.0" prefWidth="674.0" style="-fx-background-color: #fafafa; -fx-border-color: #e9eaea;">
                           <columns>
                             <TableColumn fx:id="HumanfirstnameView" prefWidth="75.0" style="-fx-background-color: #fafafa;" text="Ім'я" />
                             <TableColumn fx:id="HumansecondnameView" prefWidth="75.0" style="-fx-background-color: #fafafa;" text="Прізвище" />
@@ -118,7 +118,7 @@
                               <Font size="22.0" />
                            </font>
                         </Text>
-                        <TableView fx:id="BusinessviewTable" layoutX="13.0" layoutY="44.0" prefHeight="452.0" prefWidth="678.0" style="-fx-border-color: #e9eaea; -fx-background-color: #fafafa;">
+                        <TableView fx:id="BusinessviewTable" focusTraversable="false" layoutX="13.0" layoutY="44.0" prefHeight="452.0" prefWidth="678.0" style="-fx-border-color: #e9eaea; -fx-background-color: #fafafa;">
                           <columns>
                             <TableColumn fx:id="BusinessnameView" prefWidth="75.0" style="-fx-background-color: #fafafa;" text="Назва" />
                             <TableColumn fx:id="BusinesssphereView" prefWidth="75.0" style="-fx-background-color: #fafafa;" text="Сфера послуг" />

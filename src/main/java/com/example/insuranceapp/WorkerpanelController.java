@@ -29,13 +29,175 @@ public class WorkerpanelController {
     Stage stage = new Stage();
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private AnchorPane Bussiness;
+
+    @FXML
+    private Button EditBuild;
+
+    @FXML
+    private TableColumn<String, String> EditBuildAddress;
+
+    @FXML
+    private TableColumn<String, String> EditBuildArea;
+
+    @FXML
+    private TableColumn<String,String> EditBuildAreaUnit;
+
+    @FXML
+    private TableColumn<String, String> EditBuildBuildType;
+
+    @FXML
+    private TableColumn<String, String> EditBuildClient;
+
+    @FXML
+    private TableColumn<String, String> EditBuildCost;
+
+    @FXML
+    private TableColumn<String, String> EditBuildDelete;
+
+    @FXML
+    private TableColumn<String, String> EditBuildIdbuildPolicy;
+
+    @FXML
+    private TableColumn<String, String> EditBuildNumOfRooms;
+
+    @FXML
+    private TableView<String> EditBuildTable;
+
+    @FXML
+    private Button EditBusiness;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessBusinessCost;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessClient;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessCompensation;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessDelete;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessIdbusinessPolicy;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessName;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessProfitPerYear;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessRespons;
+
+    @FXML
+    private TableColumn<String, String> EditBusinessServIndustries;
+
+    @FXML
+    private TableView<String> EditBusinessTable;
+
+    @FXML
+    private Button EditHuman;
+
+    @FXML
+    private TableColumn<String, String> EditHumanAge;
+
+    @FXML
+    private TableColumn<String, String> EditHumanClient;
+
+    @FXML
+    private TableColumn<String, String> EditHumanDelete;
+
+    @FXML
+    private TableColumn<String, String> EditHumanFirstName;
+
+    @FXML
+    private TableColumn<String, String> EditHumanGender;
+
+    @FXML
+    private TableColumn<String, String> EditHumanHealth;
+
+    @FXML
+    private TableColumn<String, String> EditHumanIdhumanPolicy;
+
+    @FXML
+    private TableColumn<String, String> EditHumanMiddleName;
+
+    @FXML
+    private TableColumn<String, String> EditHumanSecondName;
+
+    @FXML
+    private TableView<String> EditHumanTable;
+
+    @FXML
+    private Button EditItem;
+
+    @FXML
+    private TableColumn<String, String> EditItemClient;
+
+    @FXML
+    private TableColumn<String, String> EditItemCompensation;
+
+    @FXML
+    private TableColumn<String, String> EditItemCost;
+
+    @FXML
+    private TableColumn<String, String> EditItemDelete;
+
+    @FXML
+    private TableColumn<String, String> EditItemIditemsPolicy;
+
+    @FXML
+    private TableColumn<String, String> EditItemName;
+
+    @FXML
+    private TableColumn<String, String> EditItemPropCondition;
+
+    @FXML
+    private TableView<String> EditItemTable;
+
+    @FXML
+    private Button EditPolicy;
+
+    @FXML
+    private Button EditTransport;
+
+    @FXML
+    private TableColumn<String, String> EditTransportClient;
+
+    @FXML
+    private TableColumn<String, String> EditTransportFuelType;
+
+    @FXML
+    private TableColumn<String, String> EditTransportIdvehiclePolicy;
+
+    @FXML
+    private TableColumn<String, String> EditTransportMaker;
+
+    @FXML
+    private TableColumn<String, String> EditTransportModel;
+
+    @FXML
+    private TableView<String> EditTransportTable;
+
+    @FXML
+    private TableColumn<String, String> EditTransportType;
+
+    @FXML
+    private TableColumn<String, String> EditTransportVinNumber;
+
+    @FXML
+    private TableColumn<String, String> EditTrasportColor;
+
+    @FXML
+    private TableColumn<String, String> EditTrasportDelete;
+
+    @FXML
+    private TableColumn<String, String> EditTrasportEngineCapacity;
+
+    @FXML
+    private TableColumn<String, String> EditTrasportRegNumber;
 
     @FXML
     private AnchorPane Human;
@@ -146,6 +308,21 @@ public class WorkerpanelController {
     private Button creationTransport;
 
     @FXML
+    private AnchorPane editBuildPane;
+
+    @FXML
+    private AnchorPane editBusinessPane;
+
+    @FXML
+    private AnchorPane editHumanPane;
+
+    @FXML
+    private AnchorPane editItemPane;
+
+    @FXML
+    private AnchorPane editTransportPane;
+
+    @FXML
     private Button exit;
 
     @FXML
@@ -177,6 +354,9 @@ public class WorkerpanelController {
 
     @FXML
     private ChoiceBox<String> human_reg_choisebox_user;
+
+    @FXML
+    private AnchorPane redactview;
 
     @FXML
     private AnchorPane transport;
@@ -215,8 +395,74 @@ public class WorkerpanelController {
     private AnchorPane workerpane;
 
 
+    ///
+    ///
+    ///
+    @FXML
+    void EditBuild(ActionEvent event) {
+        editTransportPane.setVisible(false);
+        editBuildPane.setVisible(true);
+        editHumanPane.setVisible(false);
+        editItemPane.setVisible(false);
+        editBusinessPane.setVisible(false);
+    }
+
+    @FXML
+    void EditBusiness(ActionEvent event) {
+        editTransportPane.setVisible(false);
+        editBuildPane.setVisible(false);
+        editHumanPane.setVisible(false);
+        editItemPane.setVisible(false);
+        editBusinessPane.setVisible(true);
+    }
+
+    @FXML
+    void EditHuman(ActionEvent event) {
+        editTransportPane.setVisible(false);
+        editBuildPane.setVisible(false);
+        editHumanPane.setVisible(true);
+        editItemPane.setVisible(false);
+        editBusinessPane.setVisible(false);
+    }
+
+    @FXML
+    void EditItem(ActionEvent event) {
+        editTransportPane.setVisible(false);
+        editBuildPane.setVisible(false);
+        editHumanPane.setVisible(false);
+        editItemPane.setVisible(true);
+        editBusinessPane.setVisible(false);
+    }
+
+    @FXML
+    void EditTransport(ActionEvent event) {
+        editTransportPane.setVisible(true);
+        editBuildPane.setVisible(false);
+        editHumanPane.setVisible(false);
+        editItemPane.setVisible(false);
+        editBusinessPane.setVisible(false);
+    }
+
+    ///
+    ///
+    ///
+
+
+    @FXML
+    void handleEditPolicy(ActionEvent event) {
+        redactview.setVisible(true);
+        build.setVisible(false);
+        Bussiness.setVisible(false);
+        transport.setVisible(false);
+        Human.setVisible(false);
+        Items.setVisible(false);
+
+    }
+
+
     @FXML
     void handleCreationBuild(ActionEvent event) {
+        redactview.setVisible(false);
         build.setVisible(true);
         Bussiness.setVisible(false);
         transport.setVisible(false);
@@ -227,6 +473,7 @@ public class WorkerpanelController {
 
     @FXML
     void handleCreationBussiness(ActionEvent event) {
+        redactview.setVisible(false);
         Bussiness.setVisible(true);
         build.setVisible(false);
         transport.setVisible(false);
@@ -237,6 +484,7 @@ public class WorkerpanelController {
 
     @FXML
     void handleCreationHuman(ActionEvent event) {
+        redactview.setVisible(false);
         Human.setVisible(true);
         Bussiness.setVisible(false);
         transport.setVisible(false);
@@ -247,6 +495,7 @@ public class WorkerpanelController {
 
     @FXML
     void handleCreationItems(ActionEvent event) {
+        redactview.setVisible(false);
         Items.setVisible(true);
         Bussiness.setVisible(false);
         transport.setVisible(false);
@@ -257,6 +506,7 @@ public class WorkerpanelController {
 
     @FXML
     void handleCreationTransport(ActionEvent event) {
+        redactview.setVisible(false);
         transport.setVisible(true);
         Bussiness.setVisible(false);
         Items.setVisible(false);
