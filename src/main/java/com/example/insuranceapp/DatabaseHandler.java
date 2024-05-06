@@ -89,14 +89,16 @@ public class DatabaseHandler extends Configs {
 
     public void signUpVehiclePolicy(VehiclePolicy vehiclePolicy) {
         String insert = "INSERT INTO " + VehiclePolicyConst.POLICY_TABLE + "(" +
-                VehiclePolicyConst.POLICY_CLIENT + ", " + VehiclePolicyConst.POLICY_MAKER + ", " +
-                VehiclePolicyConst.POLICY_MODEL + ", " + VehiclePolicyConst.POLICY_TYPE + ", " +
-                VehiclePolicyConst.POLICY_REG_NUMBER + ", " + VehiclePolicyConst.POLICY_VIN_NUMBER + ", " +
-                VehiclePolicyConst.POLICY_ENGINE_CAPACITY + ", " + VehiclePolicyConst.POLICY_FUEL_TYPE + ", " +
-                VehiclePolicyConst.POLICY_COLOR + ")" + "VALUES (?,?,?,?,?,?,?,?,?)";
+                VehiclePolicyConst.POLICY_ID + VehiclePolicyConst.POLICY_CLIENT + ", " +
+                VehiclePolicyConst.POLICY_MAKER + ", " + VehiclePolicyConst.POLICY_MODEL + ", " +
+                VehiclePolicyConst.POLICY_TYPE + ", " + VehiclePolicyConst.POLICY_REG_NUMBER + ", " +
+                VehiclePolicyConst.POLICY_VIN_NUMBER + ", " + VehiclePolicyConst.POLICY_ENGINE_CAPACITY + ", " +
+                VehiclePolicyConst.POLICY_FUEL_TYPE + ", " + VehiclePolicyConst.POLICY_COLOR + ")" +
+                "VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
+            prSt.setString(1, vehiclePolicy.getId());
             prSt.setString(1, vehiclePolicy.getClient());
             prSt.setString(2, vehiclePolicy.getMaker());
             prSt.setString(3, vehiclePolicy.getModel());
@@ -126,6 +128,7 @@ public class DatabaseHandler extends Configs {
 
             while (resultSet.next()) {
                 VehiclePolicy policy = new VehiclePolicy(
+                        resultSet.getString(VehiclePolicyConst.POLICY_ID),
                         resultSet.getString(VehiclePolicyConst.POLICY_CLIENT),
                         resultSet.getString(VehiclePolicyConst.POLICY_MAKER),
                         resultSet.getString(VehiclePolicyConst.POLICY_MODEL),

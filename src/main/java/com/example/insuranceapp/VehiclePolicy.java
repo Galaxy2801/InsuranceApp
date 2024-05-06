@@ -1,6 +1,7 @@
 package com.example.insuranceapp;
 
 public class VehiclePolicy {
+    private String id;
     private String client;
     private String maker;
     private String model;
@@ -11,7 +12,8 @@ public class VehiclePolicy {
     private String fuelType;
     private String color;
 
-    public VehiclePolicy(String client, String maker, String model, String type, String regNumber, String vinNumber, String engineCapacity, String fuelType, String color) {
+    public VehiclePolicy(String id, String client, String maker, String model, String type, String regNumber, String vinNumber, String engineCapacity, String fuelType, String color) {
+        this.id = id;
         this.client = client;
         this.maker = maker;
         this.model = model;
@@ -21,6 +23,14 @@ public class VehiclePolicy {
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
         this.color = color;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getClient() {

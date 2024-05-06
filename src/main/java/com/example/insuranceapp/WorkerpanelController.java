@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -24,6 +27,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
+import static com.example.insuranceapp.MainController.NAME;
 
 public class WorkerpanelController {
     Stage stage = new Stage();
@@ -179,7 +184,7 @@ public class WorkerpanelController {
     private TableColumn<String, String> EditTransportModel;
 
     @FXML
-    private TableView<String> EditTransportTable;
+    private TableView<VehiclePolicy> EditTransportTable;
 
     @FXML
     private TableColumn<String, String> EditTransportType;
@@ -540,7 +545,7 @@ public class WorkerpanelController {
     }
     @FXML
     void initialize() {
-
+        addAllVehiclePoliciesToTable();
         //transport
         transport_choisebox_reg_fuel.getItems().addAll(fueltype);
         transport_choisebox_reg_type.getItems().addAll(transporttype);
@@ -755,6 +760,7 @@ public class WorkerpanelController {
     private void signUpNewVehiclePolicy() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
+        String id = null;
         String client = transport_reg_choisebox_user.getValue();
         String maker = transport_field_reg_mark.getText();
         String model = transport_field_reg_model.getText();
@@ -765,7 +771,7 @@ public class WorkerpanelController {
         String fuelType = transport_choisebox_reg_fuel.getValue();
         String color = transport_field_reg_color.getText();
 
-        VehiclePolicy vehiclePolicy = new VehiclePolicy(client, maker, model, type, regNumber, vinNumber, engineCapacity, fuelType, color);
+        VehiclePolicy vehiclePolicy = new VehiclePolicy(id, client, maker, model, type, regNumber, vinNumber, engineCapacity, fuelType, color);
 
         dbHandler.signUpVehiclePolicy(vehiclePolicy);
 
@@ -900,5 +906,24 @@ public class WorkerpanelController {
         BusinessPolicy businessPolicy = new BusinessPolicy(client, name, servIndustries, businessCost, profitPerYear, compensation, respons);
 
         dbHandler.signUpBusinessPolicy(businessPolicy);
+    }
+
+    private void addAllVehiclePoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<VehiclePolicy> vehiclePolicies = FXCollections.observableArrayList(databaseHandler.getVehiclePolicy());
+
+        EditTransportIdvehiclePolicy.setCellValueFactory(new PropertyValueFactory<>("id"));
+        EditTransportClient.setCellValueFactory(new PropertyValueFactory<>("client"));
+        EditTransportMaker.setCellValueFactory(new PropertyValueFactory<>("maker"));
+        EditTransportModel.setCellValueFactory(new PropertyValueFactory<>("model"));
+        EditTransportType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        EditTrasportRegNumber.setCellValueFactory(new PropertyValueFactory<>("regNumber"));
+        EditTransportVinNumber.setCellValueFactory(new PropertyValueFactory<>("vinNumber"));
+        EditTrasportEngineCapacity.setCellValueFactory(new PropertyValueFactory<>("engineCapacity"));
+        EditTransportFuelType.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
+        EditTrasportColor.setCellValueFactory(new PropertyValueFactory<>("color"));
+
+        EditTransportTable.setItems(vehiclePolicies);
     }
 }
