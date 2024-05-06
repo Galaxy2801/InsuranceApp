@@ -798,7 +798,7 @@ public class WorkerpanelController {
         String client = build_reg_choisebox_user.getValue();
         String address = build_field_reg_address.getText();
         String area = build_field_reg_area.getText();
-        String areaUnit = build_reg_area_selector_m.isSelected() ? "м³" : "Га";
+        String areaUnit = build_reg_area_selector_m.isSelected() ? "м²" : "Га";
         String buildType;
         if(build_reg_type_selector_earth.isSelected()) {
             buildType = "Земля";
