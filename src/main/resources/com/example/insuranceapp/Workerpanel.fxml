@@ -303,12 +303,12 @@
                                                 <TableColumn fx:id="EditTransportMaker" prefWidth="69.59996795654297" text="Виробник" />
                                                 <TableColumn fx:id="EditTransportModel" prefWidth="71.20001220703125" text="Модель" />
                                                 <TableColumn fx:id="EditTransportType" prefWidth="85.5999755859375" text="Тип Транспорту" />
-                                                <TableColumn fx:id="EditTrasportRegNumber" prefWidth="58.399993896484375" text="Ресєтраційний Номер" />
+                                                <TableColumn fx:id="EditTransportRegNumber" prefWidth="58.399993896484375" text="Ресєтраційний Номер" />
                                                 <TableColumn fx:id="EditTransportVinNumber" prefWidth="51.199951171875" text="Номер Шасі" />
-                                                <TableColumn fx:id="EditTrasportEngineCapacity" prefWidth="34.4000244140625" text="Об'єм Двигуна" />
+                                                <TableColumn fx:id="EditTransportEngineCapacity" prefWidth="34.4000244140625" text="Об'єм Двигуна" />
                                                 <TableColumn fx:id="EditTransportFuelType" minWidth="9.5999755859375" prefWidth="65.60000610351562" text="Тип Палива" />
-                                                <TableColumn fx:id="EditTrasportColor" prefWidth="72.800048828125" text="Колір" />
-                                                <TableColumn fx:id="EditTrasportDelete" prefWidth="36.0" text="Видалити" />
+                                                <TableColumn fx:id="EditTransportColor" prefWidth="72.800048828125" text="Колір" />
+                                                <TableColumn fx:id="EditTransportDelete" prefWidth="36.0" text="Видалити" />
                                             </columns>
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -193,16 +193,16 @@ public class WorkerpanelController {
     private TableColumn<String, String> EditTransportVinNumber;
 
     @FXML
-    private TableColumn<String, String> EditTrasportColor;
+    private TableColumn<String, String> EditTransportColor;
 
     @FXML
-    private TableColumn<String, String> EditTrasportDelete;
+    private TableColumn<String, String> EditTransportDelete;
 
     @FXML
-    private TableColumn<String, String> EditTrasportEngineCapacity;
+    private TableColumn<String, String> EditTransportEngineCapacity;
 
     @FXML
-    private TableColumn<String, String> EditTrasportRegNumber;
+    private TableColumn<String, String> EditTransportRegNumber;
 
     @FXML
     private AnchorPane Human;
@@ -918,11 +918,11 @@ public class WorkerpanelController {
         EditTransportMaker.setCellValueFactory(new PropertyValueFactory<>("maker"));
         EditTransportModel.setCellValueFactory(new PropertyValueFactory<>("model"));
         EditTransportType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        EditTrasportRegNumber.setCellValueFactory(new PropertyValueFactory<>("regNumber"));
+        EditTransportRegNumber.setCellValueFactory(new PropertyValueFactory<>("regNumber"));
         EditTransportVinNumber.setCellValueFactory(new PropertyValueFactory<>("vinNumber"));
-        EditTrasportEngineCapacity.setCellValueFactory(new PropertyValueFactory<>("engineCapacity"));
+        EditTransportEngineCapacity.setCellValueFactory(new PropertyValueFactory<>("engineCapacity"));
         EditTransportFuelType.setCellValueFactory(new PropertyValueFactory<>("fuelType"));
-        EditTrasportColor.setCellValueFactory(new PropertyValueFactory<>("color"));
+        EditTransportColor.setCellValueFactory(new PropertyValueFactory<>("color"));
 
         EditTransportTable.setItems(vehiclePolicies);
     }
