@@ -98,7 +98,7 @@ public class WorkerpanelController {
     private TableColumn<String, String> EditBusinessServIndustries;
 
     @FXML
-    private TableView<String> EditBusinessTable;
+    private TableView<BusinessPolicy> EditBusinessTable;
 
     @FXML
     private Button EditHuman;
@@ -547,6 +547,7 @@ public class WorkerpanelController {
         addAllBuildPoliciesToTable();
         addAllHumanPoliciesToTable();
         addAllItemsPoliciesToTable();
+        addAllBusinessPoliciesToTable();
         //transport
         transport_choisebox_reg_fuel.getItems().addAll(fueltype);
         transport_choisebox_reg_type.getItems().addAll(transporttype);
@@ -899,6 +900,7 @@ public class WorkerpanelController {
     private void signUpNewBusinessPolicy() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
+        String id = null;
         String client = bussiness_reg_choisebox_user.getValue();
         String name = bussiness_field_reg_name.getText();
         String servIndustries = bussiness_field_reg_sphere.getText();
@@ -907,7 +909,7 @@ public class WorkerpanelController {
         String compensation = bussiness_reg_choisebox_compensation.getValue();
         String respons = bussiness_reg_radiobutton_vidpovidal_yes.isSelected() ? "Так" : "Ні";
 
-        BusinessPolicy businessPolicy = new BusinessPolicy(client, name, servIndustries, businessCost, profitPerYear, compensation, respons);
+        BusinessPolicy businessPolicy = new BusinessPolicy(id, client, name, servIndustries, businessCost, profitPerYear, compensation, respons);
 
         dbHandler.signUpBusinessPolicy(businessPolicy);
     }
@@ -983,5 +985,22 @@ public class WorkerpanelController {
         EditItemCompensation.setCellValueFactory(new PropertyValueFactory<>("compensation"));
 
         EditItemTable.setItems(itemsPolicies);
+    }
+
+    private void addAllBusinessPoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<BusinessPolicy> businessPolicies = FXCollections.observableArrayList(databaseHandler.getBusinessPolicy());
+
+        EditBusinessIdbusinessPolicy.setCellValueFactory(new PropertyValueFactory<>("id"));
+        EditBusinessClient.setCellValueFactory(new PropertyValueFactory<>("client"));
+        EditBusinessName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        EditBusinessServIndustries.setCellValueFactory(new PropertyValueFactory<>("servIndustries"));
+        EditBusinessBusinessCost.setCellValueFactory(new PropertyValueFactory<>("businessCost"));
+        EditBusinessProfitPerYear.setCellValueFactory(new PropertyValueFactory<>("profitPerYear"));
+        EditBusinessRespons.setCellValueFactory(new PropertyValueFactory<>("respons"));
+        EditBusinessCompensation.setCellValueFactory(new PropertyValueFactory<>("compensation"));
+
+        EditBusinessTable.setItems(businessPolicies);
     }
 }

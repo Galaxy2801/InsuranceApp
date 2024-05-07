@@ -1,6 +1,7 @@
 package com.example.insuranceapp;
 
 public class BusinessPolicy {
+    private String id;
     private String client;
     private String name;
     private String servIndustries;
@@ -9,7 +10,8 @@ public class BusinessPolicy {
     private String compensation;
     private String respons;
 
-    public BusinessPolicy(String client, String name, String servIndustries, String businessCost, String profitPerYear, String compensation, String respons) {
+    public BusinessPolicy(String id, String client, String name, String servIndustries, String businessCost, String profitPerYear, String compensation, String respons) {
+        this.id = id;
         this.client = client;
         this.name = name;
         this.servIndustries = servIndustries;
@@ -17,6 +19,14 @@ public class BusinessPolicy {
         this.profitPerYear = profitPerYear;
         this.compensation = compensation;
         this.respons = respons;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getClient() {
