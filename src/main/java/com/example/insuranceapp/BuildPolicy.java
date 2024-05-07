@@ -1,6 +1,7 @@
 package com.example.insuranceapp;
 
 public class BuildPolicy {
+    private String id;
     private String client;
     private String address;
     private String area;
@@ -9,7 +10,8 @@ public class BuildPolicy {
     private String numOfRooms;
     private String cost;
 
-    public BuildPolicy(String client, String address, String area, String areaUnit, String buildType, String numOfRooms, String cost) {
+    public BuildPolicy(String id, String client, String address, String area, String areaUnit, String buildType, String numOfRooms, String cost) {
+        this.id = id;
         this.client = client;
         this.address = address;
         this.area = area;
@@ -17,6 +19,14 @@ public class BuildPolicy {
         this.buildType = buildType;
         this.numOfRooms = numOfRooms;
         this.cost = cost;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getClient() {

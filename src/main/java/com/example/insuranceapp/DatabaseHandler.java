@@ -94,20 +94,20 @@ public class DatabaseHandler extends Configs {
                 VehiclePolicyConst.POLICY_TYPE + ", " + VehiclePolicyConst.POLICY_REG_NUMBER + ", " +
                 VehiclePolicyConst.POLICY_VIN_NUMBER + ", " + VehiclePolicyConst.POLICY_ENGINE_CAPACITY + ", " +
                 VehiclePolicyConst.POLICY_FUEL_TYPE + ", " + VehiclePolicyConst.POLICY_COLOR + ")" +
-                "VALUES (?,?,?,?,?,?,?,?,?)";
+                "VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
             prSt.setString(1, vehiclePolicy.getId());
-            prSt.setString(1, vehiclePolicy.getClient());
-            prSt.setString(2, vehiclePolicy.getMaker());
-            prSt.setString(3, vehiclePolicy.getModel());
-            prSt.setString(4, vehiclePolicy.getType());
-            prSt.setString(5, vehiclePolicy.getRegNumber());
-            prSt.setString(6, vehiclePolicy.getVinNumber());
-            prSt.setString(7, vehiclePolicy.getEngineCapacity());
-            prSt.setString(8, vehiclePolicy.getFuelType());
-            prSt.setString(9, vehiclePolicy.getColor());
+            prSt.setString(2, vehiclePolicy.getClient());
+            prSt.setString(3, vehiclePolicy.getMaker());
+            prSt.setString(4, vehiclePolicy.getModel());
+            prSt.setString(5, vehiclePolicy.getType());
+            prSt.setString(6, vehiclePolicy.getRegNumber());
+            prSt.setString(7, vehiclePolicy.getVinNumber());
+            prSt.setString(8, vehiclePolicy.getEngineCapacity());
+            prSt.setString(9, vehiclePolicy.getFuelType());
+            prSt.setString(10, vehiclePolicy.getColor());
 
             prSt.executeUpdate();
         } catch (SQLException e) {
@@ -162,6 +162,7 @@ public class DatabaseHandler extends Configs {
 
             while (resultSet.next()) {
                 BuildPolicy policy = new BuildPolicy(
+                        resultSet.getString(BuildPolicyConst.POLICY_ID),
                         resultSet.getString(BuildPolicyConst.POLICY_CLIENT),
                         resultSet.getString(BuildPolicyConst.POLICY_ADDRESS),
                         resultSet.getString(BuildPolicyConst.POLICY_AREA),
@@ -298,20 +299,22 @@ public class DatabaseHandler extends Configs {
 
     public void signUpBuildPolicy(BuildPolicy buildPolicy) {
         String insert = "INSERT INTO " + BuildPolicyConst.POLICY_TABLE + "(" +
-                BuildPolicyConst.POLICY_CLIENT + ", " + BuildPolicyConst.POLICY_ADDRESS + ", " +
-                BuildPolicyConst.POLICY_AREA + ", " + BuildPolicyConst.POLICY_AREA_UNIT + ", " +
-                BuildPolicyConst.POLICY_BUILD_TYPE + ", " + BuildPolicyConst.POLICY_NUM_OF_ROOMS + ", " +
-                BuildPolicyConst.POLICY_COST + ")" + "VALUES (?,?,?,?,?,?,?)";
+                BuildPolicyConst.POLICY_ID + ", " + BuildPolicyConst.POLICY_CLIENT + ", " +
+                BuildPolicyConst.POLICY_ADDRESS + ", " + BuildPolicyConst.POLICY_AREA + ", " +
+                BuildPolicyConst.POLICY_AREA_UNIT + ", " + BuildPolicyConst.POLICY_BUILD_TYPE + ", " +
+                BuildPolicyConst.POLICY_NUM_OF_ROOMS + ", " + BuildPolicyConst.POLICY_COST + ")" +
+                "VALUES (?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1, buildPolicy.getClient());
-            prSt.setString(2, buildPolicy.getAddress());
-            prSt.setString(3, buildPolicy.getArea());
-            prSt.setString(4, buildPolicy.getAreaUnit());
-            prSt.setString(5, buildPolicy.getBuildType());
-            prSt.setString(6, buildPolicy.getNumOfRooms());
-            prSt.setString(7, buildPolicy.getCost().toString());
+            prSt.setString(1, buildPolicy.getId());
+            prSt.setString(2, buildPolicy.getClient());
+            prSt.setString(3, buildPolicy.getAddress());
+            prSt.setString(4, buildPolicy.getArea());
+            prSt.setString(5, buildPolicy.getAreaUnit());
+            prSt.setString(6, buildPolicy.getBuildType());
+            prSt.setString(7, buildPolicy.getNumOfRooms());
+            prSt.setString(8, buildPolicy.getCost());
 
             prSt.executeUpdate();
         } catch (SQLException e) {

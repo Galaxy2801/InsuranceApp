@@ -204,7 +204,6 @@
                                               <TableColumn fx:id="EditBuildClient" prefWidth="113.59996795654297" text="Клієнт" />
                                                 <TableColumn fx:id="EditBuildAddress" prefWidth="75.0" text="Адреса" />
                                                 <TableColumn fx:id="EditBuildArea" prefWidth="53.60003662109375" text="Площа" />
-                                                <TableColumn fx:id="EditBuildAreaUnit" prefWidth="79.99993896484375" text="Тип Площі" />
                                                 <TableColumn fx:id="EditBuildBuildType" prefWidth="85.59994506835938" text="Тип Нерухомості" />
                                                 <TableColumn fx:id="EditBuildNumOfRooms" prefWidth="95.19998168945312" text="Кількість Кімнат" />
                                                 <TableColumn fx:id="EditBuildCost" prefWidth="74.4000244140625" text="Вартість" />

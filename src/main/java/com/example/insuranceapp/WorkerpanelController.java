@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -43,7 +44,7 @@ public class WorkerpanelController {
     private TableColumn<String, String> EditBuildAddress;
 
     @FXML
-    private TableColumn<String, String> EditBuildArea;
+    private TableColumn<BuildPolicy, String> EditBuildArea;
 
     @FXML
     private TableColumn<String,String> EditBuildAreaUnit;
@@ -67,7 +68,7 @@ public class WorkerpanelController {
     private TableColumn<String, String> EditBuildNumOfRooms;
 
     @FXML
-    private TableView<String> EditBuildTable;
+    private TableView<BuildPolicy> EditBuildTable;
 
     @FXML
     private Button EditBusiness;
@@ -546,6 +547,7 @@ public class WorkerpanelController {
     @FXML
     void initialize() {
         addAllVehiclePoliciesToTable();
+        addAllBuildPoliciesToTable();
         //transport
         transport_choisebox_reg_fuel.getItems().addAll(fueltype);
         transport_choisebox_reg_type.getItems().addAll(transporttype);
@@ -801,6 +803,7 @@ public class WorkerpanelController {
     private void signUpNewBuildPolicy() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
+        String id = null;
         String client = build_reg_choisebox_user.getValue();
         String address = build_field_reg_address.getText();
         String area = build_field_reg_area.getText();
@@ -818,7 +821,7 @@ public class WorkerpanelController {
         String numOfRooms = build_field_reg_roomnum.getText();
         String cost = build_reg_Choicebox_cost_selector.getValue();
 
-        BuildPolicy buildPolicy = new BuildPolicy(client, address, area, areaUnit, buildType, numOfRooms, cost);
+        BuildPolicy buildPolicy = new BuildPolicy(id, client, address, area, areaUnit, buildType, numOfRooms, cost);
 
         dbHandler.signUpBuildPolicy(buildPolicy);
     }
@@ -925,5 +928,27 @@ public class WorkerpanelController {
         EditTransportColor.setCellValueFactory(new PropertyValueFactory<>("color"));
 
         EditTransportTable.setItems(vehiclePolicies);
+    }
+
+    private void addAllBuildPoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<BuildPolicy> buildPolicies = FXCollections.observableArrayList(databaseHandler.getBuildPolicy());
+
+        EditBuildIdbuildPolicy.setCellValueFactory(new PropertyValueFactory<>("id"));
+        EditBuildClient.setCellValueFactory(new PropertyValueFactory<>("client"));
+        EditBuildAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        EditBuildArea.setCellValueFactory(cellData -> {
+            BuildPolicy buildPolicy = cellData.getValue();
+            String area = buildPolicy.getArea();
+            String areaUnit = buildPolicy.getAreaUnit();
+            String combinedInfo = area + " " + areaUnit;
+            return new SimpleStringProperty(combinedInfo);
+        });
+        EditBuildBuildType.setCellValueFactory(new PropertyValueFactory<>("buildType"));
+        EditBuildNumOfRooms.setCellValueFactory(new PropertyValueFactory<>("numOfRooms"));
+        EditBuildCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+
+        EditBuildTable.setItems(buildPolicies);
     }
 }
