@@ -158,7 +158,7 @@ public class WorkerpanelController {
     private TableColumn<String, String> EditItemPropCondition;
 
     @FXML
-    private TableView<String> EditItemTable;
+    private TableView<ItemsPolicy> EditItemTable;
 
     @FXML
     private Button EditPolicy;
@@ -546,6 +546,7 @@ public class WorkerpanelController {
         addAllVehiclePoliciesToTable();
         addAllBuildPoliciesToTable();
         addAllHumanPoliciesToTable();
+        addAllItemsPoliciesToTable();
         //transport
         transport_choisebox_reg_fuel.getItems().addAll(fueltype);
         transport_choisebox_reg_type.getItems().addAll(transporttype);
@@ -883,13 +884,14 @@ public class WorkerpanelController {
     private void signUpNewItemsPolicy() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
+        String id = null;
         String client = Item_reg_choisebox_user.getValue();
         String name = Item_field_reg_name.getText();
         String cost = Item_field_reg_cost.getText();
         String propCondition = Item_field_reg_stanmaina.getText();
         String compensation = Item_reg_choisebox_compensation.getValue();
 
-        ItemsPolicy itemPolicy = new ItemsPolicy(client, name, cost, propCondition, compensation);
+        ItemsPolicy itemPolicy = new ItemsPolicy(id, client, name, cost, propCondition, compensation);
 
         dbHandler.signUpItemsPolicy(itemPolicy);
     }
@@ -966,5 +968,20 @@ public class WorkerpanelController {
         EditHumanHealth.setCellValueFactory(new PropertyValueFactory<>("health"));
 
         EditHumanTable.setItems(humanPolicies);
+    }
+
+    private void addAllItemsPoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<ItemsPolicy> itemsPolicies = FXCollections.observableArrayList(databaseHandler.getItemsPolicy());
+
+        EditItemIditemsPolicy.setCellValueFactory(new PropertyValueFactory<>("id"));
+        EditItemClient.setCellValueFactory(new PropertyValueFactory<>("client"));
+        EditItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        EditItemCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+        EditItemPropCondition.setCellValueFactory(new PropertyValueFactory<>("propCondition"));
+        EditItemCompensation.setCellValueFactory(new PropertyValueFactory<>("compensation"));
+
+        EditItemTable.setItems(itemsPolicies);
     }
 }

@@ -1,18 +1,28 @@
 package com.example.insuranceapp;
 
 public class ItemsPolicy {
+    private String id;
     private String client;
     private String name;
     private String cost;
     private String propCondition;
     private String compensation;
 
-    public ItemsPolicy(String client, String name, String cost, String propCondition, String compensation) {
+    public ItemsPolicy(String id, String client, String name, String cost, String propCondition, String compensation) {
+        this.id = id;
         this.client = client;
         this.name = name;
         this.cost = cost;
         this.propCondition = propCondition;
         this.compensation = compensation;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getClient() {

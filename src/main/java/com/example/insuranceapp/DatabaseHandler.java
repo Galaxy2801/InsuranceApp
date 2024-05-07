@@ -226,6 +226,7 @@ public class DatabaseHandler extends Configs {
 
             while (resultSet.next()) {
                 ItemsPolicy policy = new ItemsPolicy(
+                        resultSet.getString(ItemsPolicyConst.POLICY_ID),
                         resultSet.getString(ItemsPolicyConst.POLICY_CLIENT),
                         resultSet.getString(ItemsPolicyConst.POLICY_NAME),
                         resultSet.getString(ItemsPolicyConst.POLICY_COST),
@@ -354,17 +355,19 @@ public class DatabaseHandler extends Configs {
 
     public void signUpItemsPolicy(ItemsPolicy itemsPolicy) {
         String insert = "INSERT INTO " + ItemsPolicyConst.POLICY_TABLE + "(" +
-                ItemsPolicyConst.POLICY_CLIENT + ", " + ItemsPolicyConst.POLICY_NAME + ", " +
-                ItemsPolicyConst.POLICY_COST + ", " + ItemsPolicyConst.POLICY_PROP_CONDITION + ", " +
-                ItemsPolicyConst.POLICY_COMPENSATION + ")" + "VALUES (?,?,?,?,?)";
+                ItemsPolicyConst.POLICY_ID + ", " + ItemsPolicyConst.POLICY_CLIENT + ", " +
+                ItemsPolicyConst.POLICY_NAME + ", " + ItemsPolicyConst.POLICY_COST + ", " +
+                ItemsPolicyConst.POLICY_PROP_CONDITION + ", " + ItemsPolicyConst.POLICY_COMPENSATION + ")" +
+                "VALUES (?,?,?,?,?,?)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1, itemsPolicy.getClient());
-            prSt.setString(2, itemsPolicy.getName());
-            prSt.setString(3, itemsPolicy.getCost());
-            prSt.setString(4, itemsPolicy.getPropCondition());
-            prSt.setString(5, itemsPolicy.getCompensation());
+            prSt.setString(1, itemsPolicy.getId());
+            prSt.setString(2, itemsPolicy.getClient());
+            prSt.setString(3, itemsPolicy.getName());
+            prSt.setString(4, itemsPolicy.getCost());
+            prSt.setString(5, itemsPolicy.getPropCondition());
+            prSt.setString(6, itemsPolicy.getCompensation());
 
             prSt.executeUpdate();
         } catch (SQLException e) {
