@@ -1,6 +1,7 @@
 package com.example.insuranceapp;
 
 public class HumanPolicy {
+    private String id;
     private String client;
     private String firstName;
     private String secondName;
@@ -9,7 +10,8 @@ public class HumanPolicy {
     private String gender;
     private String health;
 
-    public HumanPolicy(String client, String firstName, String secondName, String age, String middleName, String gender, String health) {
+    public HumanPolicy(String id, String client, String firstName, String secondName, String age, String middleName, String gender, String health) {
+        this.id = id;
         this.client = client;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -17,6 +19,14 @@ public class HumanPolicy {
         this.middleName = middleName;
         this.gender = gender;
         this.health = health;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getClient() {

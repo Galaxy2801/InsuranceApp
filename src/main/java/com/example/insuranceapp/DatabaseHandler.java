@@ -194,6 +194,7 @@ public class DatabaseHandler extends Configs {
 
             while (resultSet.next()) {
                 HumanPolicy policy = new HumanPolicy(
+                        resultSet.getString(HumanPolicyConst.POLICY_ID),
                         resultSet.getString(HumanPolicyConst.POLICY_CLIENT),
                         resultSet.getString(HumanPolicyConst.POLICY_FIRSTNAME),
                         resultSet.getString(HumanPolicyConst.POLICY_SECONDNAME),
@@ -326,20 +327,22 @@ public class DatabaseHandler extends Configs {
 
     public void signUpHumanPolicy(HumanPolicy humanPolicy) {
         String insert = "INSERT INTO " + HumanPolicyConst.POLICY_TABLE + "(" +
-                HumanPolicyConst.POLICY_CLIENT + ", " + HumanPolicyConst.POLICY_FIRSTNAME + ", " +
-                HumanPolicyConst.POLICY_SECONDNAME + ", " + HumanPolicyConst.POLICY_MIDDLENAME + ", " +
-                HumanPolicyConst.POLICY_AGE + ", " + HumanPolicyConst.POLICY_GENDER + ", " +
-                HumanPolicyConst.POLICY_HEALTH + ")" + "VALUES (?,?,?,?,?,?,?)";
+                HumanPolicyConst.POLICY_ID + ", " + HumanPolicyConst.POLICY_CLIENT + ", " +
+                HumanPolicyConst.POLICY_FIRSTNAME + ", " + HumanPolicyConst.POLICY_SECONDNAME + ", " +
+                HumanPolicyConst.POLICY_MIDDLENAME + ", " + HumanPolicyConst.POLICY_AGE + ", " +
+                HumanPolicyConst.POLICY_GENDER + ", " + HumanPolicyConst.POLICY_HEALTH + ")" +
+                "VALUES (?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1, humanPolicy.getClient());
-            prSt.setString(2, humanPolicy.getFirstName());
-            prSt.setString(3, humanPolicy.getSecondName());
-            prSt.setString(4, humanPolicy.getMiddleName());
-            prSt.setString(5, humanPolicy.getAge());
-            prSt.setString(6, humanPolicy.getGender());
-            prSt.setString(7, humanPolicy.getHealth());
+            prSt.setString(1, humanPolicy.getId());
+            prSt.setString(2, humanPolicy.getClient());
+            prSt.setString(3, humanPolicy.getFirstName());
+            prSt.setString(4, humanPolicy.getSecondName());
+            prSt.setString(5, humanPolicy.getMiddleName());
+            prSt.setString(6, humanPolicy.getAge());
+            prSt.setString(7, humanPolicy.getGender());
+            prSt.setString(8, humanPolicy.getHealth());
 
             prSt.executeUpdate();
         } catch (SQLException e) {

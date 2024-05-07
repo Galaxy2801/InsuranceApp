@@ -47,9 +47,6 @@ public class WorkerpanelController {
     private TableColumn<BuildPolicy, String> EditBuildArea;
 
     @FXML
-    private TableColumn<String,String> EditBuildAreaUnit;
-
-    @FXML
     private TableColumn<String, String> EditBuildBuildType;
 
     @FXML
@@ -134,7 +131,7 @@ public class WorkerpanelController {
     private TableColumn<String, String> EditHumanSecondName;
 
     @FXML
-    private TableView<String> EditHumanTable;
+    private TableView<HumanPolicy> EditHumanTable;
 
     @FXML
     private Button EditItem;
@@ -548,6 +545,7 @@ public class WorkerpanelController {
     void initialize() {
         addAllVehiclePoliciesToTable();
         addAllBuildPoliciesToTable();
+        addAllHumanPoliciesToTable();
         //transport
         transport_choisebox_reg_fuel.getItems().addAll(fueltype);
         transport_choisebox_reg_type.getItems().addAll(transporttype);
@@ -852,6 +850,7 @@ public class WorkerpanelController {
     private void signUpNewHumanPolicy() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
+        String id = null;
         String client = human_reg_choisebox_user.getValue();
         String firstName = human_field_reg_name.getText();
         String secondName = human_field_reg_prizv.getText();
@@ -860,7 +859,7 @@ public class WorkerpanelController {
         String gender = human_gender_reg_man.isSelected() ? "Чоловіча" : "Жіноча";
         String health = human_health_reg_zdorov.isSelected() ? "Здоровий" : "Інвалід";
 
-        HumanPolicy humanPolicy = new HumanPolicy(client, firstName, secondName, middleName, age, gender, health);
+        HumanPolicy humanPolicy = new HumanPolicy(id, client, firstName, secondName, middleName, age, gender, health);
 
         dbHandler.signUpHumanPolicy(humanPolicy);
 
@@ -950,5 +949,22 @@ public class WorkerpanelController {
         EditBuildCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
         EditBuildTable.setItems(buildPolicies);
+    }
+
+    private void addAllHumanPoliciesToTable() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        ObservableList<HumanPolicy> humanPolicies = FXCollections.observableArrayList(databaseHandler.getHumanPolicy());
+
+        EditHumanIdhumanPolicy.setCellValueFactory(new PropertyValueFactory<>("id"));
+        EditHumanClient.setCellValueFactory(new PropertyValueFactory<>("client"));
+        EditHumanFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        EditHumanSecondName.setCellValueFactory(new PropertyValueFactory<>("secondName"));
+        EditHumanMiddleName.setCellValueFactory(new PropertyValueFactory<>("middleName"));
+        EditHumanAge.setCellValueFactory(new PropertyValueFactory<>("age"));
+        EditHumanGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        EditHumanHealth.setCellValueFactory(new PropertyValueFactory<>("health"));
+
+        EditHumanTable.setItems(humanPolicies);
     }
 }
