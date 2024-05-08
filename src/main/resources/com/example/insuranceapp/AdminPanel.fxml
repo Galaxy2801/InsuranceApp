@@ -19,11 +19,11 @@
             </Text>
          </children>
       </AnchorPane>
-      <Button fx:id="AdminPanelSetAdmin" layoutX="457.0" layoutY="200.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Адмін" />
-      <ChoiceBox fx:id="AdminPanelUserChoiceBox" layoutX="196.0" layoutY="145.0" prefHeight="34.0" prefWidth="206.0" />
-      <Button fx:id="AdminPanelBackButton" layoutX="35.0" layoutY="317.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="120.0" text="Повернутися" />
-      <Button fx:id="AdminPanelSetUser" layoutX="457.0" layoutY="260.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Користувач" />
-      <TextArea fx:id="AdminPanelShowUser" editable="false" layoutX="199.0" layoutY="196.0" prefHeight="26.0" prefWidth="200.0" promptText="Права Доступу">
+      <Button fx:id="AdminPanelSetAdmin" focusTraversable="false" layoutX="457.0" layoutY="200.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Адмін" />
+      <ChoiceBox fx:id="AdminPanelUserChoiceBox" focusTraversable="false" layoutX="196.0" layoutY="145.0" prefHeight="34.0" prefWidth="206.0" />
+      <Button fx:id="AdminPanelBackButton" focusTraversable="false" layoutX="35.0" layoutY="317.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="120.0" text="Повернутися" />
+      <Button fx:id="AdminPanelSetUser" focusTraversable="false" layoutX="457.0" layoutY="260.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Користувач" />
+      <TextArea fx:id="AdminPanelShowUser" editable="false" focusTraversable="false" layoutX="199.0" layoutY="196.0" prefHeight="26.0" prefWidth="200.0" promptText="Права Доступу" style="-fx-background-color: #fafafa;">
          <font>
             <Font size="11.0" />
          </font>
