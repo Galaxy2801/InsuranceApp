@@ -552,7 +552,7 @@ public class WorkerpanelController {
         transport_choisebox_reg_fuel.getItems().addAll(fueltype);
         transport_choisebox_reg_type.getItems().addAll(transporttype);
         DatabaseHandler dbHandler = new DatabaseHandler();
-        List<String> items = dbHandler.getItemsFromDatabase();
+        List<String> items = dbHandler.getClientsFromDatabase();
         transport_reg_choisebox_user.getItems().addAll(items);
         //transport
 

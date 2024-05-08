@@ -277,10 +277,33 @@ public class DatabaseHandler extends Configs {
         return policies;
     }
 
-    public List<String> getItemsFromDatabase() {
+    public List<String> getClientsFromDatabase() {
         List<String> items = new ArrayList<>();
 
         String selectQuery = "SELECT username FROM users WHERE permission = 'Клієнт'";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(selectQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String item = resultSet.getString("username");
+                items.add(item);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return items;
+    }
+
+    public List<String> getAllUsersFromDatabase() {
+        List<String> items = new ArrayList<>();
+
+        String selectQuery = "SELECT username FROM users";
 
         try {
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(selectQuery);

@@ -585,7 +585,8 @@ public class AdminController {
         Admintransport_choisebox_reg_fuel.getItems().addAll(fueltype);
         Admintransport_choisebox_reg_type.getItems().addAll(transporttype);
         DatabaseHandler dbHandler = new DatabaseHandler();
-        List<String> items = dbHandler.getItemsFromDatabase();
+        List<String> items = dbHandler.getClientsFromDatabase();
+        List<String> users = dbHandler.getAllUsersFromDatabase();
         Admintransport_reg_choisebox_user.getItems().addAll(items);
         //transport
 
@@ -627,6 +628,8 @@ public class AdminController {
         AdminItem_reg_choisebox_compensation.getItems().addAll(itemcompensation);
         AdminItem_reg_choisebox_user.getItems().addAll(items);
         //item
+
+        choiceBoxUserPermission.getItems().addAll(users);
 
         Admintransport_reg_button.setOnAction(event -> {
             if (validateTransportFields()) {
