@@ -298,6 +298,18 @@ public class AdminController {
     private Button AdmincreationBuild;
 
     @FXML
+    private Button SetAdminPermission;
+
+    @FXML
+    private Button SetUserPermission;
+
+    @FXML
+    private ListView<String> ShowUserPermission;
+
+    @FXML
+    private ChoiceBox<String> choiceBoxUserPermission;
+
+    @FXML
     private Button AdmincreationBusiness;
 
     @FXML
