@@ -3,33 +3,664 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="AdminPanel" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #b1edd2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.insuranceapp.AdminController">
+<AnchorPane fx:id="Adminpane" prefHeight="534.0" prefWidth="807.0" style="-fx-background-color: #b1edd2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.insuranceapp.WorkerpanelController">
    <children>
-      <AnchorPane prefHeight="34.0" prefWidth="600.0" style="-fx-background-color: #1B5452;">
+      <AnchorPane prefHeight="30.0" prefWidth="998.0" style="-fx-background-color: #1B5452;">
          <children>
-            <Text fill="WHITE" layoutX="216.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Панель Адміна">
+            <Text fill="WHITE" layoutX="410.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Панель робітника">
                <font>
-                  <Font name="Cascadia Code Regular" size="22.0" />
+                  <Font name="Cascadia Code Regular" size="19.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <Button fx:id="AdminPanelSetAdmin" focusTraversable="false" layoutX="457.0" layoutY="200.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Адмін" />
-      <ChoiceBox fx:id="AdminPanelUserChoiceBox" focusTraversable="false" layoutX="196.0" layoutY="145.0" prefHeight="34.0" prefWidth="206.0" />
-      <Button fx:id="AdminPanelBackButton" focusTraversable="false" layoutX="35.0" layoutY="317.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="120.0" text="Повернутися" />
-      <Button fx:id="AdminPanelSetUser" focusTraversable="false" layoutX="457.0" layoutY="260.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Користувач" />
-      <TextArea fx:id="AdminPanelShowUser" editable="false" focusTraversable="false" layoutX="199.0" layoutY="196.0" prefHeight="26.0" prefWidth="200.0" promptText="Права Доступу" style="-fx-background-color: #fafafa;">
-         <font>
-            <Font size="11.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </TextArea>
+      <BorderPane fx:id="Adminworkpane" layoutY="30.0" prefHeight="504.0" prefWidth="998.0">
+         <left>
+            <AnchorPane prefHeight="504.0" prefWidth="218.0" style="-fx-background-color: #24716f;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="504.0" prefWidth="218.0">
+                     <children>
+                        <Button fx:id="AdmincreationTransport" mnemonicParsing="false" onAction="#AdminhandleCreationTransport" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #24716f;" text="Транспорт" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/car.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="AdmincreationBuild" mnemonicParsing="false" onAction="#AdminhandleCreationBuild" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #24716f;" text="Нерухомість" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="AdmincreationHuman" mnemonicParsing="false" onAction="#AdminhandleCreationHuman" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #24716f;" text="Особа" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/human.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="50.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="AdmincreationItems" mnemonicParsing="false" onAction="#AdminhandleCreationItems" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #24716f;" text="Майно" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/box.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="45.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="AdmincreationBusiness" mnemonicParsing="false" onAction="#AdminhandleCreationBussiness" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #24716f;" text="Бізнес" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/dollar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="50.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="AdminEditPolicy" mnemonicParsing="false" onAction="#AdminhandleEditPolicy" prefHeight="53.0" prefWidth="218.0" style="-fx-background-color: #24716f;" text="Редагування" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/folder.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="AdminEditPermission" mnemonicParsing="false" onAction="#AdminhandleEditPermission" prefHeight="53.0" prefWidth="218.0" style="-fx-background-color: #24716f;" text="Права Доступу" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/folder.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="back" mnemonicParsing="false" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #24716f;" text="Повернутися" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="80.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/exit%202.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="exit" mnemonicParsing="false" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #24716f;" text="Вихід" textFill="WHITE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/exit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="60.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <StackPane prefHeight="504.0" prefWidth="630.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="Adminredactview" prefHeight="504.0" prefWidth="633.0" visible="false">
+                     <children>
+                        <BorderPane layoutX="8.0" layoutY="8.0" prefHeight="490.0" prefWidth="765.0">
+                           <center>
+                              <StackPane prefHeight="470.0" prefWidth="461.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <AnchorPane fx:id="AdmineditBuildPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                                       <children>
+                                          <Text layoutX="234.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зміна полісів Нерухомості">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="AdminEditBuildTable" layoutX="14.0" layoutY="24.0" prefHeight="435.0" prefWidth="634.0">
+                                             <columns>
+                                                <TableColumn fx:id="AdminEditBuildIdbuildPolicy" prefWidth="32.80005073547363" text="№" />
+                                                <TableColumn fx:id="AdminEditBuildClient" prefWidth="113.59996795654297" text="Клієнт" />
+                                                <TableColumn fx:id="AdminEditBuildAddress" prefWidth="75.0" text="Адреса" />
+                                                <TableColumn fx:id="AdminEditBuildArea" prefWidth="53.60003662109375" text="Площа" />
+                                                <TableColumn fx:id="AdminEditBuildBuildType" prefWidth="85.59994506835938" text="Тип Нерухомості" />
+                                                <TableColumn fx:id="AdminEditBuildNumOfRooms" prefWidth="95.19998168945312" text="Кількість Кімнат" />
+                                                <TableColumn fx:id="AdminEditBuildCost" prefWidth="74.4000244140625" text="Вартість" />
+                                                <TableColumn fx:id="AdminEditBuildDelete" prefWidth="61.5999755859375" text="Видалити" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="AdmineditHumanPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                                       <children>
+                                          <Text layoutX="256.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зміна полісів Особи">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="AdminEditHumanTable" layoutX="14.0" layoutY="24.0" prefHeight="438.0" prefWidth="633.0">
+                                             <columns>
+                                                <TableColumn fx:id="AdminEditHumanIdhumanPolicy" prefWidth="37.60003852844238" text="№" />
+                                                <TableColumn fx:id="AdminEditHumanClient" prefWidth="99.99999237060547" text="Клієнт" />
+                                                <TableColumn fx:id="AdminEditHumanFirstName" prefWidth="96.0" text="Ім'я" />
+                                                <TableColumn fx:id="AdminEditHumanSecondName" prefWidth="85.5999755859375" text="Прізвище" />
+                                                <TableColumn fx:id="AdminEditHumanMiddleName" prefWidth="111.19998168945312" text="По Батькові" />
+                                                <TableColumn fx:id="AdminEditHumanAge" prefWidth="32.0" text="Вік" />
+                                                <TableColumn fx:id="AdminEditHumanGender" prefWidth="63.200103759765625" text="Стать" />
+                                                <TableColumn fx:id="AdminEditHumanHealth" prefWidth="59.199951171875" text="Стан Здоров'я" />
+                                                <TableColumn fx:id="AdminEditHumanDelete" prefWidth="75.0" text="Видалити" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="AdmineditItemPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                                       <children>
+                                          <Text layoutX="273.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зміна полісів Майна">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="AdminEditItemTable" layoutX="14.0" layoutY="24.0" prefHeight="435.0" prefWidth="634.0">
+                                             <columns>
+                                                <TableColumn fx:id="AdminEditItemIditemsPolicy" prefWidth="75.0" text="№" />
+                                                <TableColumn fx:id="AdminEditItemClient" prefWidth="75.0" text="Клієнт" />
+                                                <TableColumn fx:id="AdminEditItemName" prefWidth="75.0" text="Назва" />
+                                                <TableColumn fx:id="AdminEditItemCost" prefWidth="75.0" text="Вартість" />
+                                                <TableColumn fx:id="AdminEditItemPropCondition" prefWidth="75.0" text="Стан Майна" />
+                                                <TableColumn fx:id="AdminEditItemCompensation" prefWidth="75.0" text="Компенсація" />
+                                                <TableColumn fx:id="AdminEditItemDelete" prefWidth="75.0" text="Видалити" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="AdmineditBusinessPane" prefHeight="455.0" prefWidth="474.0" visible="false">
+                                       <children>
+                                          <Text layoutX="253.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зміна полісів Бізнесу">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="AdminEditBusinessTable" layoutX="14.0" layoutY="24.0" prefHeight="433.0" prefWidth="634.0">
+                                             <columns>
+                                                <TableColumn fx:id="AdminEditBusinessIdbusinessPolicy" prefWidth="27.200014114379883" text="№" />
+                                                <TableColumn fx:id="AdminEditBusinessClient" prefWidth="89.59996795654297" text="Клієнт" />
+                                                <TableColumn fx:id="AdminEditBusinessName" prefWidth="88.79998779296875" text="Назва" />
+                                                <TableColumn fx:id="AdminEditBusinessServIndustries" prefWidth="120.0" text="Сфера Послуг" />
+                                                <TableColumn fx:id="AdminEditBusinessBusinessCost" prefWidth="71.99996948242188" text="Вартість Бізенсу" />
+                                                <TableColumn fx:id="AdminEditBusinessProfitPerYear" prefWidth="76.800048828125" text="Прибуток В Рік" />
+                                                <TableColumn fx:id="AdminEditBusinessCompensation" prefWidth="75.0" text="Компенсація" />
+                                                <TableColumn fx:id="AdminEditBusinessRespons" prefWidth="59.199951171875" text="Відповідальність Перед 3-и Особами" />
+                                                <TableColumn fx:id="AdminEditBusinessDelete" prefWidth="75.0" text="Видалити" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="AdmineditTransportPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+                                       <children>
+                                          <Text layoutX="237.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Зміна полісів Транспорту">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <TableView fx:id="AdminEditTransportTable" layoutX="14.0" layoutY="24.0" prefHeight="436.0" prefWidth="639.0">
+                                             <columns>
+                                                <TableColumn fx:id="AdminEditTransportIdvehiclePolicy" prefWidth="40.00000190734863" text="№" />
+                                                <TableColumn fx:id="AdminEditTransportClient" prefWidth="70.4000244140625" text="Клієнт" />
+                                                <TableColumn fx:id="AdminEditTransportMaker" prefWidth="69.59996795654297" text="Виробник" />
+                                                <TableColumn fx:id="AdminEditTransportModel" prefWidth="71.20001220703125" text="Модель" />
+                                                <TableColumn fx:id="AdminEditTransportType" prefWidth="85.5999755859375" text="Тип Транспорту" />
+                                                <TableColumn fx:id="AdminEditTransportRegNumber" prefWidth="58.399993896484375" text="Ресєтраційний Номер" />
+                                                <TableColumn fx:id="AdminEditTransportVinNumber" prefWidth="51.199951171875" text="Номер Шасі" />
+                                                <TableColumn fx:id="AdminEditTransportEngineCapacity" prefWidth="34.4000244140625" text="Об'єм Двигуна" />
+                                                <TableColumn fx:id="AdminEditTransportFuelType" minWidth="9.5999755859375" prefWidth="65.60000610351562" text="Тип Палива" />
+                                                <TableColumn fx:id="AdminEditTransportColor" prefWidth="72.800048828125" text="Колір" />
+                                                <TableColumn fx:id="AdminEditTransportDelete" prefWidth="36.0" text="Видалити" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </StackPane>
+                           </center>
+                           <top>
+                              <AnchorPane prefHeight="24.0" prefWidth="574.0" style="-fx-background-color: #1B5452;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Text fill="WHITE" layoutX="277.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Редагування полісів">
+                                       <font>
+                                          <Font name="Cascadia Code Regular" size="19.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                           </top>
+                           <left>
+                              <AnchorPane prefHeight="466.0" prefWidth="105.0" style="-fx-background-color: #24716f;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <VBox prefHeight="466.0" prefWidth="105.0">
+                                       <children>
+                                          <Button fx:id="AdminEditTransport" focusTraversable="false" mnemonicParsing="false" onAction="#AdminEditTransport" prefHeight="40.0" prefWidth="106.0" text="Транспорт" textAlignment="CENTER">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="5.0" top="15.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="AdminEditBuild" focusTraversable="false" mnemonicParsing="false" onAction="#AdminEditBuild" prefHeight="40.0" prefWidth="106.0" text="Нерухомість" textAlignment="CENTER">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="AdminEditHuman" focusTraversable="false" mnemonicParsing="false" onAction="#AdminEditHuman" prefHeight="40.0" prefWidth="106.0" text="Особа" textAlignment="CENTER">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button fx:id="AdminEditItem" focusTraversable="false" mnemonicParsing="false" onAction="#AdminEditItem" prefHeight="40.0" prefWidth="106.0" text="Майно" textAlignment="CENTER">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button fx:id="AdminEditBusiness" focusTraversable="false" mnemonicParsing="false" onAction="#AdminEditBusiness" prefHeight="40.0" prefWidth="106.0" text="Бізнес" textAlignment="CENTER">
+                                             <VBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </left>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="Admintransport" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Text layoutX="289.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу транспорту">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Admintransport_field_reg_number" focusTraversable="false" layoutX="535.0" layoutY="78.0" promptText="Номерний знак" style="-fx-background-color: #fafafa;" />
+                        <Button fx:id="Admintransport_reg_button" focusTraversable="false" layoutX="389.0" layoutY="372.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <TextField fx:id="Admintransport_field_reg_mark" focusTraversable="false" layoutX="138.0" layoutY="127.0" promptText="Виробник" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Admintransport_field_reg_vin" focusTraversable="false" layoutX="535.0" layoutY="127.0" promptText="Vin номер (17 символів)" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Admintransport_field_reg_model" focusTraversable="false" layoutX="138.0" layoutY="175.0" promptText="Модель" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Admintransport_field_reg_volume" focusTraversable="false" layoutX="535.0" layoutY="175.0" promptText="Об'єм двигуна в см³" style="-fx-background-color: #fafafa;" />
+                        <Text layoutX="48.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="348.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Реєстраційний номер">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="46.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Марка">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="42.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Модель">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="58.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="354.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер шасі (кузова)">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Admintransport_field_reg_color" focusTraversable="false" layoutX="535.0" layoutY="281.0" promptText="Колір транспорту" style="-fx-background-color: #fafafa;" />
+                        <Text layoutX="377.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Об'єм двигуна">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="380.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип пального">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="412.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Колір">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox fx:id="Admintransport_choisebox_reg_type" focusTraversable="false" layoutX="137.0" layoutY="230.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                        <ChoiceBox fx:id="Admintransport_choisebox_reg_fuel" focusTraversable="false" layoutX="534.0" layoutY="231.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                        <ChoiceBox fx:id="Admintransport_reg_choisebox_user" layoutX="138.0" layoutY="78.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="AdminBussiness" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <TextField fx:id="Adminbussiness_field_reg_name" layoutX="376.0" layoutY="91.0" promptText="Назва" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Adminbussiness_field_reg_sphere" layoutX="376.0" layoutY="139.0" promptText="Сфера послуг" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Adminbussiness_field_reg_costbussiness" layoutX="376.0" layoutY="183.0" promptText="Вартість бізнесу" style="-fx-background-color: #fafafa;" />
+                        <Text layoutX="294.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу бізнесу">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Adminbussiness_field_reg_moneyinyear" layoutX="376.0" layoutY="232.0" promptText="Прибуток в рік" style="-fx-background-color: #fafafa;" />
+                        <Text layoutX="253.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="254.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Назва">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="224.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сфера послуг">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="215.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вартість бізнесу">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="219.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Прибуток в рік">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="188.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Відповідальність перед 3-и особами" textAlignment="CENTER" wrappingWidth="178.125">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="227.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Компенсація">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="Adminbussiness_reg_radiobutton_vidpovidal_yes" focusTraversable="false" layoutX="390.0" layoutY="321.0" mnemonicParsing="false" text="Так" />
+                        <RadioButton fx:id="Adminbussiness_reg_radiobutton_vidpovidal_no" focusTraversable="false" layoutX="465.0" layoutY="321.0" mnemonicParsing="false" text="Ні" />
+                        <Button fx:id="Adminbussiness_reg_button" layoutX="465.0" layoutY="375.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <ChoiceBox fx:id="Adminbussiness_reg_choisebox_compensation" layoutX="376.0" layoutY="275.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                        <ChoiceBox fx:id="Adminbussiness_reg_choisebox_user" layoutX="376.0" layoutY="45.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="AdminItems" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Text layoutX="313.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу майна">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="AdminItem_field_reg_name" layoutX="317.0" layoutY="87.0" promptText="Назва" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="AdminItem_field_reg_cost" layoutX="317.0" layoutY="128.0" promptText="Вартість" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="AdminItem_field_reg_stanmaina" layoutX="317.0" layoutY="169.0" promptText="Стан майна" style="-fx-background-color: #fafafa;" />
+                        <ChoiceBox fx:id="AdminItem_reg_choisebox_compensation" layoutX="317.0" layoutY="213.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                        <Button fx:id="AdminItem_reg_button" layoutX="318.0" layoutY="295.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="148.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <Text layoutX="210.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="212.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Назва">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="203.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вартість">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="190.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стан майна">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="185.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Компенсація">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox fx:id="AdminItem_reg_choisebox_user" layoutX="317.0" layoutY="47.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="Adminbuild" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Text layoutX="291.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу нерухомості">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="218.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="214.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адреса">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="214.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Площа">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="176.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип нерухомості">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="179.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Кількість кімнат">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="209.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вартість">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Adminbuild_field_reg_address" layoutX="317.0" layoutY="89.0" promptText="Адреса" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Adminbuild_field_reg_area" layoutX="317.0" layoutY="121.0" promptText="Площа" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Adminbuild_field_reg_roomnum" layoutX="317.0" layoutY="188.0" promptText="К-ть кімнат" style="-fx-background-color: #fafafa;" />
+                        <RadioButton fx:id="Adminbuild_reg_type_selector_earth" focusTraversable="false" layoutX="317.0" layoutY="159.0" mnemonicParsing="false" text="Земля" />
+                        <RadioButton fx:id="Adminbuild_reg_type_selector_home" focusTraversable="false" layoutX="409.0" layoutY="160.0" mnemonicParsing="false" text="Житло" />
+                        <RadioButton fx:id="Adminbuild_reg_type_selector_industrial" focusTraversable="false" layoutX="503.0" layoutY="160.0" mnemonicParsing="false" text="Нежитлові приміщення" />
+                        <RadioButton fx:id="Adminbuild_reg_area_selector_m" focusTraversable="false" layoutX="485.0" layoutY="125.0" mnemonicParsing="false" text="м²" />
+                        <RadioButton fx:id="Adminbuild_reg_area_selector_ga" focusTraversable="false" layoutX="545.0" layoutY="125.0" mnemonicParsing="false" text="Га" />
+                        <Button fx:id="Adminbuild_reg_button" focusTraversable="false" layoutX="322.0" layoutY="315.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <ChoiceBox fx:id="Adminbuild_reg_Choicebox_cost_selector" layoutX="316.0" layoutY="224.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                        <ChoiceBox fx:id="Adminbuild_reg_choisebox_user" layoutX="317.0" layoutY="58.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="AdminHuman" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Text layoutX="311.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Додавання полісу особи">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="Adminhuman_field_reg_name" layoutX="315.0" layoutY="71.0" promptText="Ім'я" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Adminhuman_field_reg_prizv" layoutX="314.0" layoutY="111.0" promptText="Прізвище" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Adminhuman_field_reg_fathername" layoutX="314.0" layoutY="156.0" promptText="По батькові" style="-fx-background-color: #fafafa;" />
+                        <TextField fx:id="Adminhuman_field_reg_year" layoutX="314.0" layoutY="201.0" promptText="Вік" style="-fx-background-color: #fafafa;" />
+                        <Text layoutX="230.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ім'я">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="207.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Прізвище">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="Adminhuman_reg_button" focusTraversable="false" layoutX="307.0" layoutY="359.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #fafafa;" text="Створити поліс" />
+                        <Text layoutX="199.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="По батькові">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="234.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вік">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="224.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стать">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="191.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Стан здоров'я">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="Adminhuman_gender_reg_man" focusTraversable="false" layoutX="323.0" layoutY="242.0" mnemonicParsing="false" text="Чоловіча" />
+                        <RadioButton fx:id="Adminhuman_gender_reg_woman" focusTraversable="false" layoutX="437.0" layoutY="242.0" mnemonicParsing="false" text="Жіноча" />
+                        <RadioButton fx:id="Adminhuman_health_reg_zdorov" focusTraversable="false" layoutX="321.0" layoutY="291.0" mnemonicParsing="false" text="Здоровий" />
+                        <RadioButton fx:id="Adminhuman_health_reg_invalid" focusTraversable="false" layoutX="438.0" layoutY="291.0" mnemonicParsing="false" text="Інвалід" />
+                        <Text layoutX="220.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Клієнт">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox fx:id="Adminhuman_reg_choisebox_user" layoutX="315.0" layoutY="32.0" prefWidth="150.0" style="-fx-background-color: #fafafa;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="AdminPermission" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <Text layoutX="255.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permission">
+                           <font>
+                              <Font size="51.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>
