@@ -43,7 +43,7 @@ public class AdminController {
     private TableColumn<String, String> AdminEditBuildAddress;
 
     @FXML
-    private TableColumn<String, String> AdminEditBuildArea;
+    private TableColumn<BuildPolicy, String> AdminEditBuildArea;
 
     @FXML
     private TableColumn<String, String> AdminEditBuildBuildType;
@@ -64,7 +64,7 @@ public class AdminController {
     private TableColumn<String, String> AdminEditBuildNumOfRooms;
 
     @FXML
-    private TableView<String> AdminEditBuildTable;
+    private TableView<BuildPolicy> AdminEditBuildTable;
 
     @FXML
     private Button AdminEditBusiness;
@@ -97,7 +97,7 @@ public class AdminController {
     private TableColumn<String, String> AdminEditBusinessServIndustries;
 
     @FXML
-    private TableView<String> AdminEditBusinessTable;
+    private TableView<BusinessPolicy> AdminEditBusinessTable;
 
     @FXML
     private Button AdminEditHuman;
@@ -130,7 +130,7 @@ public class AdminController {
     private TableColumn<String, String> AdminEditHumanSecondName;
 
     @FXML
-    private TableView<String> AdminEditHumanTable;
+    private TableView<HumanPolicy> AdminEditHumanTable;
 
     @FXML
     private Button AdminEditItem;
@@ -157,7 +157,7 @@ public class AdminController {
     private TableColumn<String, String> AdminEditItemPropCondition;
 
     @FXML
-    private TableView<String> AdminEditItemTable;
+    private TableView<ItemsPolicy> AdminEditItemTable;
 
     @FXML
     private Button AdminEditPermission;
@@ -196,7 +196,7 @@ public class AdminController {
     private TableColumn<String, String> AdminEditTransportRegNumber;
 
     @FXML
-    private TableView<String> AdminEditTransportTable;
+    private TableView<VehiclePolicy> AdminEditTransportTable;
 
     @FXML
     private TableColumn<String, String> AdminEditTransportType;
@@ -480,7 +480,7 @@ public class AdminController {
         Admintransport.setVisible(false);
         AdminHuman.setVisible(false);
         AdminItems.setVisible(false);
-
+        AdminPermission.setVisible(false);
     }
 
 
@@ -492,7 +492,7 @@ public class AdminController {
         Admintransport.setVisible(false);
         AdminHuman.setVisible(false);
         AdminItems.setVisible(false);
-
+        AdminPermission.setVisible(false);
     }
 
     @FXML
@@ -503,7 +503,7 @@ public class AdminController {
         Admintransport.setVisible(false);
         AdminHuman.setVisible(false);
         AdminItems.setVisible(false);
-
+        AdminPermission.setVisible(false);
     }
 
     @FXML
@@ -514,7 +514,7 @@ public class AdminController {
         Admintransport.setVisible(false);
         Adminbuild.setVisible(false);
         AdminItems.setVisible(false);
-
+        AdminPermission.setVisible(false);
     }
 
     @FXML
@@ -525,7 +525,7 @@ public class AdminController {
         Admintransport.setVisible(false);
         Adminbuild.setVisible(false);
         AdminHuman.setVisible(false);
-
+        AdminPermission.setVisible(false);
     }
 
     @FXML
@@ -536,7 +536,7 @@ public class AdminController {
         AdminItems.setVisible(false);
         Adminbuild.setVisible(false);
         AdminHuman.setVisible(false);
-
+        AdminPermission.setVisible(false);
     }
     //transport
     private String[] fueltype = {"Бензин","Газ/Бензин","Дизель","Гібрид","Електро"};
