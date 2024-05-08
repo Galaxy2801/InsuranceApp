@@ -91,11 +91,18 @@ public class MainController {
 
         int counter = 0;
         String userPermission = "";
+        boolean isAdmin = false;
+        boolean isSuperAdmin = false;
 
         try {
             while (result.next()) {
                 counter++;
                 userPermission = result.getString(Const.USER_PERMISSION);
+                if (userPermission.equals("Адмін")) {
+                    isAdmin = true;
+                } else if (userPermission.equals("СуперАдмін")) {
+                    isSuperAdmin = true;
+                }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -103,9 +110,11 @@ public class MainController {
 
         if (counter == 1) {
             System.out.println("Success! User permission: " + userPermission);
-            if (userPermission.equals("Адмін")) {
+            if (isSuperAdmin) {
+                openSuperAdminPanel();
+            } else if (isAdmin) {
                 openAdminPanel();
-            } else if (userPermission.equals("Клієнт")) {
+            } else {
                 openUserPanel();
             }
         } else if (counter > 1) {
@@ -115,12 +124,17 @@ public class MainController {
         }
     }
 
+
     private void openAdminPanel() {
         openPanel("Workerpanel.fxml");
     }
 
     private void openUserPanel() {
         openPanel("Userpanel.fxml");
+    }
+
+    private void openSuperAdminPanel() {
+        openPanel("AdminPanel.fxml");
     }
 
     private void openPanel(String panelFXML) {
