@@ -550,6 +550,35 @@ public class AdminController {
         Adminbuild.setVisible(false);
         AdminHuman.setVisible(false);
     }
+
+    @FXML
+    void HandlerSetUserPermission(ActionEvent event) {
+        String selectedUser = choiceBoxUserPermission.getValue();
+
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        List<String> currentPermissions = dbHandler.getPermissionsForUser(selectedUser);
+
+        if (!currentPermissions.contains("Клієнт")) {
+            dbHandler.updateUserPermission(selectedUser, "Клієнт");
+
+            List<String> updatedPermissions = dbHandler.getPermissionsForUser(selectedUser);
+
+            ShowUserPermission.getItems().clear();
+            ShowUserPermission.getItems().addAll(updatedPermissions);
+
+            showAlert("Успішно", "Дозвіл користувача оновлено до 'Клієнт'.", Alert.AlertType.INFORMATION);
+        } else {
+            showAlert("Помилка", "Користувач вже має дозвіл 'Клієнт'.", Alert.AlertType.ERROR);
+        }
+    }
+
+
+    @FXML
+    void HandlerSetAdminPermission(ActionEvent event) {
+
+    }
+
     //transport
     private String[] fueltype = {"Бензин","Газ/Бензин","Дизель","Гібрид","Електро"};
     private String[] transporttype = {"A: Мотоцикли","B: Легкові автомобілі","C: Вантажні автомобілі","D: Пасажирські автобуси"};

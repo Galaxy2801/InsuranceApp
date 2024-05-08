@@ -348,6 +348,22 @@ public class DatabaseHandler extends Configs {
         return permissions;
     }
 
+    public void updateUserPermission(String username, String newPermission) {
+        String updateQuery = "UPDATE " + Const.USER_TABLE + " SET " +
+                Const.USER_PERMISSION + " = ? WHERE " + Const.USER_USERNAME + " = ?";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(updateQuery);
+            preparedStatement.setString(1, newPermission);
+            preparedStatement.setString(2, username);
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void signUpBuildPolicy(BuildPolicy buildPolicy) {
         String insert = "INSERT INTO " + BuildPolicyConst.POLICY_TABLE + "(" +
                 BuildPolicyConst.POLICY_ID + ", " + BuildPolicyConst.POLICY_CLIENT + ", " +
