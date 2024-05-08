@@ -576,7 +576,24 @@ public class AdminController {
 
     @FXML
     void HandlerSetAdminPermission(ActionEvent event) {
+        String selectedUser = choiceBoxUserPermission.getValue();
 
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        List<String> currentPermissions = dbHandler.getPermissionsForUser(selectedUser);
+
+        if (!currentPermissions.contains("Адмін")) {
+            dbHandler.updateUserPermission(selectedUser, "Адмін");
+
+            List<String> updatedPermissions = dbHandler.getPermissionsForUser(selectedUser);
+
+            ShowUserPermission.getItems().clear();
+            ShowUserPermission.getItems().addAll(updatedPermissions);
+
+            showAlert("Успішно", "Дозвіл користувача оновлено до 'Адмін'.", Alert.AlertType.INFORMATION);
+        } else {
+            showAlert("Помилка", "Користувач вже має дозвіл 'Адмін'.", Alert.AlertType.ERROR);
+        }
     }
 
     //transport
