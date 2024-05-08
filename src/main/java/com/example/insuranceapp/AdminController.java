@@ -409,134 +409,134 @@ public class AdminController {
 
     @FXML
     void AdminhandleEditPermission(ActionEvent event) {
+        Adminredactview.setVisible(false);
+        Admintransport.setVisible(false);
+        AdminBussiness.setVisible(false);
+        AdminItems.setVisible(false);
+        Adminbuild.setVisible(false);
+        AdminHuman.setVisible(false);
         AdminPermission.setVisible(true);
-        AdmineditTransportPane.setVisible(false);
-        AdmineditBuildPane.setVisible(false);
-        AdmineditHumanPane.setVisible(false);
-        AdmineditItemPane.setVisible(false);
-        AdmineditBusinessPane.setVisible(false);
 
     }
+
+    ///
+    ///policy redact
+    ///
     @FXML
     void AdminEditBuild(ActionEvent event) {
-        AdminPermission.setVisible(false);
-        AdmineditTransportPane.setVisible(false);
         AdmineditBuildPane.setVisible(true);
         AdmineditHumanPane.setVisible(false);
         AdmineditItemPane.setVisible(false);
         AdmineditBusinessPane.setVisible(false);
+        AdmineditTransportPane.setVisible(false);
     }
 
     @FXML
     void AdminEditBusiness(ActionEvent event) {
-        AdminPermission.setVisible(false);
-        AdmineditTransportPane.setVisible(false);
         AdmineditBuildPane.setVisible(false);
         AdmineditHumanPane.setVisible(false);
         AdmineditItemPane.setVisible(false);
         AdmineditBusinessPane.setVisible(true);
+        AdmineditTransportPane.setVisible(false);
     }
 
     @FXML
     void AdminEditHuman(ActionEvent event) {
-        AdminPermission.setVisible(false);
-        AdmineditTransportPane.setVisible(false);
         AdmineditBuildPane.setVisible(false);
         AdmineditHumanPane.setVisible(true);
         AdmineditItemPane.setVisible(false);
         AdmineditBusinessPane.setVisible(false);
+        AdmineditTransportPane.setVisible(false);
     }
 
     @FXML
     void AdminEditItem(ActionEvent event) {
-        AdminPermission.setVisible(false);
-        AdmineditTransportPane.setVisible(false);
         AdmineditBuildPane.setVisible(false);
         AdmineditHumanPane.setVisible(false);
         AdmineditItemPane.setVisible(true);
         AdmineditBusinessPane.setVisible(false);
+        AdmineditTransportPane.setVisible(false);
     }
 
     @FXML
     void AdminEditTransport(ActionEvent event) {
-        AdminPermission.setVisible(false);
-        AdmineditTransportPane.setVisible(true);
         AdmineditBuildPane.setVisible(false);
         AdmineditHumanPane.setVisible(false);
         AdmineditItemPane.setVisible(false);
         AdmineditBusinessPane.setVisible(false);
+        AdmineditTransportPane.setVisible(true);
     }
 
     ///
-    ///
+    ///policy redact
     ///
 
 
     @FXML
     void AdminhandleEditPolicy(ActionEvent event) {
+        AdminPermission.setVisible(false);
         Adminredactview.setVisible(true);
         Adminbuild.setVisible(false);
         AdminBussiness.setVisible(false);
         Admintransport.setVisible(false);
         AdminHuman.setVisible(false);
         AdminItems.setVisible(false);
-        AdminPermission.setVisible(false);
     }
 
 
     @FXML
     void AdminhandleCreationBuild(ActionEvent event) {
+        AdminPermission.setVisible(false);
         Adminredactview.setVisible(false);
         Adminbuild.setVisible(true);
         AdminBussiness.setVisible(false);
         Admintransport.setVisible(false);
         AdminHuman.setVisible(false);
         AdminItems.setVisible(false);
-        AdminPermission.setVisible(false);
     }
 
     @FXML
     void AdminhandleCreationBussiness(ActionEvent event) {
+        AdminPermission.setVisible(false);
         Adminredactview.setVisible(false);
         AdminBussiness.setVisible(true);
         Adminbuild.setVisible(false);
         Admintransport.setVisible(false);
         AdminHuman.setVisible(false);
         AdminItems.setVisible(false);
-        AdminPermission.setVisible(false);
     }
 
     @FXML
     void AdminhandleCreationHuman(ActionEvent event) {
+        AdminPermission.setVisible(false);
         Adminredactview.setVisible(false);
         AdminHuman.setVisible(true);
         AdminBussiness.setVisible(false);
         Admintransport.setVisible(false);
         Adminbuild.setVisible(false);
         AdminItems.setVisible(false);
-        AdminPermission.setVisible(false);
     }
 
     @FXML
     void AdminhandleCreationItems(ActionEvent event) {
+        AdminPermission.setVisible(false);
         Adminredactview.setVisible(false);
         AdminItems.setVisible(true);
         AdminBussiness.setVisible(false);
         Admintransport.setVisible(false);
         Adminbuild.setVisible(false);
         AdminHuman.setVisible(false);
-        AdminPermission.setVisible(false);
     }
 
     @FXML
     void AdminhandleCreationTransport(ActionEvent event) {
+        AdminPermission.setVisible(false);
         Adminredactview.setVisible(false);
         Admintransport.setVisible(true);
         AdminBussiness.setVisible(false);
         AdminItems.setVisible(false);
         Adminbuild.setVisible(false);
         AdminHuman.setVisible(false);
-        AdminPermission.setVisible(false);
     }
     //transport
     private String[] fueltype = {"Бензин","Газ/Бензин","Дизель","Гібрид","Електро"};
