@@ -631,6 +631,20 @@ public class AdminController {
 
         choiceBoxUserPermission.getItems().addAll(users);
 
+        choiceBoxUserPermission.setOnAction(event -> {
+            String selectedUser = choiceBoxUserPermission.getValue();
+
+            List<String> permissions = dbHandler.getPermissionsForUser(selectedUser);
+
+            ShowUserPermission.getItems().clear();
+
+            ShowUserPermission.getItems().addAll(permissions);
+        });
+
+        String selectedUser = choiceBoxUserPermission.getValue();
+        List<String> permissions = dbHandler.getPermissionsForUser(selectedUser);
+        ShowUserPermission.getItems().addAll(permissions);
+
         Admintransport_reg_button.setOnAction(event -> {
             if (validateTransportFields()) {
                 signUpNewVehiclePolicy();
