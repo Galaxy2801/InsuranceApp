@@ -1027,6 +1027,32 @@ public class AdminController {
         AdminEditTransportColor.setCellValueFactory(new PropertyValueFactory<>("color"));
 
         AdminEditTransportTable.setItems(vehiclePolicies);
+
+        AdminEditTransportDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    TableRow row = getTableRow();
+                    VehiclePolicy policy = (VehiclePolicy) row.getItem();
+                    if (policy != null) {
+                        databaseHandler.deleteVehiclePolicy(policy.getId());
+                        AdminEditTransportTable.getItems().remove(policy);
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 
     private void addAllBuildPoliciesToTable() {
@@ -1049,6 +1075,32 @@ public class AdminController {
         AdminEditBuildCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
         AdminEditBuildTable.setItems(buildPolicies);
+
+        AdminEditBuildDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    TableRow row = getTableRow();
+                    BuildPolicy policy = (BuildPolicy) row.getItem();
+                    if (policy != null) {
+                        databaseHandler.deleteBuildPolicy(policy.getId());
+                        AdminEditBuildTable.getItems().remove(policy);
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 
     private void addAllHumanPoliciesToTable() {
@@ -1066,6 +1118,32 @@ public class AdminController {
         AdminEditHumanHealth.setCellValueFactory(new PropertyValueFactory<>("health"));
 
         AdminEditHumanTable.setItems(humanPolicies);
+
+        AdminEditHumanDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    TableRow row = getTableRow();
+                    HumanPolicy policy = (HumanPolicy) row.getItem();
+                    if (policy != null) {
+                        databaseHandler.deleteHumanPolicy(policy.getId());
+                        AdminEditHumanTable.getItems().remove(policy);
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 
     private void addAllItemsPoliciesToTable() {
@@ -1081,6 +1159,32 @@ public class AdminController {
         AdminEditItemCompensation.setCellValueFactory(new PropertyValueFactory<>("compensation"));
 
         AdminEditItemTable.setItems(itemsPolicies);
+
+        AdminEditItemDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    TableRow row = getTableRow();
+                    ItemsPolicy policy = (ItemsPolicy) row.getItem();
+                    if (policy != null) {
+                        databaseHandler.deleteItemsPolicy(policy.getId());
+                        AdminEditItemTable.getItems().remove(policy);
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 
     private void addAllBusinessPoliciesToTable() {
@@ -1098,5 +1202,31 @@ public class AdminController {
         AdminEditBusinessCompensation.setCellValueFactory(new PropertyValueFactory<>("compensation"));
 
         AdminEditBusinessTable.setItems(businessPolicies);
+
+        AdminEditBusinessDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    TableRow row = getTableRow();
+                    BusinessPolicy policy = (BusinessPolicy) row.getItem();
+                    if (policy != null) {
+                        databaseHandler.deleteBusinessPolicy(policy.getId());
+                        AdminEditBusinessTable.getItems().remove(policy);
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 }
