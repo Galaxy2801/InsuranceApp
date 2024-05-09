@@ -459,7 +459,7 @@ public class WorkerpanelController {
         transport.setVisible(false);
         Human.setVisible(false);
         Items.setVisible(false);
-
+        addAllVehiclePoliciesToTable();
     }
 
 

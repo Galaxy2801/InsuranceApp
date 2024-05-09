@@ -493,6 +493,7 @@ public class AdminController {
         Admintransport.setVisible(false);
         AdminHuman.setVisible(false);
         AdminItems.setVisible(false);
+        addAllVehiclePoliciesToTable();
     }
 
 
