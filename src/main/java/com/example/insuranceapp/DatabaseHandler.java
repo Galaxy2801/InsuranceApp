@@ -468,4 +468,19 @@ public class DatabaseHandler extends Configs {
             throw new RuntimeException(e);
         }
     }
+
+    public void deleteVehiclePolicy(String policyId) {
+        String deleteQuery = "DELETE FROM " + VehiclePolicyConst.POLICY_TABLE + " WHERE " +
+                VehiclePolicyConst.POLICY_ID + " = ?";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(deleteQuery);
+            preparedStatement.setString(1, policyId);
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

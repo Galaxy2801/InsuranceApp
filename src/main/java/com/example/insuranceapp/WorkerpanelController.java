@@ -937,10 +937,11 @@ public class WorkerpanelController {
 
             {
                 deleteButton.setOnAction(event -> {
-                    String item = getItem();
-                    if (item != null) {
-                        TableRow row = getTableRow();
-                        EditTransportTable.getItems().remove(row.getItem());
+                    TableRow row = getTableRow();
+                    VehiclePolicy policy = (VehiclePolicy) row.getItem();
+                    if (policy != null) {
+                        databaseHandler.deleteVehiclePolicy(policy.getId());
+                        EditTransportTable.getItems().remove(policy);
                     }
                 });
             }
