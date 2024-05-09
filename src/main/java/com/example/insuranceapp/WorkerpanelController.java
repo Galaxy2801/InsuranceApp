@@ -931,6 +931,31 @@ public class WorkerpanelController {
         EditTransportColor.setCellValueFactory(new PropertyValueFactory<>("color"));
 
         EditTransportTable.setItems(vehiclePolicies);
+
+        EditTransportDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    String item = getItem();
+                    if (item != null) {
+                        TableRow row = getTableRow();
+                        EditTransportTable.getItems().remove(row.getItem());
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 
     private void addAllBuildPoliciesToTable() {
@@ -953,6 +978,31 @@ public class WorkerpanelController {
         EditBuildCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
         EditBuildTable.setItems(buildPolicies);
+
+        EditBuildDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    String item = getItem();
+                    if (item != null) {
+                        TableRow row = getTableRow();
+                        EditBuildTable.getItems().remove(row.getItem());
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 
     private void addAllHumanPoliciesToTable() {
@@ -970,6 +1020,31 @@ public class WorkerpanelController {
         EditHumanHealth.setCellValueFactory(new PropertyValueFactory<>("health"));
 
         EditHumanTable.setItems(humanPolicies);
+
+        EditHumanDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    String item = getItem();
+                    if (item != null) {
+                        TableRow row = getTableRow();
+                        EditHumanTable.getItems().remove(row.getItem());
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 
     private void addAllItemsPoliciesToTable() {
@@ -985,6 +1060,30 @@ public class WorkerpanelController {
         EditItemCompensation.setCellValueFactory(new PropertyValueFactory<>("compensation"));
 
         EditItemTable.setItems(itemsPolicies);
+        EditItemDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    String item = getItem();
+                    if (item != null) {
+                        TableRow row = getTableRow();
+                        EditItemTable.getItems().remove(row.getItem());
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 
     private void addAllBusinessPoliciesToTable() {
@@ -1002,5 +1101,30 @@ public class WorkerpanelController {
         EditBusinessCompensation.setCellValueFactory(new PropertyValueFactory<>("compensation"));
 
         EditBusinessTable.setItems(businessPolicies);
+
+        EditBusinessDelete.setCellFactory(param -> new TableCell<String, String>() {
+            private final Button deleteButton = new Button("Видалити");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    String item = getItem();
+                    if (item != null) {
+                        TableRow row = getTableRow();
+                        EditBusinessTable.getItems().remove(row.getItem());
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
     }
 }
