@@ -494,6 +494,10 @@ public class AdminController {
         AdminHuman.setVisible(false);
         AdminItems.setVisible(false);
         addAllVehiclePoliciesToTable();
+        addAllHumanPoliciesToTable();
+        addAllBuildPoliciesToTable();
+        addAllBusinessPoliciesToTable();
+        addAllItemsPoliciesToTable();
     }
 
 

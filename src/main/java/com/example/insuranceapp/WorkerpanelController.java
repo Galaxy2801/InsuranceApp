@@ -460,6 +460,10 @@ public class WorkerpanelController {
         Human.setVisible(false);
         Items.setVisible(false);
         addAllVehiclePoliciesToTable();
+        addAllHumanPoliciesToTable();
+        addAllBuildPoliciesToTable();
+        addAllBusinessPoliciesToTable();
+        addAllItemsPoliciesToTable();
     }
 
 
