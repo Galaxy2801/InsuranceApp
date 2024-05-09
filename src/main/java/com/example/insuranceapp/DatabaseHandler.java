@@ -513,4 +513,19 @@ public class DatabaseHandler extends Configs {
             e.printStackTrace();
         }
     }
+
+    public void deleteItemsPolicy(String policyId) {
+        String deleteQuery = "DELETE FROM " + ItemsPolicyConst.POLICY_TABLE + " WHERE " +
+                ItemsPolicyConst.POLICY_ID + " = ?";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(deleteQuery);
+            preparedStatement.setString(1, policyId);
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
