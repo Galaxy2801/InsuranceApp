@@ -89,7 +89,7 @@ public class DatabaseHandler extends Configs {
 
     public void signUpVehiclePolicy(VehiclePolicy vehiclePolicy) {
         String insert = "INSERT INTO " + VehiclePolicyConst.POLICY_TABLE + "(" +
-                VehiclePolicyConst.POLICY_ID + VehiclePolicyConst.POLICY_CLIENT + ", " +
+                VehiclePolicyConst.POLICY_ID + ", " + VehiclePolicyConst.POLICY_CLIENT + ", " +
                 VehiclePolicyConst.POLICY_MAKER + ", " + VehiclePolicyConst.POLICY_MODEL + ", " +
                 VehiclePolicyConst.POLICY_TYPE + ", " + VehiclePolicyConst.POLICY_REG_NUMBER + ", " +
                 VehiclePolicyConst.POLICY_VIN_NUMBER + ", " + VehiclePolicyConst.POLICY_ENGINE_CAPACITY + ", " +
