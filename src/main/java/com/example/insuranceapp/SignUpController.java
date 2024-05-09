@@ -47,12 +47,6 @@ public class SignUpController {
     private TextField signUpPrizv;
 
     @FXML
-    private RadioButton signUpRadioButtonAdmin;
-
-    @FXML
-    private RadioButton signUpRadioButtonUser;
-
-    @FXML
     private TextField login_field;
 
     @FXML
@@ -79,17 +73,7 @@ public class SignUpController {
     @FXML
     void initialize() {
 
-        ToggleGroup radioGroup = new ToggleGroup();
-        signUpRadioButtonAdmin.setToggleGroup(radioGroup);
-        signUpRadioButtonUser.setToggleGroup(radioGroup);
-
         SignUpButton.setOnAction(event -> {
-
-            if (radioGroup.getSelectedToggle() == null)
-            {
-                showAlert(Alert.AlertType.ERROR, "Помилка", "Будь ласка, оберіть тип користувача.");
-            } else {
-
 
                 String firstName = signUpName.getText();
                 String secondName = signUpPrizv.getText();
@@ -110,7 +94,7 @@ public class SignUpController {
                 } else {
                     signUpNewUser();
                 }
-            }
+
         });
 
         back.setOnAction(event -> {
@@ -137,7 +121,7 @@ public class SignUpController {
         String thirdName = signUpFather.getText();
         String userName = login_field.getText();
         String password = password_field.getText();
-        String permission = signUpRadioButtonAdmin.isSelected() ? "Адмін" : "Клієнт";
+        String permission = "Клієнт";
 
         if (dbHandler.checkIfUserExists(userName)) {
             showAlert(Alert.AlertType.ERROR, "Помилка", "Користувач з таким логіном вже зареєстрований.");
@@ -157,8 +141,6 @@ public class SignUpController {
         password_field.clear();
         password_field_double.clear();
 
-        signUpRadioButtonAdmin.setSelected(false);
-        signUpRadioButtonUser.setSelected(false);
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
