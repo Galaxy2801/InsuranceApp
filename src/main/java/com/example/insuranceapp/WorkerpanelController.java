@@ -985,10 +985,11 @@ public class WorkerpanelController {
 
             {
                 deleteButton.setOnAction(event -> {
-                    String item = getItem();
-                    if (item != null) {
-                        TableRow row = getTableRow();
-                        EditBuildTable.getItems().remove(row.getItem());
+                    TableRow row = getTableRow();
+                    BuildPolicy policy = (BuildPolicy) row.getItem();
+                    if (policy != null) {
+                        databaseHandler.deleteBuildPolicy(policy.getId());
+                        EditBuildTable.getItems().remove(policy);
                     }
                 });
             }
