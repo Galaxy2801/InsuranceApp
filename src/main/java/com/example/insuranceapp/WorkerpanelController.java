@@ -1028,10 +1028,11 @@ public class WorkerpanelController {
 
             {
                 deleteButton.setOnAction(event -> {
-                    String item = getItem();
-                    if (item != null) {
-                        TableRow row = getTableRow();
-                        EditHumanTable.getItems().remove(row.getItem());
+                    TableRow row = getTableRow();
+                    HumanPolicy policy = (HumanPolicy) row.getItem();
+                    if (policy != null) {
+                        databaseHandler.deleteHumanPolicy(policy.getId());
+                        EditHumanTable.getItems().remove(policy);
                     }
                 });
             }
