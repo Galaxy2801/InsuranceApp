@@ -213,7 +213,7 @@
                                           </Text>
                                           <TableView fx:id="AdminEditBuildTable" layoutX="14.0" layoutY="24.0" prefHeight="435.0" prefWidth="634.0">
                                              <columns>
-                                                <TableColumn fx:id="AdminEditBuildIdbuildPolicy" prefWidth="32.80005073547363" text="№" />
+                                                <TableColumn fx:id="AdminEditBuildIdbuildPolicy" prefWidth="32.80005073547363" text="ID" />
                                                 <TableColumn fx:id="AdminEditBuildClient" prefWidth="113.59996795654297" text="Клієнт" />
                                                 <TableColumn fx:id="AdminEditBuildAddress" prefWidth="75.0" text="Адреса" />
                                                 <TableColumn fx:id="AdminEditBuildArea" prefWidth="53.60003662109375" text="Площа" />
@@ -237,7 +237,7 @@
                                           </Text>
                                           <TableView fx:id="AdminEditHumanTable" layoutX="14.0" layoutY="24.0" prefHeight="438.0" prefWidth="633.0">
                                              <columns>
-                                                <TableColumn fx:id="AdminEditHumanIdhumanPolicy" prefWidth="37.60003852844238" text="№" />
+                                                <TableColumn fx:id="AdminEditHumanIdhumanPolicy" prefWidth="37.60003852844238" text="ID" />
                                                 <TableColumn fx:id="AdminEditHumanClient" prefWidth="99.99999237060547" text="Клієнт" />
                                                 <TableColumn fx:id="AdminEditHumanFirstName" prefWidth="96.0" text="Ім'я" />
                                                 <TableColumn fx:id="AdminEditHumanSecondName" prefWidth="85.5999755859375" text="Прізвище" />
@@ -262,7 +262,7 @@
                                           </Text>
                                           <TableView fx:id="AdminEditItemTable" layoutX="14.0" layoutY="24.0" prefHeight="435.0" prefWidth="634.0">
                                              <columns>
-                                                <TableColumn fx:id="AdminEditItemIditemsPolicy" prefWidth="75.0" text="№" />
+                                                <TableColumn fx:id="AdminEditItemIditemsPolicy" prefWidth="75.0" text="ID" />
                                                 <TableColumn fx:id="AdminEditItemClient" prefWidth="75.0" text="Клієнт" />
                                                 <TableColumn fx:id="AdminEditItemName" prefWidth="75.0" text="Назва" />
                                                 <TableColumn fx:id="AdminEditItemCost" prefWidth="75.0" text="Вартість" />
@@ -285,7 +285,7 @@
                                           </Text>
                                           <TableView fx:id="AdminEditBusinessTable" layoutX="14.0" layoutY="24.0" prefHeight="433.0" prefWidth="634.0">
                                              <columns>
-                                                <TableColumn fx:id="AdminEditBusinessIdbusinessPolicy" prefWidth="27.200014114379883" text="№" />
+                                                <TableColumn fx:id="AdminEditBusinessIdbusinessPolicy" prefWidth="27.200014114379883" text="ID" />
                                                 <TableColumn fx:id="AdminEditBusinessClient" prefWidth="89.59996795654297" text="Клієнт" />
                                                 <TableColumn fx:id="AdminEditBusinessName" prefWidth="88.79998779296875" text="Назва" />
                                                 <TableColumn fx:id="AdminEditBusinessServIndustries" prefWidth="120.0" text="Сфера Послуг" />
@@ -310,7 +310,7 @@
                                           </Text>
                                           <TableView fx:id="AdminEditTransportTable" layoutX="14.0" layoutY="24.0" prefHeight="436.0" prefWidth="639.0">
                                              <columns>
-                                                <TableColumn fx:id="AdminEditTransportIdvehiclePolicy" prefWidth="40.00000190734863" text="№" />
+                                                <TableColumn fx:id="AdminEditTransportIdvehiclePolicy" prefWidth="40.00000190734863" text="ID" />
                                                 <TableColumn fx:id="AdminEditTransportClient" prefWidth="70.4000244140625" text="Клієнт" />
                                                 <TableColumn fx:id="AdminEditTransportMaker" prefWidth="69.59996795654297" text="Виробник" />
                                                 <TableColumn fx:id="AdminEditTransportModel" prefWidth="71.20001220703125" text="Модель" />

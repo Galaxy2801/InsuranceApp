@@ -200,7 +200,7 @@
                                           </Text>
                                           <TableView fx:id="EditBuildTable" layoutX="14.0" layoutY="24.0" prefHeight="435.0" prefWidth="634.0">
                                             <columns>
-                                              <TableColumn fx:id="EditBuildIdbuildPolicy" prefWidth="32.80005073547363" text="№" />
+                                              <TableColumn fx:id="EditBuildIdbuildPolicy" prefWidth="32.80005073547363" text="ID" />
                                               <TableColumn fx:id="EditBuildClient" prefWidth="113.59996795654297" text="Клієнт" />
                                                 <TableColumn fx:id="EditBuildAddress" prefWidth="75.0" text="Адреса" />
                                                 <TableColumn fx:id="EditBuildArea" prefWidth="53.60003662109375" text="Площа" />
@@ -224,7 +224,7 @@
                                           </Text>
                                           <TableView fx:id="EditHumanTable" layoutX="14.0" layoutY="24.0" prefHeight="438.0" prefWidth="633.0">
                                             <columns>
-                                              <TableColumn fx:id="EditHumanIdhumanPolicy" prefWidth="37.60003852844238" text="№" />
+                                              <TableColumn fx:id="EditHumanIdhumanPolicy" prefWidth="37.60003852844238" text="ID" />
                                               <TableColumn fx:id="EditHumanClient" prefWidth="99.99999237060547" text="Клієнт" />
                                                 <TableColumn fx:id="EditHumanFirstName" prefWidth="96.0" text="Ім'я" />
                                                 <TableColumn fx:id="EditHumanSecondName" prefWidth="85.5999755859375" text="Прізвище" />
@@ -249,7 +249,7 @@
                                           </Text>
                                           <TableView fx:id="EditItemTable" layoutX="14.0" layoutY="24.0" prefHeight="435.0" prefWidth="634.0">
                                             <columns>
-                                              <TableColumn fx:id="EditItemIditemsPolicy" prefWidth="75.0" text="№" />
+                                              <TableColumn fx:id="EditItemIditemsPolicy" prefWidth="75.0" text="ID" />
                                               <TableColumn fx:id="EditItemClient" prefWidth="75.0" text="Клієнт" />
                                                 <TableColumn fx:id="EditItemName" prefWidth="75.0" text="Назва" />
                                                 <TableColumn fx:id="EditItemCost" prefWidth="75.0" text="Вартість" />
@@ -272,7 +272,7 @@
                                           </Text>
                                           <TableView fx:id="EditBusinessTable" layoutX="14.0" layoutY="24.0" prefHeight="433.0" prefWidth="634.0">
                                             <columns>
-                                              <TableColumn fx:id="EditBusinessIdbusinessPolicy" prefWidth="27.200014114379883" text="№" />
+                                              <TableColumn fx:id="EditBusinessIdbusinessPolicy" prefWidth="27.200014114379883" text="ID" />
                                               <TableColumn fx:id="EditBusinessClient" prefWidth="89.59996795654297" text="Клієнт" />
                                                 <TableColumn fx:id="EditBusinessName" prefWidth="88.79998779296875" text="Назва" />
                                                 <TableColumn fx:id="EditBusinessServIndustries" prefWidth="120.0" text="Сфера Послуг" />
@@ -297,7 +297,7 @@
                                           </Text>
                                           <TableView fx:id="EditTransportTable" layoutX="14.0" layoutY="24.0" prefHeight="436.0" prefWidth="639.0">
                                             <columns>
-                                              <TableColumn fx:id="EditTransportIdvehiclePolicy" prefWidth="40.00000190734863" text="№" />
+                                              <TableColumn fx:id="EditTransportIdvehiclePolicy" prefWidth="40.00000190734863" text="ID" />
                                               <TableColumn fx:id="EditTransportClient" prefWidth="70.4000244140625" text="Клієнт" />
                                                 <TableColumn fx:id="EditTransportMaker" prefWidth="69.59996795654297" text="Виробник" />
                                                 <TableColumn fx:id="EditTransportModel" prefWidth="71.20001220703125" text="Модель" />
