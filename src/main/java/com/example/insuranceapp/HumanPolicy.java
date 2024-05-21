@@ -10,13 +10,13 @@ public class HumanPolicy {
     private String gender;
     private String health;
 
-    public HumanPolicy(String id, String client, String firstName, String secondName, String age, String middleName, String gender, String health) {
+    public HumanPolicy(String id, String client, String firstName, String secondName, String middleName, String age, String gender, String health) {
         this.id = id;
         this.client = client;
         this.firstName = firstName;
         this.secondName = secondName;
-        this.age = age;
         this.middleName = middleName;
+        this.age = age;
         this.gender = gender;
         this.health = health;
     }
