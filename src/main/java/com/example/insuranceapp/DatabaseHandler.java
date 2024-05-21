@@ -303,7 +303,7 @@ public class DatabaseHandler extends Configs {
     public List<String> getAllUsersFromDatabase() {
         List<String> items = new ArrayList<>();
 
-        String selectQuery = "SELECT username FROM users";
+        String selectQuery = "SELECT username FROM users WHERE permission IN ('Клієнт', 'Адмін')";
 
         try {
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(selectQuery);
